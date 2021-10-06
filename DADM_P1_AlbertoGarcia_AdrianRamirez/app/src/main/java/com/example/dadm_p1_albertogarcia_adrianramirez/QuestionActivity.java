@@ -17,48 +17,34 @@ public class QuestionActivity extends AppCompatActivity {
     We use private mode access in order to avoid other apps accessing the preferences.
      */
 
-    //class data
-    int points;
-    String playerName;
+
     int typeOfQuestion; //define types
-    //layout references
-    TextView pointsV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        points = 0;
-
-        //set initial points and player name
-        SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("QuestionPrefs", MODE_PRIVATE).edit();
-        editor.putString("name",playerName);
-        updatePoints(editor,points);
-        editor.apply();
-
-        //set Layout Objects
-        //setLayout();
 
         //Fragment manager
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        SupUI fragmentTop= new SupUI();
-        gameScreen fragmentBot = new gameScreen();
+        userFragment fragmentTop= new userFragment();
+        gameFragment fragmentBot = new gameFragment();
 
         fragmentTransaction.add(R.id.topLayout, fragmentTop);
         fragmentTransaction.add(R.id.botLayout, fragmentBot);
         fragmentTransaction.commit();
 
+
     }
 
+    /*
     @Override
     protected void onRestart() {
         super.onRestart();
         SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("QuestionPrefs", MODE_PRIVATE).edit();
-
-        //set Layout Objects
-        setLayout();
     }
 
     public void nextQuestion(View v){
@@ -70,9 +56,8 @@ public class QuestionActivity extends AppCompatActivity {
     private void updatePoints(SharedPreferences.Editor editor, int numberPoints){
         editor.putInt("points", numberPoints);
     }
+    */
 
-    private void setLayout(){
-        pointsV=findViewById(R.id.score);
-        pointsV.setText(points);
-    }
+
+
 }

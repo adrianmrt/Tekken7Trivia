@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class gameScreen extends Fragment {
+public class gameFragment extends Fragment {
+
+    boolean answer=true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,16 @@ public class gameScreen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_screen, container, false);
+        return inflater.inflate(R.layout.game_fragment, container, false);
     }
+
+    public void checkAnswer(View v){
+
+        Bundle answerBundle = new Bundle();
+        answerBundle.putBoolean("answer", answer);
+        getParentFragmentManager().setFragmentResult("answerPass", answerBundle);
+    }
+
+
+
 }
