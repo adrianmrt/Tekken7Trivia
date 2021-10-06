@@ -2,8 +2,6 @@ package com.example.dadm_p1_albertogarcia_adrianramirez;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +9,13 @@ import android.widget.TextView;
 
 public class QuestionActivity extends AppCompatActivity {
 
+    //class data
     int points;
     String playerName;
+
+    //layout references
     TextView pointsV;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class QuestionActivity extends AppCompatActivity {
         editor.apply();
 
         //set screen object
-        setScreenObjects();
+        setLayout();
     }
 
     @Override
@@ -36,7 +38,7 @@ public class QuestionActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("QuestionPrefs", MODE_PRIVATE).edit();
 
         //set screen object
-        setScreenObjects();
+        setLayout();
     }
 
     public void nextQuestion(View v){
@@ -49,7 +51,7 @@ public class QuestionActivity extends AppCompatActivity {
         editor.putInt("points", numberPoints);
     }
 
-    private void setScreenObjects(){
+    private void setLayout(){
         pointsV=findViewById(R.id.pointsV);
         pointsV.setText(points);
     }
