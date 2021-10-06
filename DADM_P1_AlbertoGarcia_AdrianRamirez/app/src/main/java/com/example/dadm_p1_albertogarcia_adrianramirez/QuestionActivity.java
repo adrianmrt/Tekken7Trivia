@@ -9,10 +9,16 @@ import android.widget.TextView;
 
 public class QuestionActivity extends AppCompatActivity {
 
+    //explanation
+    /*
+    We decide to use shared Preferences in order to maintain and store data when the activity restarts.
+    We use private mode access in order to avoid other apps accessing the preferences.
+     */
+
     //class data
     int points;
     String playerName;
-
+    int typeOfQuestion; //define types
     //layout references
     TextView pointsV;
 
