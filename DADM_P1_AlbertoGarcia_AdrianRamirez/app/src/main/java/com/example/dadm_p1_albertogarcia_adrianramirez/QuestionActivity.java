@@ -28,7 +28,7 @@ public class QuestionActivity extends AppCompatActivity {
         updatePoints(editor,points);
         editor.apply();
 
-        //set screen object
+        //set Layout Objects
         setLayout();
     }
 
@@ -37,7 +37,7 @@ public class QuestionActivity extends AppCompatActivity {
         super.onRestart();
         SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("QuestionPrefs", MODE_PRIVATE).edit();
 
-        //set screen object
+        //set Layout Objects
         setLayout();
     }
 
