@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class userFragment extends Fragment {
 
-    int points;
+    Integer points;
     String playerName;
 
     //layout references
@@ -59,11 +59,10 @@ public class userFragment extends Fragment {
         //we reference the elements of the layout
         scoreV= view.findViewById(R.id.score);
         playerNameV= view.findViewById(R.id.playerName);
+        
 
-
-        // FALLO
-        //scoreV.setText(points);
-        //playerNameV.setText(playerName);
+        scoreV.setText(points.toString());
+        playerNameV.setText(playerName);
 
 
     }
