@@ -1,6 +1,8 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -35,7 +37,19 @@ public class QuestionActivity extends AppCompatActivity {
         editor.apply();
 
         //set Layout Objects
-        setLayout();
+        //setLayout();
+
+        //Fragment manager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        SupUI fragmentTop= new SupUI();
+        gameScreen fragmentBot = new gameScreen();
+
+        fragmentTransaction.add(R.id.topLayout, fragmentTop);
+        fragmentTransaction.add(R.id.botLayout, fragmentBot);
+        fragmentTransaction.commit();
+
     }
 
     @Override
@@ -58,7 +72,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void setLayout(){
-        pointsV=findViewById(R.id.pointsV);
+        pointsV=findViewById(R.id.score);
         pointsV.setText(points);
     }
 }
