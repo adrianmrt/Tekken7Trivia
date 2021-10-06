@@ -42,16 +42,13 @@ public class userFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root= inflater.inflate(R.layout.user_fragment, container, false);
-        pointsV = root.findViewById(R.id.score);
-        pointsV.setText(points);
-        return root;
+        return inflater.inflate(R.layout.user_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
+        pointsV = view.findViewById(R.id.score);
+        pointsV.setText(points);
     }
 }
