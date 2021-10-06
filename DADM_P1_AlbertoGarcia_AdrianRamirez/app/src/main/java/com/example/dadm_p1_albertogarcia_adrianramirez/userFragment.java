@@ -16,15 +16,18 @@ import android.widget.TextView;
 public class userFragment extends Fragment {
 
     int points;
+    String playerName;
+
     //layout references
-    TextView pointsV;
+    TextView scoreV;
+    TextView playerNameV;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        points=0;
 
-        //creation of object that receives data from gameFragment
+
+        /*creation of object that receives data from gameFragment
         getParentFragmentManager().setFragmentResultListener("answerPass", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
@@ -36,6 +39,8 @@ public class userFragment extends Fragment {
 
             }
         });
+
+         */
     }
 
     @Override
@@ -48,7 +53,11 @@ public class userFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        pointsV = view.findViewById(R.id.score);
-        pointsV.setText(points);
+        points= requireArguments().getInt("initialPoints");
+        playerName=  requireArguments().getString("playerName");
+
+        //we reference the elements of the layout
+        scoreV= view.findViewById(R.id.score);
+        playerNameV= view.findViewById(R.id.playerName);
     }
 }

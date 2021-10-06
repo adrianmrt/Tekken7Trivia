@@ -25,10 +25,6 @@ public class gameFragment extends Fragment {
     }
 
     public void checkAnswer(View v){
-
-        Bundle answerBundle = new Bundle();
-        answerBundle.putBoolean("answer", answer);
-        getParentFragmentManager().setFragmentResult("answerPass", answerBundle);
     }
 
 

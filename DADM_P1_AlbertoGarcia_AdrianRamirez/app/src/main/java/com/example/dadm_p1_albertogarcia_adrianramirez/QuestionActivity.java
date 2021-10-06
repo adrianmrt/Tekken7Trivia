@@ -18,6 +18,8 @@ public class QuestionActivity extends AppCompatActivity {
      */
 
 
+    int initialPoints=0;
+    String playerName="Adri";
     int typeOfQuestion; //define types
 
 
@@ -26,18 +28,23 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        //Fragment manager
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (savedInstanceState == null) {
+            //Fragment manager
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        userFragment fragmentTop= new userFragment();
-        gameFragment fragmentBot = new gameFragment();
+            //user Fragment
+            //we create a bundle object for passing initial data;
+            Bundle initialData = new Bundle();
+            initialData.putInt("initialPoints", initialPoints);
+            initialData.putString("playerName", playerName);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, initialData);
 
-        fragmentTransaction.add(R.id.topLayout, fragmentTop);
-        fragmentTransaction.add(R.id.botLayout, fragmentBot);
-        fragmentTransaction.commit();
+            //gameFragment
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, null);
 
-
+            fragmentTransaction.commit();
+        }
     }
 
     /*

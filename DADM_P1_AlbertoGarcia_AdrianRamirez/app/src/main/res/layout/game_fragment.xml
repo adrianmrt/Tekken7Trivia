@@ -14,7 +14,6 @@
             android:id="@+id/next"
             android:layout_width="146dp"
             android:layout_height="50dp"
-            android:onClick="checkAnswer"
             android:text="Next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
