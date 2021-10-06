@@ -27,20 +27,20 @@ public class userFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        /*creation of object that receives data from gameFragment
+        //creation of object that receives data from gameFragment
         getParentFragmentManager().setFragmentResultListener("answerPass", this, new FragmentResultListener() {
             @Override
-            public void onFragmentResult(@NonNull String key, @NonNull Bundle bundle) {
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
                 boolean result = bundle.getBoolean("answer");
                 if (result==true){
                     points++;
-                    pointsV.setText(points);
+                    scoreV.setText(points.toString());
                 }
 
             }
         });
 
-         */
+
     }
 
     @Override
