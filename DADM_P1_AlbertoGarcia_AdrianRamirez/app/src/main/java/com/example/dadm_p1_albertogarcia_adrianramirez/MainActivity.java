@@ -6,40 +6,43 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextInputLayout _nickLayout;
-    private EditText _nick;
+    private TextInputLayout _playerNameLayout;
+    private EditText _playerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        _nick = findViewById(R.id.nickInput);
-        _nickLayout = findViewById(R.id.nickInputLayout);
+        _playerName = findViewById(R.id.playerNameInput);
+        _playerNameLayout = findViewById(R.id.playerNameInputLayout);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        _nickLayout.setErrorEnabled(false);
+        _playerNameLayout.setErrorEnabled(false);
     }
 
     public void play(View v){
-        if(TextUtils.isEmpty(_nick.getText().toString())){
-            _nickLayout.setError("Campo vacío");
-            _nickLayout.setErrorEnabled(true);
+        if(TextUtils.isEmpty(_playerName.getText().toString())){
+            _playerNameLayout.setError("Campo vacío");
+            _playerNameLayout.setErrorEnabled(true);
         } else {
-            Bundle bundle = new Bundle();
-            bundle.putString("nick", _nick.getText().toString());
+            Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
 
-            Intent intent=new Intent(getApplicationContext(),QuestionActivity.class);
+            intent.putExtra("playerName", _playerName.getText().toString());
+
             startActivity(intent);
         }
     }

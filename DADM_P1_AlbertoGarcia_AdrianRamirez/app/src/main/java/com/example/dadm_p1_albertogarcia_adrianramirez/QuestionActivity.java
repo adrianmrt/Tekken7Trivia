@@ -18,8 +18,8 @@ public class QuestionActivity extends AppCompatActivity {
      */
 
 
-    int initialPoints=0;
-    String playerName="Adri";
+    int initialPoints = 0;
+    String playerName = "";
     int typeOfQuestion; //define types
 
 
@@ -27,6 +27,9 @@ public class QuestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        Bundle bundle = getIntent().getExtras();
+        playerName = bundle.getString("playerName");
 
         if (savedInstanceState == null) {
             //Fragment manager
