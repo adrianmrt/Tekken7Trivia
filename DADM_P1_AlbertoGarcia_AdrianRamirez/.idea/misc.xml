@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/OneDrive - Universidad Rey Juan Carlos/URJC/Cuarto/DesarrolloDeAplicacionesParaDispositivosMoviles/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/activity_main.xml" value="0.29438405797101447" />
+        <entry key="..\:/OneDrive - Universidad Rey Juan Carlos/URJC/Cuarto/DesarrolloDeAplicacionesParaDispositivosMoviles/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/game_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/OneDrive - Universidad Rey Juan Carlos/URJC/Cuarto/DesarrolloDeAplicacionesParaDispositivosMoviles/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/user_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/activity_question.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/content_question.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/fragment_game_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/fragment_question.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/fragment_sup_u_i.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/game_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/question_layout.xml" value="0.31339031339031337" />
         <entry key="..\:/Users/adria/OneDrive/Escritorio/Adrian/Universidad/Cuarto/Desarrollo aplicaciones moviles/Practicas/DADM_P1/DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/res/layout/user_fragment.xml" value="0.36666666666666664" />
       </map>
     </option>
