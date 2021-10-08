@@ -32,7 +32,7 @@ public class gameFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        nextQuestion= view.findViewById(R.id.next);
+        nextQuestion= view.findViewById(R.id.buttonCheck);
         nextQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
