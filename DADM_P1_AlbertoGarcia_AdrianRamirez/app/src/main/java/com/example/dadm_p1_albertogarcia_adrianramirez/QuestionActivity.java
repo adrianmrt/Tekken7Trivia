@@ -43,6 +43,9 @@ public class QuestionActivity extends AppCompatActivity {
             //gameFragment
             fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, null);
 
+            //questionFragment
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.questionLayout, questionFragment.class, null);
+
             fragmentTransaction.commit();
         }
     }
