@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class questionFragment extends Fragment {
+public class answerFragment extends Fragment {
 
     int type;
     View rootView;
@@ -23,8 +23,8 @@ public class questionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        rootView = inflater.inflate(R.layout.answer_text_layout, container, false);
 
-        rootView = inflater.inflate(R.layout.question_text_layout, container, false);
         return rootView;
     }
 }
