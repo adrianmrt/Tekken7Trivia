@@ -22,7 +22,7 @@
             android:id="@+id/playerNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="More Fonts..."
+            android:fontFamily="@font/montserrat_regular"
             android:hint="Introduce tu nombre"
             android:textAlignment="viewStart" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="272dp"
+        android:fontFamily="@font/montserrat_bold"
         android:onClick="play"
         android:text="Jugar"
         app:layout_constraintBottom_toBottomOf="parent"
