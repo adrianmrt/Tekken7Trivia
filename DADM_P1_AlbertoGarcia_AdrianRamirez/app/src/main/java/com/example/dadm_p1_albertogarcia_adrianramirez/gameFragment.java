@@ -23,7 +23,7 @@ public class gameFragment extends Fragment {
     View rootView;
     FragmentManager fragM;
     Parcelable[]_questions;
-    int question; //actual question we are on
+    int questionAct; //actual question we are on
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,14 +33,13 @@ public class gameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        question=0;
+        questionAct=0;
         // Inflate the layout for this fragment
         Bundle passData=getArguments();
         _questions= passData.getParcelableArray("questions");
         fragM = getChildFragmentManager();
         setQuestion();
         return inflater.inflate(R.layout.game_fragment, container, false);
-
     }
 
     @Override
@@ -54,6 +53,7 @@ public class gameFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("answer", answer);
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
+                questionAct++;
                 setQuestion();
             }
         });
@@ -62,7 +62,7 @@ public class gameFragment extends Fragment {
     public void setQuestion() {
         FragmentTransaction transaction = fragM.beginTransaction();
         Bundle objectT = new Bundle();
-
+        objectT.putParcelable("question",_questions[questionAct]);
         transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
         transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
         transaction.commit();

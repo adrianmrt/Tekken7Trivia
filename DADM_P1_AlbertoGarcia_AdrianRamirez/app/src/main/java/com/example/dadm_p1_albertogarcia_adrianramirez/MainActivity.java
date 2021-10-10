@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout _playerNameLayout;
     private EditText _playerName;
     QuestionStructure[]_questions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         _playerName = findViewById(R.id.playerNameInput);
         _playerNameLayout = findViewById(R.id.playerNameInputLayout);
-
+        _questions= createQuestions();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
@@ -42,15 +43,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
 
             intent.putExtra("playerName", _playerName.getText().toString());
-            intent.putExtra("question",_questions);
+            intent.putExtra("questions",_questions);
             startActivity(intent);
         }
     }
 
     public QuestionStructure[] createQuestions(){
-        QuestionStructure[] questionAux = new QuestionStructure[3];
-        questionAux[1]=new QuestionStructure(0,1,2);
-        questionAux[2]= new QuestionStructure(1,0,3);
+        QuestionStructure[] questionAux = new QuestionStructure[2];
+        questionAux[0]=new QuestionStructure(0,1,2);
+        questionAux[1]= new QuestionStructure(1,0,3);
         return questionAux;
     }
 }

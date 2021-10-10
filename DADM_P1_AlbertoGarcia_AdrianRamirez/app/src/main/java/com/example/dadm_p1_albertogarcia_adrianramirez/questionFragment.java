@@ -13,6 +13,7 @@ public class questionFragment extends Fragment {
 
     int type;
     View rootView;
+    QuestionStructure _question;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,8 @@ public class questionFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         Bundle passData=getArguments();
-        type= passData.getInt("type");
-        if(type==0) {
+        _question= passData.getParcelable("question");
+        if(_question.get_questionType()==0) {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);
         }else{
             rootView = inflater.inflate(R.layout.question_img_layout, container, false);
