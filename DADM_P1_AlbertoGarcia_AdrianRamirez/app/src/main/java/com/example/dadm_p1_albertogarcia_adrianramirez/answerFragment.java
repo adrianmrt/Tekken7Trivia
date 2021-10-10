@@ -4,20 +4,19 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class questionFragment extends Fragment {
+public class answerFragment extends Fragment {
 
     int type;
     View rootView;
     QuestionStructure _question;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -26,10 +25,10 @@ public class questionFragment extends Fragment {
         // Inflate the layout for this fragment
         Bundle passData=getArguments();
         _question= passData.getParcelable("question");
-        if(_question.get_questionType()==0) {
-            rootView = inflater.inflate(R.layout.question_text_layout, container, false);
+        if(_question.get_answerType()==0) {
+            rootView = inflater.inflate(R.layout.answer_text_layout, container, false);
         }else{
-            rootView = inflater.inflate(R.layout.question_img_layout, container, false);
+            rootView = inflater.inflate(R.layout.answer_img_layout, container, false);
         }
         return rootView;
     }
