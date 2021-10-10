@@ -21,6 +21,6 @@ public class questionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.question_layout_img, container, false);
+        return inflater.inflate(R.layout.answer_img_layout, container, false);
     }
 }

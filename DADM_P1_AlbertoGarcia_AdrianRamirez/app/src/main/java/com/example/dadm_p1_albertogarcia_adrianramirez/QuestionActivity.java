@@ -4,19 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 public class QuestionActivity extends AppCompatActivity {
-
-    //explanation
-    /*
-    We decide to use shared Preferences in order to maintain and store data when the activity restarts.
-    We use private mode access in order to avoid other apps accessing the preferences.
-     */
-
 
     int initialPoints = 0;
     String playerName = "";
@@ -47,7 +37,7 @@ public class QuestionActivity extends AppCompatActivity {
             fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, null);
 
             //questionFragment
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.questionLayout, questionFragment.class, null);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.answerLayout, questionFragment.class, null);
 
             fragmentTransaction.commit();
         }
