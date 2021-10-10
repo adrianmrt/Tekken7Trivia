@@ -13,8 +13,11 @@
             android:name=".QuestionActivity"
             android:exported="true" />
         <activity
+            android:name=".ScoreActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:windowSoftInputMode="stateVisible|adjustPan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
