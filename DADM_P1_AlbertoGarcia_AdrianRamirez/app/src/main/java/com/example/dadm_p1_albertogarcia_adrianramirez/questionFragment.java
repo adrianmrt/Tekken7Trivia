@@ -23,8 +23,13 @@ public class questionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        rootView = inflater.inflate(R.layout.question_text_layout, container, false);
+        Bundle passData=getArguments();
+        type= passData.getInt("type");
+        if(type==0) {
+            rootView = inflater.inflate(R.layout.question_text_layout, container, false);
+        }else{
+            rootView = inflater.inflate(R.layout.question_img_layout, container, false);
+        }
         return rootView;
     }
 }
