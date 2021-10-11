@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.57">
 
         <RadioGroup
-            android:id="@+id/answers_text"
+            android:id="@+id/answers_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -27,18 +27,25 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <RadioButton
-                android:id="@+id/answetText1"
+                android:id="@+id/answerImg1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Answer1" />
 
             <RadioButton
-                android:id="@+id/answetText2"
+                android:id="@+id/answerImg2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Answer2" />
+
+            <RadioButton
+                android:id="@+id/answerImg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Answer3" />
 
         </RadioGroup>
 
@@ -46,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/answers_text"
+            app:layout_constraintBottom_toTopOf="@+id/answers_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

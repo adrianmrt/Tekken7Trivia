@@ -8,6 +8,8 @@ import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class questionFragment extends Fragment {
 
@@ -28,9 +30,13 @@ public class questionFragment extends Fragment {
         _question= passData.getParcelable("question");
         if(_question.get_questionType()==0) {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);
+
         }else{
             rootView = inflater.inflate(R.layout.question_img_layout, container, false);
+
         }
         return rootView;
     }
+
+
 }
