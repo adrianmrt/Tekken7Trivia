@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     public QuestionStructure[] createQuestions(){
         QuestionStructure[] questionAux = new QuestionStructure[2];
-        questionAux[0]=new QuestionStructure(0,1,2);
-        questionAux[1]= new QuestionStructure(1,0,3);
+        questionAux[0]=new QuestionStructure(0,1,"Answer1");
+        questionAux[1]= new QuestionStructure(1,0,"Answer1");
         return questionAux;
     }
 }

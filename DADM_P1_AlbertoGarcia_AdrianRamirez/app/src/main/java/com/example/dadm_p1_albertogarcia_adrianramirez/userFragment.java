@@ -36,7 +36,6 @@ public class userFragment extends Fragment {
                     points++;
                     scoreV.setText(points.toString());
                 }
-
             }
         });
 
