@@ -4,24 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import android.os.Parcelable;
 
 public class QuestionActivity extends AppCompatActivity {
-
-    //explanation
-    /*
-    We decide to use shared Preferences in order to maintain and store data when the activity restarts.
-    We use private mode access in order to avoid other apps accessing the preferences.
-     */
-
 
     int initialPoints = 0;
     String playerName = "";
     int typeOfQuestion; //define types
-
+    Parcelable[]_questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +21,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         playerName = bundle.getString("playerName");
+        _questions= bundle.getParcelableArray("questions");
 
         if (savedInstanceState == null) {
             //Fragment manager
@@ -38,13 +30,15 @@ public class QuestionActivity extends AppCompatActivity {
 
             //user Fragment
             //we create a bundle object for passing initial data;
-            Bundle initialData = new Bundle();
-            initialData.putInt("initialPoints", initialPoints);
-            initialData.putString("playerName", playerName);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, initialData);
+            Bundle TopInitData = new Bundle();
+            TopInitData.putInt("initialPoints", initialPoints);
+            TopInitData.putString("playerName", playerName);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
 
             //gameFragment
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, null);
+            Bundle BotInitData= new Bundle();
+            BotInitData.putParcelableArray("questions",_questions);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, BotInitData);
 
             fragmentTransaction.commit();
         }

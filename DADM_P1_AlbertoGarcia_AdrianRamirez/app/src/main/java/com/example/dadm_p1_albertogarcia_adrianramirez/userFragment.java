@@ -59,7 +59,6 @@ public class userFragment extends Fragment {
         //we reference the elements of the layout
         scoreV= view.findViewById(R.id.score);
         playerNameV= view.findViewById(R.id.playerName);
-        
 
         scoreV.setText(points.toString());
         playerNameV.setText(playerName);

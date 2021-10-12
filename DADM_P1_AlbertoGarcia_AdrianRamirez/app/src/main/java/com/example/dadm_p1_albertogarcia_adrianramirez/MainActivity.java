@@ -14,8 +14,12 @@ import com.google.android.material.textfield.TextInputLayout;
 public class MainActivity extends AppCompatActivity {
 
     private TextInputLayout _playerNameLayout;
+	//Revisar esto
     private EditText _playerNameInput;
     private Button _playButton;
+
+    private EditText _playerName;
+    QuestionStructure[]_questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        _questions= createQuestions();
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
@@ -49,4 +55,25 @@ public class MainActivity extends AppCompatActivity {
 
         _playerNameLayout.setErrorEnabled(false);
     }
+
+    public void play(View v){
+        if(TextUtils.isEmpty(_playerName.getText().toString())){
+            _playerNameLayout.setError("Campo vacío");
+            _playerNameLayout.setErrorEnabled(true);
+        } else {
+            Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
+
+            intent.putExtra("playerName", _playerName.getText().toString());
+            intent.putExtra("questions",_questions);
+            startActivity(intent);
+        }
+    }
+
+    public QuestionStructure[] createQuestions(){
+        QuestionStructure[] questionAux = new QuestionStructure[2];
+        questionAux[0]=new QuestionStructure(0,1,2);
+        questionAux[1]= new QuestionStructure(1,0,3);
+        return questionAux;
+    }
+
 }
