@@ -1,5 +1,6 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,37 +16,37 @@ import android.widget.TextView;
 
 public class userFragment extends Fragment {
 
-    Integer points;
     String playerName;
+    Integer score;
 
     //layout references
-    TextView scoreV;
-    TextView playerNameV;
+    TextView scoreView;
+    TextView playerNameView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         //creation of object that receives data from gameFragment
-        getParentFragmentManager().setFragmentResultListener("answerPass", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                boolean result = bundle.getBoolean("answer");
-                if (result==true){
-                    points++;
-                    scoreV.setText(points.toString());
-                }
-
+        getParentFragmentManager().setFragmentResultListener("answerPass", this, (requestKey, bundle) -> {
+            boolean result = bundle.getBoolean("answer");
+            if (result){
+                score+=10;
+                scoreView.setText(score.toString());
             }
         });
 
+        getParentFragmentManager().setFragmentResultListener("finished", this, (requestKey, bundle) -> {
+            Intent intent = new Intent(getActivity(), ScoreActivity.class);
+            intent.putExtra("playerName", playerName);
+            intent.putExtra("score", score.toString());
 
+            getActivity().startActivity(intent);
+        });
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.user_fragment, container, false);
     }
@@ -53,16 +54,15 @@ public class userFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        points= requireArguments().getInt("initialPoints");
+
+        score = requireArguments().getInt("initialScore");
         playerName=  requireArguments().getString("playerName");
 
         //we reference the elements of the layout
-        scoreV= view.findViewById(R.id.score);
-        playerNameV= view.findViewById(R.id.playerName);
+        scoreView = view.findViewById(R.id.score);
+        playerNameView = view.findViewById(R.id.playerName);
 
-        scoreV.setText(points.toString());
-        playerNameV.setText(playerName);
-
-
+        scoreView.setText(score.toString());
+        playerNameView.setText(playerName);
     }
 }

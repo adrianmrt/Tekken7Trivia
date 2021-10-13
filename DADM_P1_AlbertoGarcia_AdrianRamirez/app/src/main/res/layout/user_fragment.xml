@@ -13,15 +13,18 @@
 
         <TextView
             android:id="@+id/score"
-            android:layout_width="70dp"
-            android:layout_height="29dp"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="37dp"
-            android:text="Score" />
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="41dp"
+            android:layout_marginBottom="-3dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Puntuación"
+            android:textAlignment="viewStart"
+            android:textSize="34sp" />
 
         <TextView
             android:id="@+id/playerName"
@@ -29,7 +32,33 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:text="playerName" />
+            android:layout_marginLeft="24dp"
+            android:layout_marginBottom="59dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:singleLine="true"
+            android:text="playerName"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="144dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="59dp"
+            android:background="@null"
+            android:ems="10"
+            android:fontFamily="@font/montserrat_medium"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="false"
+            android:singleLine="true"
+            android:text="Puntuación"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#424242" />
 
     </RelativeLayout>
 
