@@ -16,14 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:id="@+id/answetText1"
+            android:id="@+id/answerText1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Answer1" />
 
         <RadioButton
-            android:id="@+id/answetText2"
+            android:id="@+id/answerText2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

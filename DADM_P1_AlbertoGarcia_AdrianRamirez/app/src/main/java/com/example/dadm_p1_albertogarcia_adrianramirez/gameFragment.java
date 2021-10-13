@@ -1,6 +1,5 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,20 +17,30 @@ import android.widget.Button;
 
 public class gameFragment extends Fragment {
 
-    boolean answer = true;
+    boolean answer;
 
     //questions setters
     View rootView;
     String playerName;
     FragmentManager fragmentManager;
 
-    Parcelable[] _questions;
+    Parcelable[] questions;
     Button nextQuestion;
+
     int questionAct; //actual question we are on
+    String answerAct; //answer selected
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //creation of object that receives data from gameFragment
+        getChildFragmentManager().setFragmentResultListener("answerChoose", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
+                answerAct = bundle.getString("answer");
+            }
+        });
     }
 
     @Override
@@ -41,7 +50,7 @@ public class gameFragment extends Fragment {
         // Inflate the layout for this fragment
         Bundle passData = getArguments();
         playerName = passData.getString("playerName");
-        _questions = passData.getParcelableArray("questions");
+        questions = passData.getParcelableArray("questions");
         fragmentManager = getChildFragmentManager();
 
         setQuestion();
@@ -54,20 +63,24 @@ public class gameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         nextQuestion = view.findViewById(R.id.buttonCheck);
+
         nextQuestion.setOnClickListener(v -> {
+            String correctAnswer=accessQuestionAct().get_answer();
+            if (answerAct.equals(correctAnswer)) {
+                answer = true;
+            }
             Bundle bundle = new Bundle();
             bundle.putBoolean("answer", answer);
 
             getParentFragmentManager().setFragmentResult("answerPass", bundle);
 
             questionAct++;
-
-            if (questionAct < _questions.length){
+            if (questionAct < questions.length){
                 setQuestion();
             } else {
                 getParentFragmentManager().setFragmentResult("finished", bundle);
             }
-
+            answer = false;
         });
     }
 
@@ -75,10 +88,14 @@ public class gameFragment extends Fragment {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
 
-        objectT.putParcelable("question",_questions[questionAct]);
+        objectT.putParcelable("question", questions[questionAct]);
 
         transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
         transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
         transaction.commit();
+    }
+
+    private QuestionStructure accessQuestionAct() {
+        return (QuestionStructure) questions[questionAct];
     }
 }
