@@ -9,19 +9,21 @@ import android.os.Parcelable;
 
 public class QuestionActivity extends AppCompatActivity {
 
-    int initialPoints = 0;
     String playerName = "";
+    int initialScore = 0;
     int typeOfQuestion; //define types
-    Parcelable[]_questions;
+
+    Parcelable[] questions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_question);
 
         Bundle bundle = getIntent().getExtras();
         playerName = bundle.getString("playerName");
-        _questions= bundle.getParcelableArray("questions");
+        questions = bundle.getParcelableArray("questions");
 
         if (savedInstanceState == null) {
             //Fragment manager
@@ -31,20 +33,26 @@ public class QuestionActivity extends AppCompatActivity {
             //user Fragment
             //we create a bundle object for passing initial data;
             Bundle TopInitData = new Bundle();
-            TopInitData.putInt("initialPoints", initialPoints);
+            TopInitData.putInt("initialScore", initialScore);
             TopInitData.putString("playerName", playerName);
             fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
 
             //gameFragment
-            Bundle BotInitData= new Bundle();
-            BotInitData.putParcelableArray("questions",_questions);
+            Bundle BotInitData = new Bundle();
+            BotInitData.putParcelableArray("questions", questions);
+            BotInitData.putString("playerName", playerName);
             fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, BotInitData);
 
             fragmentTransaction.commit();
         }
     }
+}
 
-    /*
+
+
+
+
+/*
     @Override
     protected void onRestart() {
         super.onRestart();
@@ -61,7 +69,3 @@ public class QuestionActivity extends AppCompatActivity {
         editor.putInt("points", numberPoints);
     }
     */
-
-
-
-}
