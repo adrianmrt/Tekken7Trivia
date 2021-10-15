@@ -6,13 +6,13 @@ import android.os.Parcelable;
 public class QuestionStructure implements Parcelable {
     int _questionType; //0 txt, 1 img
     int _answerType; //0 txt, 1 img
-    int[]_images;
+    int[] _images; //0 question,1-3 answers
     String _answer;
 
-    public QuestionStructure(int questionType, int answerType, String answer){
-        _questionType=questionType;
-        _answer=answer;
-        _answerType=answerType;
+    public QuestionStructure(int questionType, int answerType, String answer) {
+        _questionType = questionType;
+        _answer = answer;
+        _answerType = answerType;
     }
 
     protected QuestionStructure(Parcel in) {

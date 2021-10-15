@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener(v -> {
             String localPlayerName = playerNameInput.getText().toString();
 
-            if(TextUtils.isEmpty(localPlayerName)){
+            if (TextUtils.isEmpty(localPlayerName)) {
                 playerNameLayout.setError("Campo vacío");
                 playerNameLayout.setErrorEnabled(true);
             } else {
-                Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
+                Intent intent = new Intent(getApplicationContext(), QuestionActivity.class);
                 intent.putExtra("playerName", localPlayerName);
                 intent.putExtra("questions", questions);
                 startActivity(intent);
@@ -54,11 +54,14 @@ public class MainActivity extends AppCompatActivity {
         playerNameLayout.setErrorEnabled(false);
     }
 
-    public QuestionStructure[] createQuestions(){
+    public QuestionStructure[] createQuestions() {
         QuestionStructure[] questionAux = new QuestionStructure[2];
 
-        questionAux[0]=new QuestionStructure(0,1,"Answer1");
-        questionAux[1]= new QuestionStructure(1,0,"Answer1");
+        questionAux[0] = new QuestionStructure(0, 1, "Answer1");
+        questionAux[1] = new QuestionStructure(1, 0, "Answer1");
+        questionAux[2] = new QuestionStructure(1, 0, "Answer1");
+        questionAux[3] = new QuestionStructure(1, 0, "Answer1");
+        questionAux[4] = new QuestionStructure(1, 0, "Answer1");
 
         return questionAux;
     }
