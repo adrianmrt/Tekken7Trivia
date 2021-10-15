@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
         questionAux[0]=new QuestionStructure(0,1,"Answer1");
         questionAux[1]= new QuestionStructure(1,0,"Answer1");
+        questionAux[2]= new QuestionStructure(1,0,"Answer1");
+        questionAux[3]= new QuestionStructure(1,0,"Answer1");
+        questionAux[4]= new QuestionStructure(1,0,"Answer1");
 
         return questionAux;
     }
