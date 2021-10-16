@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public QuestionStructure[] createQuestions() {
-        QuestionStructure[] questionAux = new QuestionStructure[2];
+        QuestionStructure[] questionAux = new QuestionStructure[5];
 
-        questionAux[0] = new QuestionStructure(0, 1, "Answer1");
-        questionAux[1] = new QuestionStructure(1, 0, "Answer1");
-        questionAux[2] = new QuestionStructure(1, 0, "Answer1");
-        questionAux[3] = new QuestionStructure(1, 0, "Answer1");
-        questionAux[4] = new QuestionStructure(1, 0, "Answer1");
+        questionAux[0] = new QuestionStructure(0, 1, "Answer1","Hola");
+        questionAux[1] = new QuestionStructure(1, 0, "Answer1","Hola");
+        questionAux[2] = new QuestionStructure(1, 0, "Answer1","Hola");
+        questionAux[3] = new QuestionStructure(1, 0, "Answer1","Hola");
+        questionAux[4] = new QuestionStructure(1, 0, "Answer1","Hola");
 
         return questionAux;
     }

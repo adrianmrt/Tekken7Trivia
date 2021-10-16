@@ -4,18 +4,22 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class questionFragment extends Fragment {
 
     int type;
     View rootView;
     QuestionStructure _question;
+
+    //Layout elements
+    ImageView img1;
+
+    TextView questionText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,10 +34,15 @@ public class questionFragment extends Fragment {
         _question= passData.getParcelable("question");
         if(_question.get_questionType()==0) {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);
+            questionText= rootView.findViewById(R.id.textQuestionText);
+            questionText.setText(_question.get_question());
 
         }else{
             rootView = inflater.inflate(R.layout.question_img_layout, container, false);
-
+            questionText= rootView.findViewById(R.id.textQuestionImg);
+            questionText.setText(_question.get_question());
+            img1=rootView.findViewById(R.id.imgQuestion);
+            img1.setImageResource(_question.get_images()[0]);
         }
         return rootView;
     }

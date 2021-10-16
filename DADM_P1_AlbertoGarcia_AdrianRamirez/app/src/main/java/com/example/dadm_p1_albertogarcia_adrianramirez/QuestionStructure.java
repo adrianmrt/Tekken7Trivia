@@ -8,11 +8,15 @@ public class QuestionStructure implements Parcelable {
     int _answerType; //0 txt, 1 img
     int[] _images; //0 question,1-3 answers
     String _answer;
+    String _question;
+    String[] _possibleAnswers;
 
-    public QuestionStructure(int questionType, int answerType, String answer) {
+    public QuestionStructure(int questionType, int answerType, String answer, String question, String[] possibleAnswers) {
         _questionType = questionType;
         _answer = answer;
         _answerType = answerType;
+        _question = question;
+        _possibleAnswers = possibleAnswers;
     }
 
     protected QuestionStructure(Parcel in) {
@@ -20,6 +24,8 @@ public class QuestionStructure implements Parcelable {
         _answerType = in.readInt();
         _images = in.createIntArray();
         _answer = in.readString();
+        _question = in.readString();
+        _possibleAnswers = in.createStringArray();
     }
 
     @Override
@@ -28,6 +34,8 @@ public class QuestionStructure implements Parcelable {
         dest.writeInt(_answerType);
         dest.writeIntArray(_images);
         dest.writeString(_answer);
+        dest.writeString(_question);
+        dest.writeStringArray(_possibleAnswers);
     }
 
     @Override
@@ -63,4 +71,11 @@ public class QuestionStructure implements Parcelable {
         return _images;
     }
 
+    public String get_question() {
+        return _question;
+    }
+
+    public String[] get_possibleAnswers() {
+        return _possibleAnswers;
+    }
 }

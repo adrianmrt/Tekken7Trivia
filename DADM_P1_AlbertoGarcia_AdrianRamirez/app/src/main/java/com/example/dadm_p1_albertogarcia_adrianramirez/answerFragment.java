@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -17,6 +18,15 @@ public class answerFragment extends Fragment {
     View rootView;
     QuestionStructure _question;
     RadioGroup _radioGroup;
+
+    //Layout elements
+    RadioButton rb1;
+    RadioButton rb2;
+    RadioButton rb3;
+
+    ImageView img1;
+    ImageView img2;
+    ImageView img3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,10 +42,12 @@ public class answerFragment extends Fragment {
         _question = passData.getParcelable("question");
         if (_question.get_answerType() == 0) {
             rootView = inflater.inflate(R.layout.answer_text_layout, container, false);
-            _radioGroup = rootView.findViewById(R.id.answers_text);
+            setTextButtons();
+
         } else {
             rootView = inflater.inflate(R.layout.answer_img_layout, container, false);
             _radioGroup = rootView.findViewById(R.id.answers_img);
+            setImgButtons();
         }
         _radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -57,4 +69,35 @@ public class answerFragment extends Fragment {
         getParentFragmentManager().setFragmentResult("answerChoose", bundle);
     }
 
+    private void setTextButtons(){
+        _radioGroup = rootView.findViewById(R.id.answers_text);
+        rb1=rootView.findViewById(R.id.answerText1);
+        rb2=rootView.findViewById(R.id.answerText2);
+        rb3=rootView.findViewById(R.id.answerText3);
+
+        rb1.setText(_question.get_possibleAnswers()[0]);
+        rb2.setText(_question.get_possibleAnswers()[1]);
+        rb3.setText(_question.get_possibleAnswers()[2]);
+    }
+    private void setImgButtons(){
+        _radioGroup = rootView.findViewById(R.id.answers_text);
+        //buttons
+        rb1=rootView.findViewById(R.id.answerImg1);
+        rb2=rootView.findViewById(R.id.answerImg2);
+        rb3=rootView.findViewById(R.id.answerImg3);
+
+        rb1.setText(_question.get_possibleAnswers()[0]);
+        rb2.setText(_question.get_possibleAnswers()[1]);
+        rb3.setText(_question.get_possibleAnswers()[2]);
+
+        //img of buttons
+
+        img1=rootView.findViewById(R.id.img1);
+        img2=rootView.findViewById(R.id.img2);
+        img3=rootView.findViewById(R.id.img3);
+
+        img1.setImageResource(_question.get_images()[1]);
+        img2.setImageResource(_question.get_images()[2]);
+        img3.setImageResource(_question.get_images()[3]);
+    }
 }
