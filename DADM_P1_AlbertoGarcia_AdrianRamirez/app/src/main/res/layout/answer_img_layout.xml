@@ -62,6 +62,11 @@
                 android:text="Answer1"
                 android:textAlignment="center" />
 
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
             <RadioButton
                 android:id="@+id/answerImg2"
                 android:layout_width="wrap_content"
@@ -70,6 +75,11 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Answer2"
                 android:textAlignment="center" />
+
+            <Space
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
             <RadioButton
                 android:id="@+id/answerImg3"
