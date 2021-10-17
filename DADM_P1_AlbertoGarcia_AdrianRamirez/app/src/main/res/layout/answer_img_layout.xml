@@ -18,7 +18,7 @@
 
         <RadioGroup
             android:id="@+id/answers_img"
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -31,21 +31,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Answer1" />
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Answer1"
+                android:textAlignment="center" />
 
             <RadioButton
                 android:id="@+id/answerImg2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Answer2" />
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Answer2"
+                android:textAlignment="center" />
 
             <RadioButton
                 android:id="@+id/answerImg3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Answer3" />
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Answer3"
+                android:textAlignment="center" />
 
         </RadioGroup>
 
