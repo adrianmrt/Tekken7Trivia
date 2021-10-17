@@ -62,22 +62,19 @@
                 android:id="@+id/img1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                tools:src="@tools:sample/avatars" />
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/img2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                tools:src="@tools:sample/avatars" />
+                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/img3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                tools:src="@tools:sample/avatars" />
+                android:layout_weight="1" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
