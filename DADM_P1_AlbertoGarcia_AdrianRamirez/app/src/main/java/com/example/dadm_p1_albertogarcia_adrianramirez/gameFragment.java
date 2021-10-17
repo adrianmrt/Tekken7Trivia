@@ -10,14 +10,18 @@ import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Parcelable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class gameFragment extends Fragment {
 
     boolean answer;
+
+    Toast answerNotSelectedNotification;
 
     //questions setters
     View rootView;
@@ -26,13 +30,14 @@ public class gameFragment extends Fragment {
 
     Parcelable[] questions;
     Button nextQuestion;
-
     int questionAct; //actual question we are on
     String answerAct; //answer selected
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        answerNotSelectedNotification = Toast.makeText(getActivity(), "Selecciona una respuesta", Toast.LENGTH_SHORT);
 
         //creation of object that receives data from gameFragment
         getChildFragmentManager().setFragmentResultListener("answerChoose", this, new FragmentResultListener() {
@@ -65,22 +70,27 @@ public class gameFragment extends Fragment {
         nextQuestion = view.findViewById(R.id.buttonCheck);
 
         nextQuestion.setOnClickListener(v -> {
-            String correctAnswer=accessQuestionAct().get_answer();
-            if (answerAct.equals(correctAnswer)) {
-                answer = true;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("answer", answer);
+            String correctAnswer = accessQuestionAct().get_answer();
 
-            getParentFragmentManager().setFragmentResult("answerPass", bundle);
+            if (TextUtils.isEmpty(answerAct)) answerNotSelectedNotification.show();
+            else {
+                if (answerAct.equals(correctAnswer)) {
+                    answer = true;
+                }
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("answer", answer);
 
-            questionAct++;
-            if (questionAct < questions.length){
-                setQuestion();
-            } else {
-                getParentFragmentManager().setFragmentResult("finished", bundle);
+                getParentFragmentManager().setFragmentResult("answerPass", bundle);
+
+                questionAct++;
+                if (questionAct < questions.length) {
+                    setQuestion();
+                } else {
+                    getParentFragmentManager().setFragmentResult("finished", bundle);
+                }
+                answer = false;
+                answerAct = "";
             }
-            answer = false;
         });
     }
 

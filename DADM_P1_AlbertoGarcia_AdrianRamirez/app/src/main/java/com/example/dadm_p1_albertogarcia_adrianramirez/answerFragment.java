@@ -49,11 +49,9 @@ public class answerFragment extends Fragment {
             _radioGroup = rootView.findViewById(R.id.answers_img);
             setImgButtons();
         }
-        _radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        _radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 getAnswerChosed();
             }
         });
@@ -63,28 +61,29 @@ public class answerFragment extends Fragment {
 
     private void getAnswerChosed() {
         int _answerID = _radioGroup.getCheckedRadioButtonId();
-        RadioButton _answerB= _radioGroup.findViewById(_answerID);
+        RadioButton _answerB = _radioGroup.findViewById(_answerID);
         Bundle bundle = new Bundle();
         bundle.putString("answer", _answerB.getText().toString());
         getParentFragmentManager().setFragmentResult("answerChoose", bundle);
     }
 
-    private void setTextButtons(){
+    private void setTextButtons() {
         _radioGroup = rootView.findViewById(R.id.answers_text);
-        rb1=rootView.findViewById(R.id.answerText1);
-        rb2=rootView.findViewById(R.id.answerText2);
-        rb3=rootView.findViewById(R.id.answerText3);
+        rb1 = rootView.findViewById(R.id.answerText1);
+        rb2 = rootView.findViewById(R.id.answerText2);
+        rb3 = rootView.findViewById(R.id.answerText3);
 
         rb1.setText(_question.get_possibleAnswers()[0]);
         rb2.setText(_question.get_possibleAnswers()[1]);
         rb3.setText(_question.get_possibleAnswers()[2]);
     }
-    private void setImgButtons(){
+
+    private void setImgButtons() {
         _radioGroup = rootView.findViewById(R.id.answers_text);
         //buttons
-        rb1=rootView.findViewById(R.id.answerImg1);
-        rb2=rootView.findViewById(R.id.answerImg2);
-        rb3=rootView.findViewById(R.id.answerImg3);
+        rb1 = rootView.findViewById(R.id.answerImg1);
+        rb2 = rootView.findViewById(R.id.answerImg2);
+        rb3 = rootView.findViewById(R.id.answerImg3);
 
         rb1.setText(_question.get_possibleAnswers()[0]);
         rb2.setText(_question.get_possibleAnswers()[1]);
@@ -92,9 +91,9 @@ public class answerFragment extends Fragment {
 
         //img of buttons
 
-        img1=rootView.findViewById(R.id.img1);
-        img2=rootView.findViewById(R.id.img2);
-        img3=rootView.findViewById(R.id.img3);
+        img1 = rootView.findViewById(R.id.img1);
+        img2 = rootView.findViewById(R.id.img2);
+        img3 = rootView.findViewById(R.id.img3);
 
         img1.setImageResource(_question.get_images()[1]);
         img2.setImageResource(_question.get_images()[2]);

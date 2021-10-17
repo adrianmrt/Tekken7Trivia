@@ -15,7 +15,7 @@ public class QuestionStructure implements Parcelable {
         _questionType = questionType;
         _answer = answer;
         _answerType = answerType;
-        _images=images;
+        _images = images;
         _question = question;
         _possibleAnswers = possibleAnswers;
     }
