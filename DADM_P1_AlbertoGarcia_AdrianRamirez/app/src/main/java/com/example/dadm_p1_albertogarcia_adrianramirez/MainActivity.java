@@ -58,24 +58,24 @@ public class MainActivity extends AppCompatActivity {
     public QuestionStructure[] createQuestions() {
         QuestionStructure[] questionAux = new QuestionStructure[5];
 
-        questionAux[0] = new QuestionStructure(0, 0, new int[]{0,0,0,0}, "Akuma",
-                "¿Qué personaje no pertenece originalmente a la saga Tekken?",
+        questionAux[0] = new QuestionStructure(0, 1, new int[]{0, R.mipmap.julia_img_round, R.mipmap.julia_img_round, R.mipmap.julia_img_round},
+                "Akuma", "¿Qué personaje no pertenece originalmente a la saga Tekken?",
                 new String[]{"Akuma", "Julia", "Fahkumram"});
 
-        questionAux[1] = new QuestionStructure(0, 0, new int[]{0,0,0,0}, "Kazumi",
-                "¿Qué personaje no es de sangre Mishima?",
-                new String[]{"Heihachi", "Kazumi", "Jinpachi"});
+        questionAux[1] = new QuestionStructure(0, 0, new int[]{0,0,0,0},
+                "Kazumi", "¿Qué personaje no es de sangre Mishima?",
+                new String[]{"Kazuya", "Kazumi", "Jinpachi"});
 
-        questionAux[2] = new QuestionStructure(0, 0, new int[]{0,0,0,0}, "King",
-                "¿Quién es humano?",
-                new String[]{"Alisa", "Panda", "King"});
+        questionAux[2] = new QuestionStructure(0, 1, new int[]{0,R.mipmap.julia_img_round, R.mipmap.julia_img_round, R.mipmap.julia_img_round},
+                "King", "¿Quién es humano?",
+                new String[]{"Alisa", "Kuma", "King"});
 
-        questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_round,0,0,0}, "Steve",
-                "¿Cómo se llama este personaje?",
+        questionAux[3] = new QuestionStructure(1, 0, new int[]{R.mipmap.julia_img_round,0,0,0},
+                "Steve", "¿Cómo se llama este personaje?",
                 new String[]{"Steve", "Lars", "Dragunov"});
 
-        questionAux[4] = new QuestionStructure(0, 0, new int[]{0,0,0,0}, "Miguel",
-                "¿Qué personaje es español?",
+        questionAux[4] = new QuestionStructure(0, 0, new int[]{0,0,0,0},
+                "Miguel", "¿Qué personaje es español?",
                 new String[]{"Lidia", "Miguel", "Leo"});
 
         return questionAux;
