@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         questionAux[1] = new QuestionStructure(0, 1, new int[]{0, R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
                 "Kazumi", "¿Qué personaje no es de sangre Mishima?",
-                new String[]{"Kazuya", "Kazumi", "Jinpachi"});
+                new String[]{"Kazuya", "Kazumi", "Jin"});
 
         questionAux[2] = new QuestionStructure(0, 1, new int[]{0, R.drawable.alisa_img_round, R.drawable.kuma_img_round, R.drawable.king_img_round},
                 "King", "¿Quién es humano?",
