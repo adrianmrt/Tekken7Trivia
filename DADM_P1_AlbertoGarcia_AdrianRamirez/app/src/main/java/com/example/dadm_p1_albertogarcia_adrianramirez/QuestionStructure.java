@@ -11,10 +11,11 @@ public class QuestionStructure implements Parcelable {
     String _question;
     String[] _possibleAnswers;
 
-    public QuestionStructure(int questionType, int answerType, String answer, String question, String[] possibleAnswers) {
+    public QuestionStructure(int questionType, int answerType, int[] images, String answer, String question, String[] possibleAnswers) {
         _questionType = questionType;
         _answer = answer;
         _answerType = answerType;
+        _images=images;
         _question = question;
         _possibleAnswers = possibleAnswers;
     }
