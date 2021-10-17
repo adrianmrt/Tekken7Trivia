@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 "¿Quién es humano?",
                 new String[]{"Alisa", "Panda", "King"});
 
-        questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_foreground,0,0,0}, "Steve",
+        questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_round,0,0,0}, "Steve",
                 "¿Cómo se llama este personaje?",
                 new String[]{"Steve", "Lars", "Dragunov"});
 

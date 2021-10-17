@@ -23,15 +23,14 @@
 
     <ImageView
         android:id="@+id/imgQuestion"
-        android:layout_width="176dp"
-        android:layout_height="142dp"
-        android:layout_marginBottom="276dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textQuestionImg"
-        app:layout_constraintVertical_bias="0.069"
-        tools:srcCompat="@android:drawable/btn_dialog" />
+        app:layout_constraintVertical_bias="0.082" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
