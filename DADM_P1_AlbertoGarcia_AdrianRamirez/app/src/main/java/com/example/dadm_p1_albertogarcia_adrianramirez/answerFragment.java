@@ -46,7 +46,6 @@ public class answerFragment extends Fragment {
 
         } else {
             rootView = inflater.inflate(R.layout.answer_img_layout, container, false);
-            _radioGroup = rootView.findViewById(R.id.answers_img);
             setImgButtons();
         }
         _radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -79,7 +78,7 @@ public class answerFragment extends Fragment {
     }
 
     private void setImgButtons() {
-        _radioGroup = rootView.findViewById(R.id.answers_text);
+        _radioGroup = rootView.findViewById(R.id.answers_img);
         //buttons
         rb1 = rootView.findViewById(R.id.answerImg1);
         rb2 = rootView.findViewById(R.id.answerImg2);

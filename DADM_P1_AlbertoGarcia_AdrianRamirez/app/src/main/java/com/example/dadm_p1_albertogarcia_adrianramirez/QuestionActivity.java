@@ -11,7 +11,6 @@ public class QuestionActivity extends AppCompatActivity {
 
     String playerName = "";
     int initialScore = 0;
-    int typeOfQuestion; //define types
 
     Parcelable[] questions;
 
@@ -47,25 +46,3 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
-/*
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("QuestionPrefs", MODE_PRIVATE).edit();
-    }
-
-    public void nextQuestion(View v){
-        SharedPreferences.Editor editor = getApplicationContext().getSharedPreferences("QuestionPrefs", MODE_PRIVATE).edit();
-        updatePoints(editor,points);
-        editor.commit();
-    }
-
-    private void updatePoints(SharedPreferences.Editor editor, int numberPoints){
-        editor.putInt("points", numberPoints);
-    }
-    */
