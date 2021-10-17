@@ -24,7 +24,6 @@ public class gameFragment extends Fragment {
     Toast answerNotSelectedNotification;
 
     //questions setters
-    View rootView;
     String playerName;
     FragmentManager fragmentManager;
 
