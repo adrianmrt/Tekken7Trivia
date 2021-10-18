@@ -40,7 +40,6 @@ public class ScoreActivity extends AppCompatActivity {
 
         backToMenuButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-            intent.putExtra("playerName", playerName);
             startActivity(intent);
         });
 
