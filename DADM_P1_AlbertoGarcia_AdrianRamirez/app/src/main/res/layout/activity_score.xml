@@ -11,6 +11,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
+        android:backgroundTint="#C63D41"
         android:fontFamily="@font/montserrat_medium"
         android:text="Menu principal"
         android:textAlignment="center"
@@ -22,43 +23,42 @@
         android:id="@+id/replayButton"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#C63D41"
         android:fontFamily="@font/montserrat_medium"
         android:text="Volver a jugar"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/backToMenuButton"
-        app:layout_constraintStart_toStartOf="@+id/backToMenuButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="87dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textColor="#713542"
+        android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/scoreText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/scoreText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="240dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#2B2B2B"
+        android:textColor="#000A14"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
