@@ -30,13 +30,7 @@ public class InfoActivity extends AppCompatActivity {
     public List<Card> cargarDatos(){
         ArrayList<Card> listCard= new ArrayList<Card>();
 
-        listCard.add(new Card(R.drawable.akuma_img_round,"Kuqui",12));
-        listCard.add(new Card(R.drawable.akuma_img_round,"Donal",126));
-        listCard.add(new Card(R.drawable.akuma_img_round,"Donal",126));
-        listCard.add(new Card(R.drawable.akuma_img_round,"Martirio",2));
-        listCard.add(new Card(R.drawable.akuma_img_round,"Blanquito",312));
-        listCard.add(new Card(R.drawable.akuma_img_round,"Coquito",50));
-
+        listCard.add(new Card(R.drawable.akuma_img_round,"X",R.drawable.akuma_img_round,"descripcion"));
         return listCard;
     }
 }
