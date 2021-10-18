@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#C63D41">
+        android:background="#713542">
 
         <TextView
             android:id="@+id/score"
