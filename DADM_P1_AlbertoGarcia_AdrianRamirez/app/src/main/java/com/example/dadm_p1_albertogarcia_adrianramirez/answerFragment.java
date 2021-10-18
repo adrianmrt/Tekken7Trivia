@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -51,14 +50,14 @@ public class answerFragment extends Fragment {
         _radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                getAnswerChosed();
+                getAnswerChosen();
             }
         });
 
         return rootView;
     }
 
-    private void getAnswerChosed() {
+    private void getAnswerChosen() {
         int _answerID = _radioGroup.getCheckedRadioButtonId();
         RadioButton _answerB = _radioGroup.findViewById(_answerID);
         Bundle bundle = new Bundle();
