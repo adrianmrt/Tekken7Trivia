@@ -9,19 +9,18 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/playerNameInputLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginEnd="44dp"
-        android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toTopOf="@+id/playButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/playerNameInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fontFamily="@font/montserrat_regular"
             android:hint="Introduce tu nombre"
             android:textAlignment="viewStart" />
@@ -31,13 +30,13 @@
         android:id="@+id/playButton"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="48dp"
         android:backgroundTint="#C63D41"
         android:fontFamily="@font/montserrat_medium"
         android:text="Jugar"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/infoButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerNameInputLayout"
         tools:text="Jugar" />
@@ -46,7 +45,6 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="163dp"
         android:background="#C63D41"
         android:fontFamily="@font/montserrat_bold"
         android:text="Tekken 7 Trivia"
@@ -60,15 +58,15 @@
     <ImageButton
         android:id="@+id/infoButton"
         android:layout_width="220dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="88dp"
         android:backgroundTint="#FFFFFF"
         android:contentDescription="infoButton"
-        android:scaleType="centerInside"
+        android:scaleType="fitCenter"
         android:src="@drawable/tekken_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
