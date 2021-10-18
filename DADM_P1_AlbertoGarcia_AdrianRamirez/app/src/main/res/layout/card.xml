@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="150dp"
-        app:cardCornerRadius="4dp"
+        android:shape="ring"
+        app:cardBackgroundColor="#713542"
+        app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:cardCornerRadius="15DP">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/compartir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="false"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                app:srcCompat="@android:drawable/ic_menu_share" />
+            <TextView
+                android:id="@+id/charDescription"
+                android:layout_width="252dp"
+                android:layout_height="99dp"
+                android:layout_below="@+id/nombre"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="9dp"
+                android:layout_toRightOf="@id/imgCard"
+                android:text="Descripcion"
+                android:textColor="#000A14" />
 
             <TextView
                 android:id="@+id/nombre"
@@ -35,7 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/imgCard"
                 android:text="Nombre"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#000A14" />
 
             <ImageView
                 android:id="@+id/imgCard"
@@ -46,21 +52,22 @@
             <TextView
                 android:id="@+id/pais"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/nombre"
-                android:layout_alignLeft="@id/nombre"
-                android:text="Pais"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="70dp"
+                android:text="Pais:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#000A14"
+                tools:layout_toLeftOf="@id/flagImg" />
 
-            <View
-                android:id="@+id/linea"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="3dp"
-                android:layout_toRightOf="@id/imgCard"
-                android:background="#717070"
-                android:translationY="100dp" />
+            <ImageView
+                android:id="@+id/flagImg"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:scaleType="centerCrop" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
