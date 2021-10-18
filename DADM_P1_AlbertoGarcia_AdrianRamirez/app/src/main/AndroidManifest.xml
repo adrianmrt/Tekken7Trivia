@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DADM_P1_AlbertoGarcia_AdrianRamirez">
         <activity
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".QuestionActivity"
             android:exported="true" />
         <activity
@@ -17,8 +20,8 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateVisible|adjustPan"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -9,15 +9,18 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     TextInputLayout playerNameLayout;
     EditText playerNameInput;
     Button playButton;
-
+    ImageButton infoButton;
     QuestionStructure[] questions;
 
     @Override
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         playButton = findViewById(R.id.playButton);
         playerNameInput = findViewById(R.id.playerNameInput);
         playerNameLayout = findViewById(R.id.playerNameInputLayout);
+        infoButton = findViewById(R.id.infoButton);
 
         questions = createQuestions();
 
@@ -45,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        infoButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+            startActivity(intent);
+
+        });
+
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
@@ -58,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     public QuestionStructure[] createQuestions() {
         QuestionStructure[] questionAux = new QuestionStructure[5];
 
-        questionAux[0] = new QuestionStructure(0, 0, new int[]{0,0,0,0},
+        questionAux[0] = new QuestionStructure(0, 0, new int[]{0, 0, 0, 0},
                 "Miguel", "¿Qué personaje es español?",
                 new String[]{"Lidia", "Miguel", "Leo"});
 
