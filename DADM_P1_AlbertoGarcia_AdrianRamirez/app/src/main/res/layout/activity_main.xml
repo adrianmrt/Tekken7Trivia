@@ -8,12 +8,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/playerNameInputLayout"
-        android:layout_width="313dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="311dp"
+        android:layout_height="54dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/playerNameInput"
@@ -28,13 +28,14 @@
         android:id="@+id/playButton"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="Jugar"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/infoButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerNameInputLayout"
         tools:text="Jugar" />
 
     <TextView
@@ -47,7 +48,22 @@
         android:textAlignment="center"
         android:textColor="#333333"
         android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/playerNameInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/infoButton"
+        android:layout_width="188dp"
+        android:layout_height="135dp"
+        android:contentDescription="infoButton"
+        android:scaleType="centerInside"
+        android:src="@drawable/tekken_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
