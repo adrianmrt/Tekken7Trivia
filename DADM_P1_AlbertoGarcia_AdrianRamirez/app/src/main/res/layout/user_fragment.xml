@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#5700BCD4">
+        android:background="#C63D41">
 
         <TextView
             android:id="@+id/score"
@@ -17,11 +17,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextTextPersonName2"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="-2dp"
+            android:layout_marginTop="-31dp"
+            android:layout_marginEnd="62dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="Puntuación"
-            android:textAlignment="viewStart"
+            android:textAlignment="viewEnd"
+            android:textColor="#FFFFFF"
             android:textSize="34sp" />
 
         <TextView
@@ -31,13 +32,13 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="22dp"
-            android:layout_marginLeft="22dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="29dp"
+            android:layout_marginLeft="29dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/montserrat_bold"
             android:singleLine="true"
             android:text="playerName"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="24sp" />
 
         <TextView
@@ -46,8 +47,8 @@
             android:layout_height="52dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="2dp"
             android:background="@null"
             android:ems="10"
             android:fontFamily="@font/montserrat_medium"
@@ -56,7 +57,7 @@
             android:singleLine="true"
             android:text="Puntuación"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#424242" />
+            android:textColor="#FFFFFF" />
 
     </RelativeLayout>
 
