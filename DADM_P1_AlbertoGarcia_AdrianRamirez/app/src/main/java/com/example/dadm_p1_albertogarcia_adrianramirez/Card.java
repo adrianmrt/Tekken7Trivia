@@ -4,11 +4,13 @@ public class Card {
     private int imagen;
     private String nombre;
     private int pais;
+    private String _description;
 
-    public Card (int img, String nmb, int p){
+    public Card (int img, String nmb, int pais, String description){
         this.imagen=img;
         this.nombre=nmb;
-        this.pais=p;
+        this.pais=pais;
+        _description=description;
     }
 
     public int getImagen(){
@@ -21,5 +23,9 @@ public class Card {
 
     public String getNombre(){
         return nombre;
+    }
+
+    public String get_description() {
+        return _description;
     }
 }

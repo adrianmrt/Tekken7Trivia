@@ -11,20 +11,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder>{
+public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
 
     public List<Card> items;
 
     @NonNull
     @Override
     public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.card,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
         return new CardViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-
+        holder.imagen.setImageResource(items.get(position).getImagen());
+        holder.nombre.setText(items.get(position).getNombre());
+        holder.pais.setImageResource(items.get(position).getPais());
+        holder.description.setText(items.get(position).get_description());
     }
 
     @Override
@@ -32,21 +35,23 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         return items.size();
     }
 
-    public class CardViewHolder extends RecyclerView.ViewHolder{
-    public ImageView imagen;
-    public TextView nombre;
-    public TextView pais;
+    public class CardViewHolder extends RecyclerView.ViewHolder {
+        public ImageView imagen;
+        public TextView nombre;
+        public ImageView pais;
+        public TextView description;
 
-    public CardViewHolder(View v){
-        super(v);
-        imagen= v.findViewById(R.id.imgCard);
-        nombre= v.findViewById(R.id.nombre);
-        pais= v.findViewById(R.id.pais);
+        public CardViewHolder(View v) {
+            super(v);
+            imagen = v.findViewById(R.id.imgCard);
+            nombre = v.findViewById(R.id.nombre);
+            pais = v.findViewById(R.id.flagImg);
+            description = v.findViewById(R.id.charDescription);
+        }
     }
-}
 
-    public CardAdapter(List<Card> lista){
-        this.items=lista;
+    public CardAdapter(List<Card> lista) {
+        this.items = lista;
     }
 
 }
