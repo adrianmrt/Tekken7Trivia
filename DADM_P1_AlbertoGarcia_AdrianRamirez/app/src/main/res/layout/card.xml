@@ -59,7 +59,9 @@
                 android:layout_above="@+id/charDescription"
                 android:layout_alignEnd="@id/flagImg"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="53dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="0dp"
                 android:layout_toLeftOf="@id/flagImg"
                 android:fontFamily="@font/montserrat_light"
                 android:text=" País:"
@@ -69,10 +71,12 @@
 
             <ImageView
                 android:id="@+id/flagImg"
-                android:layout_width="54dp"
-                android:layout_height="25dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_above="@+id/charDescription"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="1dp"
                 android:scaleType="centerInside" />
 
         </RelativeLayout>
