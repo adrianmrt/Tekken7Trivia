@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
         questionAux[2] = new QuestionStructure(0, 1, new int[]{0, R.drawable.alisa_img_round, R.drawable.kuma_img_round, R.drawable.king_img_round},
                 "King", "¿Quién es humano?",
-                new String[]{"Alisa", "Kuma", "King"});
+                new String[]{"Alisa", "Kuma II", "King"});
 
         questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_round, 0, 0, 0},
                 "Steve", "¿Cómo se llama este personaje?",
