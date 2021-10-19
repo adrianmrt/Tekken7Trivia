@@ -8,8 +8,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ToggleButton;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText playerNameInput;
     Button playButton;
     ImageButton infoButton;
+    ToggleButton showActionBar;
     QuestionStructure[] questions;
 
     @Override
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         playerNameInput = findViewById(R.id.playerNameInput);
         playerNameLayout = findViewById(R.id.playerNameInputLayout);
         infoButton = findViewById(R.id.infoButton);
+        showActionBar = findViewById(R.id.toggleActionBar);
 
         questions = createQuestions();
 
@@ -51,12 +55,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         infoButton.setOnClickListener(v -> {
-
             Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
             startActivity(intent);
-
         });
 
+        showActionBar.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                getSupportActionBar().show();
+            } else {
+                getSupportActionBar().hide();
+            }
+        });
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
