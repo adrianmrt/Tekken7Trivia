@@ -3,6 +3,7 @@ package com.example.dadm_p1_albertogarcia_adrianramirez;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
