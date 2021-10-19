@@ -29,16 +29,19 @@
                 android:layout_height="99dp"
                 android:layout_below="@+id/nombre"
                 android:layout_marginLeft="1dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="0dp"
                 android:layout_toRightOf="@id/imgCard"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="Descripcion"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/nombre"
-                android:layout_width="wrap_content"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/imgCard"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="Nombre"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="#FFFFFF" />
@@ -47,25 +50,28 @@
                 android:id="@+id/imgCard"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/pais"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="70dp"
-                android:text="Pais:"
+                android:layout_marginEnd="54dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text=" País:"
+                android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="#FFFFFF"
                 tools:layout_toLeftOf="@id/flagImg" />
 
             <ImageView
                 android:id="@+id/flagImg"
-                android:layout_width="70dp"
-                android:layout_height="30dp"
+                android:layout_width="43dp"
+                android:layout_height="45dp"
                 android:layout_alignParentEnd="true"
-                android:scaleType="centerCrop" />
+                android:layout_marginEnd="10dp"
+                android:scaleType="fitCenter" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
