@@ -107,4 +107,5 @@ public class gameFragment extends Fragment {
     private QuestionStructure accessQuestionAct() {
         return (QuestionStructure) questions[questionAct];
     }
+
 }

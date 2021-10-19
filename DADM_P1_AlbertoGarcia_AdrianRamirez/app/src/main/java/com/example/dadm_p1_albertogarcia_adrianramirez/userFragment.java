@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +23,12 @@ public class userFragment extends Fragment {
     //layout references
     TextView scoreView;
     TextView playerNameView;
+    Parcelable[] _questions;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         //creation of object that receives data from gameFragment
         getParentFragmentManager().setFragmentResultListener("answerPass", this, (requestKey, bundle) -> {
@@ -40,7 +43,7 @@ public class userFragment extends Fragment {
             Intent intent = new Intent(getActivity(), ScoreActivity.class);
             intent.putExtra("playerName", playerName);
             intent.putExtra("score", score.toString());
-
+            intent.putExtra("questions",_questions);
             getActivity().startActivity(intent);
         });
     }
@@ -48,6 +51,8 @@ public class userFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Bundle bundle= getArguments();
+        _questions= bundle.getParcelableArray("questions");
         return inflater.inflate(R.layout.user_fragment, container, false);
     }
 
