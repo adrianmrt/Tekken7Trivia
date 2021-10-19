@@ -2,6 +2,7 @@ package com.example.dadm_p1_albertogarcia_adrianramirez;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ public class ScoreActivity extends AppCompatActivity {
     TextView scoreText;
     Button replayButton;
     Button backToMenuButton;
-
+    Parcelable[] _questions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class ScoreActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         score = bundle.getString("score");
         playerName = bundle.getString("playerName");
+        _questions= bundle.getParcelableArray("questions");
 
         scoreText = findViewById(R.id.scoreText);
         replayButton = findViewById(R.id.replayButton);
@@ -33,10 +35,10 @@ public class ScoreActivity extends AppCompatActivity {
         playerNameText = findViewById(R.id.nameText);
 
         playerNameText.setText(playerName);
-
         replayButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
             intent.putExtra("playerName", playerName);
+            intent.putExtra("questions",_questions);
             startActivity(intent);
         });
 

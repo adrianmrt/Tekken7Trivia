@@ -34,6 +34,7 @@ public class QuestionActivity extends AppCompatActivity {
             Bundle TopInitData = new Bundle();
             TopInitData.putInt("initialScore", initialScore);
             TopInitData.putString("playerName", playerName);
+            TopInitData.putParcelableArray("questions", questions);
             fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
 
             //gameFragment
