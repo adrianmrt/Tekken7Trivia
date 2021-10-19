@@ -10,32 +10,35 @@
         android:id="@+id/backToMenuButton"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="69dp"
         android:backgroundTint="#C63D41"
         android:fontFamily="@font/montserrat_medium"
         android:text="Menu principal"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/replayButton" />
 
     <Button
         android:id="@+id/replayButton"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="47dp"
         android:backgroundTint="#C63D41"
         android:fontFamily="@font/montserrat_medium"
         android:text="Volver a jugar"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/backToMenuButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
 
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
         android:layout_marginBottom="87dp"
         android:fontFamily="@font/montserrat_regular"
         android:text="TextView"
@@ -44,21 +47,32 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/scoreText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/scoreText"
-        android:layout_width="410dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="240dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="202dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000A14"
         android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/replayButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <CheckBox
+        android:id="@+id/conservarNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="Conservar nombre"
+        app:layout_constraintBottom_toTopOf="@+id/backToMenuButton"
+        app:layout_constraintStart_toStartOf="@+id/backToMenuButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
