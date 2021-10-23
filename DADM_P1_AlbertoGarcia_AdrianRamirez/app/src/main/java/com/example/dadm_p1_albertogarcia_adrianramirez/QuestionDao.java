@@ -9,7 +9,7 @@ import java.util.List;
 
 @Dao
 public interface QuestionDao {
-    @Query("SELECT * FROM questionstructure")
+    @Query("SELECT * FROM questions")
     List<QuestionStructure> getAll();
 }
 

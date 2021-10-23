@@ -1,5 +1,6 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -7,7 +8,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+import java.util.ArrayList;
+
+@Entity (tableName = "Questions")
 public class QuestionStructure implements Parcelable {
 
     @PrimaryKey
@@ -18,15 +21,15 @@ public class QuestionStructure implements Parcelable {
     @ColumnInfo
     int _answerType; //0 txt, 1 img
     @ColumnInfo
-    int[] _images; //0 question,1-3 answers
+    ArrayList<Bitmap> _images; //0 question,1-3 answers
     @ColumnInfo
     String _answer;
     @ColumnInfo
     String _question;
     @ColumnInfo
-    String[] _possibleAnswers;
+    ArrayList<String> _possibleAnswers;
 
-    public QuestionStructure(int questionType, int answerType, int[] images, String answer, String question, String[] possibleAnswers) {
+    public QuestionStructure(int questionType, int answerType, ArrayList<Bitmap> images, String answer, String question,  ArrayList<String> possibleAnswers) {
         _questionType = questionType;
         _answer = answer;
         _answerType = answerType;
@@ -38,20 +41,20 @@ public class QuestionStructure implements Parcelable {
     protected QuestionStructure(Parcel in) {
         _questionType = in.readInt();
         _answerType = in.readInt();
-        _images = in.createIntArray();
+        _images = in.readArrayList(Bitmap.class.getClassLoader());
         _answer = in.readString();
         _question = in.readString();
-        _possibleAnswers = in.createStringArray();
+        _possibleAnswers = in.readArrayList(String.class.getClassLoader());
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(_questionType);
         dest.writeInt(_answerType);
-        dest.writeIntArray(_images);
+        dest.writeList(_images);
         dest.writeString(_answer);
         dest.writeString(_question);
-        dest.writeStringArray(_possibleAnswers);
+        dest.writeList(_possibleAnswers);
     }
 
     @Override
@@ -83,7 +86,7 @@ public class QuestionStructure implements Parcelable {
         return _questionType;
     }
 
-    public int[] get_images() {
+    public ArrayList<Bitmap> get_images() {
         return _images;
     }
 
@@ -91,7 +94,7 @@ public class QuestionStructure implements Parcelable {
         return _question;
     }
 
-    public String[] get_possibleAnswers() {
+    public ArrayList<String> get_possibleAnswers() {
         return _possibleAnswers;
     }
 }

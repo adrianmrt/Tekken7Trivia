@@ -42,7 +42,7 @@ public class questionFragment extends Fragment {
             questionText= rootView.findViewById(R.id.textQuestionImg);
             questionText.setText(_question.get_question());
             img1=rootView.findViewById(R.id.imgQuestion);
-            img1.setImageResource(_question.get_images()[0]);
+            img1.setImageBitmap(_question.get_images().get(0));
         }
         return rootView;
     }

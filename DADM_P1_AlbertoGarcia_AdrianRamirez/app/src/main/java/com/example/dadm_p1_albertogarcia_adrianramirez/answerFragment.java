@@ -71,9 +71,9 @@ public class answerFragment extends Fragment {
         rb2 = rootView.findViewById(R.id.answerText2);
         rb3 = rootView.findViewById(R.id.answerText3);
 
-        rb1.setText(_question.get_possibleAnswers()[0]);
-        rb2.setText(_question.get_possibleAnswers()[1]);
-        rb3.setText(_question.get_possibleAnswers()[2]);
+        rb1.setText(_question.get_possibleAnswers().get(0));
+        rb2.setText(_question.get_possibleAnswers().get(1));
+        rb3.setText(_question.get_possibleAnswers().get(2));
     }
 
     private void setImgButtons() {
@@ -83,9 +83,9 @@ public class answerFragment extends Fragment {
         rb2 = rootView.findViewById(R.id.answerImg2);
         rb3 = rootView.findViewById(R.id.answerImg3);
 
-        rb1.setText(_question.get_possibleAnswers()[0]);
-        rb2.setText(_question.get_possibleAnswers()[1]);
-        rb3.setText(_question.get_possibleAnswers()[2]);
+        rb1.setText(_question.get_possibleAnswers().get(0));
+        rb2.setText(_question.get_possibleAnswers().get(1));
+        rb3.setText(_question.get_possibleAnswers().get(2));
 
         //img of buttons
 
@@ -93,8 +93,8 @@ public class answerFragment extends Fragment {
         img2 = rootView.findViewById(R.id.img2);
         img3 = rootView.findViewById(R.id.img3);
 
-        img1.setImageResource(_question.get_images()[1]);
-        img2.setImageResource(_question.get_images()[2]);
-        img3.setImageResource(_question.get_images()[3]);
+        img1.setImageBitmap(_question.get_images().get(1));
+        img2.setImageBitmap(_question.get_images().get(2));
+        img3.setImageBitmap(_question.get_images().get(3));
     }
 }
