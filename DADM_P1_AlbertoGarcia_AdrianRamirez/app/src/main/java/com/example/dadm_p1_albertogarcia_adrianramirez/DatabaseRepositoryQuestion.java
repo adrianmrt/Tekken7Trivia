@@ -14,7 +14,7 @@ public class DatabaseRepositoryQuestion {
     DatabaseRepositoryQuestion(Application application) {
         DatabaseApp db = DatabaseApp.getDatabase(application);
         qDao = db.questionDao();
-        allQuestions = qDao.getAllQuestions();
+        allQuestions = qDao.getAll();
     }
 
     LiveData<List<DatabaseEntityQuestion>> getAllQuestions() {
@@ -22,7 +22,7 @@ public class DatabaseRepositoryQuestion {
     }
 
     void addQuestion(DatabaseEntityQuestion question){
-        qDao.insertQuestion(question);
+        qDao.Insert(question);
     }
 
 }

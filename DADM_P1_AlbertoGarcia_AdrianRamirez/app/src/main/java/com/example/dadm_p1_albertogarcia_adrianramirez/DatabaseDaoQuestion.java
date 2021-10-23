@@ -11,16 +11,13 @@ import java.util.List;
 public interface DatabaseDaoQuestion {
 
     @Insert
-    void insertQuestion(DatabaseEntityQuestion question);
+    void Insert(DatabaseEntityQuestion question);
 
     @Query("DELETE FROM Questions")
     void deleteAll();
 
-    @Query("SELECT * FROM Questions")
-    List<DatabaseEntityQuestion> getAll();
-
     @Query("SELECT * from Questions ORDER BY questionId ASC")
-    LiveData<List<DatabaseEntityQuestion>> getAllQuestions();
+    LiveData<List<DatabaseEntityQuestion>> getAll();
 
 }
 

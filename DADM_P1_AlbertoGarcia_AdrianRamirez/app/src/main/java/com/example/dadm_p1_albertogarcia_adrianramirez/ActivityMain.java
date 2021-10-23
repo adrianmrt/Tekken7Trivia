@@ -1,7 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.lifecycle.ViewModel;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +14,8 @@ import android.widget.ToggleButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class ActivityMain extends AppCompatActivity {
+
+    private ViewModel qViewModel;
 
     TextInputLayout playerNameLayout;
     EditText playerNameInput;
@@ -33,7 +35,7 @@ public class ActivityMain extends AppCompatActivity {
         infoButton = findViewById(R.id.infoButton);
         showActionBar = findViewById(R.id.toggleActionBar);
 
-        //DatabaseApp db = new DatabaseRepositoryQuestion();
+        //METER BASE DE DATOS
 
         playButton.setOnClickListener(v -> {
             String localPlayerName = playerNameInput.getText().toString();
