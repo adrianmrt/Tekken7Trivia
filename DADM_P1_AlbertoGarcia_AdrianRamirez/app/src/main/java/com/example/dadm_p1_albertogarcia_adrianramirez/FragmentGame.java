@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class gameFragment extends Fragment {
+public class FragmentGame extends Fragment {
 
     boolean answer;
 
@@ -38,7 +38,7 @@ public class gameFragment extends Fragment {
 
         answerNotSelectedNotification = Toast.makeText(getActivity(), "Selecciona una respuesta", Toast.LENGTH_SHORT);
 
-        //creation of object that receives data from gameFragment
+        //creation of object that receives data from FragmentGame
         getChildFragmentManager().setFragmentResultListener("answerChoose", this, new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
@@ -99,8 +99,8 @@ public class gameFragment extends Fragment {
 
         objectT.putParcelable("question", questions[questionAct]);
 
-        transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
-        transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
+        transaction.replace(R.id.questionLayout, FragmentQuestion.class, objectT);
+        transaction.replace(R.id.answerLayout, FragmentAnswer.class, objectT);
         transaction.commit();
     }
 

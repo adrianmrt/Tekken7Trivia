@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
 import java.util.ArrayList;
 
 @Entity (tableName = "Questions")
-public class QuestionStructure2{
+public class DatabaseEntityQuestion {
 
     @PrimaryKey
     int questionId;
@@ -29,7 +29,7 @@ public class QuestionStructure2{
     @ColumnInfo
     ArrayList<String> _possibleAnswers;
 
-    public QuestionStructure2(int id, int questionType, int answerType, ArrayList<Bitmap> images, String answer, String question, ArrayList<String> possibleAnswers) {
+    public DatabaseEntityQuestion(int id, int questionType, int answerType, ArrayList<Bitmap> images, String answer, String question, ArrayList<String> possibleAnswers) {
         questionId=id;
         _questionType = questionType;
         _answer = answer;
@@ -39,7 +39,7 @@ public class QuestionStructure2{
         _possibleAnswers = possibleAnswers;
     }
 
-    public QuestionStructure2() {
+    public DatabaseEntityQuestion() {
 
     }
 

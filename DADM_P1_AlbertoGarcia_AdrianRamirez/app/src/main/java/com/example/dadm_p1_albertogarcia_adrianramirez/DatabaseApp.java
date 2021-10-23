@@ -14,18 +14,18 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.ArrayList;
 
-@Database(entities = {QuestionStructure2.class}, version = 1)
+@Database(entities = {DatabaseEntityQuestion.class}, version = 1)
 @TypeConverters(Converters.class)
 
-public abstract class AppDatabase extends RoomDatabase {
+abstract class AppDatabase extends RoomDatabase {
     private static Context _context;
 
-    public abstract QuestionDao questionDao();
+    public abstract DatabaseDaoQuestion questionDao();
     private static volatile AppDatabase INSTANCE;
 
     static AppDatabase getDatabase(final Context context) {
+        _context= context;
         if (INSTANCE == null) {
-            _context= context;
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     // Create database here
@@ -41,15 +41,17 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static RoomDatabase.Callback sRoomDatabaseCallback =
             new RoomDatabase.Callback() {
+
                 @Override
                 public void onOpen(@NonNull SupportSQLiteDatabase db) {
                     super.onOpen(db);
+                    new PopulateDbAsync(INSTANCE).execute();
                 }
             };
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
-        private final QuestionDao qDao;
+        private final DatabaseDaoQuestion qDao;
 
         PopulateDbAsync(AppDatabase db) {
             qDao = db.questionDao();
@@ -57,39 +59,40 @@ public abstract class AppDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(final Void... params) {
+            qDao.deleteAll();
             startDataBase(qDao);
             return null;
         }
     }
 
 
-    public static void startDataBase(QuestionDao qDao) {
+    public static void startDataBase(DatabaseDaoQuestion qDao) {
 
-        QuestionStructure2 q1= new QuestionStructure2(1,0, 0, createBitmapList(new int[]{}),
+        DatabaseEntityQuestion q1= new DatabaseEntityQuestion(1,0, 0, createBitmapList(new int[]{}),
                 "Miguel", "¿Qué personaje es español?",
                 createStringList(new String[]{"Lidia", "Miguel", "Leo"}));
 
         qDao.Insert(q1);
 
-        QuestionStructure2 q2= new QuestionStructure2(2,0, 1, createBitmapList(new int[]{R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round}),
+        DatabaseEntityQuestion q2= new DatabaseEntityQuestion(2,0, 1, createBitmapList(new int[]{R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round}),
                 "Kazumi", "¿Qué personaje no es de sangre Mishima?",
                 createStringList(new String[]{"Kazuya", "Kazumi", "Jin"}));
 
         qDao.Insert(q2);
 
-        QuestionStructure2 q3= new QuestionStructure2(3,0, 1, createBitmapList(new int[]{R.drawable.alisa_img_round, R.drawable.kuma_img_round, R.drawable.king_img_round}),
+        DatabaseEntityQuestion q3= new DatabaseEntityQuestion(3,0, 1, createBitmapList(new int[]{R.drawable.alisa_img_round, R.drawable.kuma_img_round, R.drawable.king_img_round}),
                 "King", "¿Quién es humano?",
                 createStringList(new String[]{"Alisa", "Kuma II", "King"}));
 
         qDao.Insert(q3);
 
-        QuestionStructure2 q4= new QuestionStructure2(4,1, 0, createBitmapList(new int[]{R.drawable.steve_img_round}),
+        DatabaseEntityQuestion q4= new DatabaseEntityQuestion(4,1, 0, createBitmapList(new int[]{R.drawable.steve_img_round}),
                 "Steve", "¿Cómo se llama este personaje?",
                 createStringList(new String[]{"Steve", "Lars", "Dragunov"}));
 
         qDao.Insert(q4);
 
-        QuestionStructure2 q5= new QuestionStructure2(5,0, 1, createBitmapList(new int[]{0, R.drawable.akuma_img_round, R.drawable.julia_img_round, R.drawable.fahkumram_img_round}),
+        DatabaseEntityQuestion q5= new DatabaseEntityQuestion(5,0, 1, createBitmapList(new int[]{0, R.drawable.akuma_img_round, R.drawable.julia_img_round, R.drawable.fahkumram_img_round}),
                 "Akuma", "¿Qué personaje no pertenece originalmente a la saga Tekken?",
                 createStringList(new String[]{"Akuma", "Julia", "Fahkumram"}));
 

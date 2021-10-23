@@ -3,10 +3,8 @@ package com.example.dadm_p1_albertogarcia_adrianramirez;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -15,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class userFragment extends Fragment {
+public class FragmentUser extends Fragment {
 
     String playerName;
     Integer score;
@@ -30,7 +28,7 @@ public class userFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
 
-        //creation of object that receives data from gameFragment
+        //creation of object that receives data from FragmentGame
         getParentFragmentManager().setFragmentResultListener("answerPass", this, (requestKey, bundle) -> {
             boolean result = bundle.getBoolean("answer");
             if (result){
@@ -40,7 +38,7 @@ public class userFragment extends Fragment {
         });
 
         getParentFragmentManager().setFragmentResultListener("finished", this, (requestKey, bundle) -> {
-            Intent intent = new Intent(getActivity(), ScoreActivity.class);
+            Intent intent = new Intent(getActivity(), ActivityScore.class);
             intent.putExtra("playerName", playerName);
             intent.putExtra("score", score.toString());
             intent.putExtra("questions",_questions);

@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ScoreActivity extends AppCompatActivity {
+public class ActivityScore extends AppCompatActivity {
 
     String score;
     String playerName;
@@ -36,14 +35,14 @@ public class ScoreActivity extends AppCompatActivity {
 
         playerNameText.setText(playerName);
         replayButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ActivityQuestion.class);
             intent.putExtra("playerName", playerName);
             intent.putExtra("questions",_questions);
             startActivity(intent);
         });
 
         backToMenuButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ActivityMain.class);
             startActivity(intent);
         });
 

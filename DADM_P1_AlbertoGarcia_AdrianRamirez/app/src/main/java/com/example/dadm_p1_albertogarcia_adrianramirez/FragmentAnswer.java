@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class answerFragment extends Fragment {
+public class FragmentAnswer extends Fragment {
 
     int type;
     View rootView;

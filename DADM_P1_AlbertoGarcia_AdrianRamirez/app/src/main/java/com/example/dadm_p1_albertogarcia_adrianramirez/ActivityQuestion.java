@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Parcelable;
 
-public class QuestionActivity extends AppCompatActivity {
+public class ActivityQuestion extends AppCompatActivity {
 
     String playerName = "";
     int initialScore = 0;
@@ -35,13 +35,13 @@ public class QuestionActivity extends AppCompatActivity {
             TopInitData.putInt("initialScore", initialScore);
             TopInitData.putString("playerName", playerName);
             TopInitData.putParcelableArray("questions", questions);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, FragmentUser.class, TopInitData);
 
-            //gameFragment
+            //FragmentGame
             Bundle BotInitData = new Bundle();
             BotInitData.putParcelableArray("questions", questions);
             BotInitData.putString("playerName", playerName);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, BotInitData);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, FragmentGame.class, BotInitData);
 
             fragmentTransaction.commit();
         }

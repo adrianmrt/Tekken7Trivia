@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DADM_P1_AlbertoGarcia_AdrianRamirez">
         <activity
-            android:name=".InfoActivity"
+            android:name=".ActivityInfo"
             android:exported="false" />
         <activity
-            android:name=".QuestionActivity"
+            android:name=".ActivityQuestion"
             android:exported="true" />
         <activity
-            android:name=".ScoreActivity"
+            android:name=".ActivityScore"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityMain"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>

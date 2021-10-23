@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class questionFragment extends Fragment {
+public class FragmentQuestion extends Fragment {
 
     int type;
     View rootView;
