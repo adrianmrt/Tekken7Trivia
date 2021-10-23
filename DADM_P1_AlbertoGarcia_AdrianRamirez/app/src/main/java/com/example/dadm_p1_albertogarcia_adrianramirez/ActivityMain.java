@@ -33,7 +33,7 @@ public class ActivityMain extends AppCompatActivity {
         infoButton = findViewById(R.id.infoButton);
         showActionBar = findViewById(R.id.toggleActionBar);
 
-        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+        //DatabaseApp db = new DatabaseRepositoryQuestion();
 
         playButton.setOnClickListener(v -> {
             String localPlayerName = playerNameInput.getText().toString();

@@ -17,20 +17,20 @@ import java.util.ArrayList;
 @Database(entities = {DatabaseEntityQuestion.class}, version = 1)
 @TypeConverters(Converters.class)
 
-abstract class AppDatabase extends RoomDatabase {
+abstract class DatabaseApp extends RoomDatabase {
+
     private static Context _context;
-
     public abstract DatabaseDaoQuestion questionDao();
-    private static volatile AppDatabase INSTANCE;
+    private static volatile DatabaseApp INSTANCE;
 
-    static AppDatabase getDatabase(final Context context) {
+    static DatabaseApp getDatabase(final Context context) {
         _context= context;
         if (INSTANCE == null) {
-            synchronized (AppDatabase.class) {
+            synchronized (DatabaseApp.class) {
                 if (INSTANCE == null) {
                     // Create database here
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase.class, "word_database")
+                            DatabaseApp.class, "QuestionsDatabase")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
                 }
@@ -53,7 +53,7 @@ abstract class AppDatabase extends RoomDatabase {
 
         private final DatabaseDaoQuestion qDao;
 
-        PopulateDbAsync(AppDatabase db) {
+        PopulateDbAsync(DatabaseApp db) {
             qDao = db.questionDao();
         }
 
@@ -72,31 +72,31 @@ abstract class AppDatabase extends RoomDatabase {
                 "Miguel", "¿Qué personaje es español?",
                 createStringList(new String[]{"Lidia", "Miguel", "Leo"}));
 
-        qDao.Insert(q1);
+        qDao.insertQuestion(q1);
 
         DatabaseEntityQuestion q2= new DatabaseEntityQuestion(2,0, 1, createBitmapList(new int[]{R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round}),
                 "Kazumi", "¿Qué personaje no es de sangre Mishima?",
                 createStringList(new String[]{"Kazuya", "Kazumi", "Jin"}));
 
-        qDao.Insert(q2);
+        qDao.insertQuestion(q2);
 
         DatabaseEntityQuestion q3= new DatabaseEntityQuestion(3,0, 1, createBitmapList(new int[]{R.drawable.alisa_img_round, R.drawable.kuma_img_round, R.drawable.king_img_round}),
                 "King", "¿Quién es humano?",
                 createStringList(new String[]{"Alisa", "Kuma II", "King"}));
 
-        qDao.Insert(q3);
+        qDao.insertQuestion(q3);
 
         DatabaseEntityQuestion q4= new DatabaseEntityQuestion(4,1, 0, createBitmapList(new int[]{R.drawable.steve_img_round}),
                 "Steve", "¿Cómo se llama este personaje?",
                 createStringList(new String[]{"Steve", "Lars", "Dragunov"}));
 
-        qDao.Insert(q4);
+        qDao.insertQuestion(q4);
 
         DatabaseEntityQuestion q5= new DatabaseEntityQuestion(5,0, 1, createBitmapList(new int[]{0, R.drawable.akuma_img_round, R.drawable.julia_img_round, R.drawable.fahkumram_img_round}),
                 "Akuma", "¿Qué personaje no pertenece originalmente a la saga Tekken?",
                 createStringList(new String[]{"Akuma", "Julia", "Fahkumram"}));
 
-        qDao.Insert(q5);
+        qDao.insertQuestion(q5);
     }
 
     public static ArrayList createBitmapList(int[] elements) {

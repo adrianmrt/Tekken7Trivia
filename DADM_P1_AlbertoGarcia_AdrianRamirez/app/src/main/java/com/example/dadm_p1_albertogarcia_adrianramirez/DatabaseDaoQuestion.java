@@ -11,7 +11,7 @@ import java.util.List;
 public interface DatabaseDaoQuestion {
 
     @Insert
-    void Insert(DatabaseEntityQuestion question);
+    void insertQuestion(DatabaseEntityQuestion question);
 
     @Query("DELETE FROM Questions")
     void deleteAll();

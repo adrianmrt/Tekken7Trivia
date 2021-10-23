@@ -12,13 +12,17 @@ public class DatabaseRepositoryQuestion {
     private LiveData<List<DatabaseEntityQuestion>> allQuestions;
 
     DatabaseRepositoryQuestion(Application application) {
-        AppDatabase db = AppDatabase.getDatabase(application);
+        DatabaseApp db = DatabaseApp.getDatabase(application);
         qDao = db.questionDao();
         allQuestions = qDao.getAllQuestions();
     }
 
     LiveData<List<DatabaseEntityQuestion>> getAllQuestions() {
         return allQuestions;
+    }
+
+    void addQuestion(DatabaseEntityQuestion question){
+        qDao.insertQuestion(question);
     }
 
 }
