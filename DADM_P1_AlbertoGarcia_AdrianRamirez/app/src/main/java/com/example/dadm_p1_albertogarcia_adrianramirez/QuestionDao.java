@@ -1,0 +1,15 @@
+package com.example.dadm_p1_albertogarcia_adrianramirez;
+
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+
+import java.util.List;
+
+@Dao
+public interface QuestionDao {
+    @Query("SELECT * FROM questionstructure")
+    List<QuestionStructure> getAll();
+}
+
