@@ -45,7 +45,7 @@ public class ActivityMain extends AppCompatActivity {
         showActionBar = findViewById(R.id.toggleActionBar);
 
         //Database
-        qViewModel= new DatabaseViewModel(getApplication());
+        qViewModel= new ViewModelProvider(this).get(DatabaseViewModel.class);
 
 
         playButton.setOnClickListener(v -> {
