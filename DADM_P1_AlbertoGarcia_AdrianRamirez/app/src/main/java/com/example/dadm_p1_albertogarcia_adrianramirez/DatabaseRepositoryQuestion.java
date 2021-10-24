@@ -15,7 +15,6 @@ public class DatabaseRepositoryQuestion {
         DatabaseApp db = DatabaseApp.getDatabase(application);
         qDao = db.questionDao();
         allQuestions = qDao.getAllQuestions();
-        int a;
     }
 
     LiveData<List<DatabaseEntityQuestion>> getAllQuestions() {

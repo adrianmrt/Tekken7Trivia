@@ -17,7 +17,6 @@ public class DatabaseViewModel extends AndroidViewModel {
         super(application);
         questionRepo= new DatabaseRepositoryQuestion(application);
         readAllData= questionRepo.getAllQuestions();
-        int debug=1;
     }
 
     public DatabaseRepositoryQuestion getQuestionRepo(){
