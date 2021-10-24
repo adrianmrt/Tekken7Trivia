@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -15,17 +16,22 @@ public class DatabaseEntityQuestion {
 
     @PrimaryKey
     int questionId;
-
+    @NonNull
     @ColumnInfo
     int _questionType; //0 txt, 1 img
+    @NonNull
     @ColumnInfo
     int _answerType; //0 txt, 1 img
+    @NonNull
     @ColumnInfo
     ArrayList<Bitmap> _images; //0 question,1-3 answers
+    @NonNull
     @ColumnInfo
     String _answer;
+    @NonNull
     @ColumnInfo
     String _question;
+    @NonNull
     @ColumnInfo
     ArrayList<String> _possibleAnswers;
 
@@ -40,7 +46,6 @@ public class DatabaseEntityQuestion {
     }
 
     public DatabaseEntityQuestion() {
-
     }
 
     public String get_answer() {

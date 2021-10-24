@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 @Database(entities = {DatabaseEntityQuestion.class}, version = 1)
 @TypeConverters(Converters.class)
-
 abstract class DatabaseApp extends RoomDatabase {
 
     private static Context _context;
@@ -24,15 +23,13 @@ abstract class DatabaseApp extends RoomDatabase {
     private static volatile DatabaseApp INSTANCE;
 
     static DatabaseApp getDatabase(final Context context) {
-        _context= context;
+        _context= context.getApplicationContext();
         if (INSTANCE == null) {
             synchronized (DatabaseApp.class) {
                 if (INSTANCE == null) {
                     // Create database here
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            DatabaseApp.class, "QuestionsDatabase")
-                            .addCallback(sRoomDatabaseCallback)
-                            .build();
+                            DatabaseApp.class, "QuestionsDatabase").addCallback(sRoomDatabaseCallback).build();
                 }
             }
         }
@@ -41,7 +38,6 @@ abstract class DatabaseApp extends RoomDatabase {
 
     private static RoomDatabase.Callback sRoomDatabaseCallback =
             new RoomDatabase.Callback() {
-
                 @Override
                 public void onOpen(@NonNull SupportSQLiteDatabase db) {
                     super.onOpen(db);

@@ -2,7 +2,14 @@ package com.example.dadm_p1_albertogarcia_adrianramirez;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.WindowManager;
@@ -12,6 +19,8 @@ import android.widget.ImageButton;
 import android.widget.ToggleButton;
 
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 
 public class ActivityMain extends AppCompatActivity {
 
@@ -35,7 +44,9 @@ public class ActivityMain extends AppCompatActivity {
         infoButton = findViewById(R.id.infoButton);
         showActionBar = findViewById(R.id.toggleActionBar);
 
-        //METER BASE DE DATOS
+        //Database
+        qViewModel= new DatabaseViewModel(getApplication());
+
 
         playButton.setOnClickListener(v -> {
             String localPlayerName = playerNameInput.getText().toString();
@@ -46,7 +57,6 @@ public class ActivityMain extends AppCompatActivity {
             } else {
                 Intent intent = new Intent(getApplicationContext(), ActivityQuestion.class);
                 intent.putExtra("playerName", localPlayerName);
-                //intent.putExtra("questions", questions);
                 startActivity(intent);
             }
         });
@@ -73,4 +83,6 @@ public class ActivityMain extends AppCompatActivity {
         super.onResume();
         playerNameLayout.setErrorEnabled(false);
     }
+
+
 }
