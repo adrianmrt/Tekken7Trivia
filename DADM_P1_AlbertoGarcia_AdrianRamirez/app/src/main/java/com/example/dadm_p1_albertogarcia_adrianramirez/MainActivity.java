@@ -1,21 +1,15 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ToggleButton;
 
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +17,12 @@ public class MainActivity extends AppCompatActivity {
     EditText playerNameInput;
     Button playButton;
     ImageButton infoButton;
-    ToggleButton showActionBar;
+    ImageButton configButton;
+    ImageButton userButton;
+    ImageButton leaderboardButton;
     QuestionStructure[] questions;
+
+    FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +30,23 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
+        fragmentManager = getSupportFragmentManager();
+
+        if (savedInstanceState == null) {
+            fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
+        }
+
+        /*
         playButton = findViewById(R.id.playButton);
         playerNameInput = findViewById(R.id.playerNameInput);
         playerNameLayout = findViewById(R.id.playerNameInputLayout);
         infoButton = findViewById(R.id.infoButton);
-        showActionBar = findViewById(R.id.toggleActionBar);
+        configButton = findViewById(R.id.ConfigButton);
+        userButton = findViewById(R.id.UserButton);
+        leaderboardButton = findViewById(R.id.LeaderboardButton);
 
         questions = createQuestions();
+
 
         playButton.setOnClickListener(v -> {
             String localPlayerName = playerNameInput.getText().toString();
@@ -54,18 +62,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        configButton.setOnClickListener(v -> {
+
+        });
+
+        userButton.setOnClickListener(v -> {
+            Toast.makeText(this, "Clickado", Toast.LENGTH_SHORT).show();
+        });
+
+        leaderboardButton.setOnClickListener(v -> {
+
+        });
+
         infoButton.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
             startActivity(intent);
-        });
-
-        showActionBar.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                getSupportActionBar().show();
-            } else {
-                getSupportActionBar().hide();
-            }
-        });
+        });*/
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
@@ -74,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        playerNameLayout.setErrorEnabled(false);
+        //playerNameLayout.setErrorEnabled(false);
     }
 
     public QuestionStructure[] createQuestions() {
