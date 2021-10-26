@@ -47,12 +47,7 @@ public class answerFragment extends Fragment {
             rootView = inflater.inflate(R.layout.answer_img_layout, container, false);
             setImgButtons();
         }
-        _radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                getAnswerChosen();
-            }
-        });
+        _radioGroup.setOnCheckedChangeListener((group, checkedId) -> getAnswerChosen());
 
         return rootView;
     }
