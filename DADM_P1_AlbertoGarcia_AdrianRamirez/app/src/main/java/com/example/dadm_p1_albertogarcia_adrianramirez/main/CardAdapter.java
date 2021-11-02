@@ -1,4 +1,4 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
 import java.util.List;
 

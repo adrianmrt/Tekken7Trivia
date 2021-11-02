@@ -1,19 +1,19 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 
-import com.google.android.material.textfield.TextInputLayout;
+import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.UserDataBase;
 
 public class MainActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
+    public static UserDataBase userDataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
+        userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").allowMainThreadQueries().build();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();

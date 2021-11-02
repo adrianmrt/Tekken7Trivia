@@ -1,4 +1,4 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.dadm_p1_albertogarcia_adrianramirez.game.QuestionActivity;
+import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainFragment extends Fragment {

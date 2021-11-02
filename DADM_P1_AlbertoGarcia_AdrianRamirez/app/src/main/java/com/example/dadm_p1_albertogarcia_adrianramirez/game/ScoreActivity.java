@@ -1,13 +1,15 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.main.MainActivity;
 
 public class ScoreActivity extends AppCompatActivity {
 
@@ -43,7 +45,7 @@ public class ScoreActivity extends AppCompatActivity {
         });
 
         backToMenuButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         });
 
