@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName = "users")
+@Entity(tableName = "user_table")
 public class User {
     //@ColumnInfo (name = "user_profile_picture")
     //private Image profilePicture;

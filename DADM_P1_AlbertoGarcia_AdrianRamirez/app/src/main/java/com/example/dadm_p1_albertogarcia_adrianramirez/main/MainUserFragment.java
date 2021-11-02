@@ -36,10 +36,12 @@ public class MainUserFragment extends Fragment {
         addUser = view.findViewById(R.id.addUserButton);
 
         addUser.setOnClickListener(v -> {
-            User user = new User();
-            user.setName(userName.getText().toString());
+            new Thread(() -> {
+                User user = new User();
+                user.setName(userName.getText().toString());
+                MainActivity.userDataBase.userDAO().addUser(user);
+            }).start();
 
-            MainActivity.userDataBase.userDAO().addUser(user);
             Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
 
             userName.setText("");

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
-        userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").allowMainThreadQueries().build();
+        userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").build();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
