@@ -1,11 +1,12 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.os.Parcelable;
+
+import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
 public class QuestionActivity extends AppCompatActivity {
 

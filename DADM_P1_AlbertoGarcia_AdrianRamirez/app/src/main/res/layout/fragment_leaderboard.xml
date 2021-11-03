@@ -7,7 +7,7 @@
     android:alpha="1"
     android:background="#072134"
     android:backgroundTint="@color/purple_200"
-    tools:context=".LeaderboardFragment">
+    tools:context=".main.LeaderboardFragment">
 
     <ImageView
         android:id="@+id/imageView2"

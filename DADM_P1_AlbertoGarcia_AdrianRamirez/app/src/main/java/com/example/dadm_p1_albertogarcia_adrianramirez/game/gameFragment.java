@@ -1,4 +1,4 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
 import android.os.Bundle;
 
@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
 public class gameFragment extends Fragment {
 
