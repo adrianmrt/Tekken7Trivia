@@ -33,14 +33,32 @@ public class Question {
     @ColumnInfo
     ArrayList<String> _possibleAnswers;
 
-    public Question(int id, int questionType, int answerType, ArrayList<Bitmap> images, String answer, String question, ArrayList<String> possibleAnswers) {
-        questionId = id;
-        _questionType = questionType;
-        _answer = answer;
-        _answerType = answerType;
-        _images = images;
-        _question = question;
-        _possibleAnswers = possibleAnswers;
+    public void set_answer(@NonNull String _answer) {
+        this._answer = _answer;
+    }
+
+    public void set_answerType(int _answerType) {
+        this._answerType = _answerType;
+    }
+
+    public void set_images(@NonNull ArrayList<Bitmap> _images) {
+        this._images = _images;
+    }
+
+    public void set_possibleAnswers(@NonNull ArrayList<String> _possibleAnswers) {
+        this._possibleAnswers = _possibleAnswers;
+    }
+
+    public void set_question(@NonNull String _question) {
+        this._question = _question;
+    }
+
+    public void set_questionType(int _questionType) {
+        this._questionType = _questionType;
+    }
+
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
     }
 
     public String get_answer() {

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -57,7 +58,10 @@ public class MainUserFragment extends Fragment {
                 User user = new User();
                 user.setName(userName.getText().toString());
 
+                Question question= new Question();
+
                 MainActivity.userDataBase.userDAO().addUser(user);
+                MainActivity.questionDatabase.questionDAO().addQuestion(question);
                 Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
 
                 usersList = MainActivity.userDataBase.userDAO().getUsers();
