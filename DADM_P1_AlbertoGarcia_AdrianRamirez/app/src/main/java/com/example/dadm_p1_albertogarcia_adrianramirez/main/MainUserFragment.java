@@ -55,16 +55,19 @@ public class MainUserFragment extends Fragment {
                 userNameLayout.setError("Campo vacío");
                 userNameLayout.setErrorEnabled(true);
             } else {
+                Utils utils= new Utils();
                 User user = new User();
                 user.setName(userName.getText().toString());
 
                 Question question= new Question();
                 question.set_question("¿Cómo se llama este personaje?");
                 question.setQuestionId(4);
-                question.set_possibleAnswers();
-                DatabaseEntityQuestion q4= new DatabaseEntityQuestion(4,1, 0, createBitmapList(new int[]{R.drawable.steve_img_round}),
-                        "Steve", ,
-                        createStringList());
+                question.set_possibleAnswers(Utils.createStringList(new String[]{"aaa","b"}));
+                question.set_images(Utils.createBitmapList(new int[]{R.drawable.steve_img_round}, getContext()));
+                question.set_questionType(1);
+                question.set_answerType(0);
+                question.set_answer("Steve");
+
                 MainActivity.userDataBase.userDAO().addUser(user);
                 MainActivity.questionDatabase.questionDAO().addQuestion(question);
                 Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
