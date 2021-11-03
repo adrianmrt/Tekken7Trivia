@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.QuestionDatabase;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.UserDataBase;
 
 public class MainActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
     public static UserDataBase userDataBase;
+    public static QuestionDatabase questionDatabase;
 
 
     @Override
@@ -24,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").allowMainThreadQueries().build();
-
+        questionDatabase= Room.databaseBuilder(getApplicationContext(), QuestionDatabase.class, "questiondb").allowMainThreadQueries().build();
+        
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
         }
