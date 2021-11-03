@@ -59,7 +59,12 @@ public class MainUserFragment extends Fragment {
                 user.setName(userName.getText().toString());
 
                 Question question= new Question();
-
+                question.set_question("¿Cómo se llama este personaje?");
+                question.setQuestionId(4);
+                question.set_possibleAnswers();
+                DatabaseEntityQuestion q4= new DatabaseEntityQuestion(4,1, 0, createBitmapList(new int[]{R.drawable.steve_img_round}),
+                        "Steve", ,
+                        createStringList());
                 MainActivity.userDataBase.userDAO().addUser(user);
                 MainActivity.questionDatabase.questionDAO().addQuestion(question);
                 Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
