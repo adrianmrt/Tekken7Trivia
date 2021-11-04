@@ -2,7 +2,11 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.database;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
+
+import java.util.List;
 
 public class UserRepository {
 
@@ -14,4 +18,5 @@ public class UserRepository {
         userDAO= userDataBase.userDAO();
     }
     public void InsertUser(User user){new InsertUserAsyncTask(userDAO).execute(user);}
+    public LiveData<List<User>>GetUsers(){return userDAO.getUsers();};
 }
