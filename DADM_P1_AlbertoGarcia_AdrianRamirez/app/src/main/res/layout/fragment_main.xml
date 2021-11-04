@@ -31,7 +31,7 @@
                 android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#B0072134"
+                android:background="#B3072134"
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="top|center_vertical"
                 android:text="Tekken 7 Trivia"
