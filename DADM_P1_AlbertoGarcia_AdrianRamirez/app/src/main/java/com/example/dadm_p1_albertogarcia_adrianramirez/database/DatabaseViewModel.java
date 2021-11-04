@@ -10,10 +10,16 @@ import java.util.List;
 
 public class DatabaseViewModel extends AndroidViewModel {
 
-    LiveData<List<Question>> readAllData;
+    LiveData<List<Question>> allQuestions;
+    private QuestionRepository questionRepository;
 
     public DatabaseViewModel(@NonNull Application application) {
         super(application);
+        questionRepository= new QuestionRepository(application);
+        allQuestions= questionRepository.getAllQuestions();
     }
 
+    public QuestionRepository getQuestionRepository() {
+        return questionRepository;
+    }
 }

@@ -59,6 +59,7 @@ public class MainUserFragment extends Fragment {
                 User user = new User();
                 user.setName(userName.getText().toString());
 
+                /*
                 Question question= new Question();
                 question.set_question("¿Cómo se llama este personaje?");
                 question.setQuestionId(4);
@@ -67,9 +68,11 @@ public class MainUserFragment extends Fragment {
                 question.set_questionType(1);
                 question.set_answerType(0);
                 question.set_answer("Steve");
+                MainActivity.questionDatabase.questionDAO().addQuestion(question);
+                
+                 */
 
                 MainActivity.userDataBase.userDAO().addUser(user);
-                MainActivity.questionDatabase.questionDAO().addQuestion(question);
                 Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
 
                 usersList = MainActivity.userDataBase.userDAO().getUsers();
