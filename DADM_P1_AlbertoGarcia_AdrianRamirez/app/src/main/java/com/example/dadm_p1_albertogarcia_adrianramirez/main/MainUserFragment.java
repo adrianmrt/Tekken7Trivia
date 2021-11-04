@@ -3,6 +3,7 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.google.android.material.textfield.TextInputLayout;
@@ -29,6 +31,8 @@ public class MainUserFragment extends Fragment {
 
     List<User> usersList;
 
+    DatabaseViewModel databaseViewModel;
+
     public MainUserFragment() {
         // Required empty public constructor
     }
@@ -36,6 +40,7 @@ public class MainUserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        databaseViewModel= new ViewModelProvider(getActivity()).get(DatabaseViewModel.class);
 
     }
 
@@ -58,20 +63,11 @@ public class MainUserFragment extends Fragment {
                 Utils utils= new Utils();
                 User user = new User();
                 user.setName(userName.getText().toString());
+                databaseViewModel.InsertUser(user);
 
-                Question question= new Question();
-                question.set_question("¿Cómo se llama este personaje?");
-                question.setQuestionId(4);
-                question.set_possibleAnswers(Utils.createStringList(new String[]{"aaa","b"}));
-                question.set_images(Utils.createBitmapList(new int[]{R.drawable.steve_img_round}, getContext()));
-                question.set_questionType(1);
-                question.set_answerType(0);
-                question.set_answer("Steve");
-
-                MainActivity.userDataBase.userDAO().addUser(user);
-                MainActivity.questionDatabase.questionDAO().addQuestion(question);
                 Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
 
+                /*
                 usersList = MainActivity.userDataBase.userDAO().getUsers();
 
                 for (User users : usersList){
@@ -79,8 +75,9 @@ public class MainUserFragment extends Fragment {
 
                     usersListInfo = "Nombre: " + name + "\n\n";
                 }
-
-                usersListText.setText(usersListInfo);
+                      usersListText.setText(usersListInfo);
+                 */
+                
                 userName.setText("");
             }
         });
