@@ -22,4 +22,6 @@ public class DatabaseViewModel extends AndroidViewModel {
     public QuestionRepository getQuestionRepository() {
         return questionRepository;
     }
+
+    public void InsertQuestion(Question question){ questionRepository.InsertQuestion(question);}
 }
