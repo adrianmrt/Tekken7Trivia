@@ -14,13 +14,15 @@ public class QuestionRepository {
     Utils utils;
 
     public QuestionRepository(Application application) {
-        QuestionDatabase questionDatabase= QuestionDatabase.getDatabase(application.getApplicationContext());
-        questionDAO=questionDatabase.questionDAO();
-    }
-    public LiveData<List<Question>> getAllQuestions() {
-        return questionDAO.getAllQuestions();
+        QuestionDatabase questionDatabase = QuestionDatabase.getDatabase(application.getApplicationContext());
+        questionDAO = questionDatabase.questionDAO();
     }
 
-    public void InsertQuestion(Question question){new InsertQuestionAsyncTask(questionDAO).execute(question);
+    public void InsertQuestion(Question question) {
+        new InsertQuestionAsyncTask(questionDAO).execute(question);
+    }
+
+    public LiveData<List<Question>> getQuestions() {
+        return questionDAO.getAllQuestions();
     }
 }
