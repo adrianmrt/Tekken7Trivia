@@ -2,6 +2,7 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public static UserDataBase userDataBase;
     public static QuestionDatabase questionDatabase;
 
-    private DatabaseViewModel databaseViewModel;
+        private ViewModel databaseViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
-        userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").allowMainThreadQueries().build();
+        //userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").allowMainThreadQueries().build();
         //questionDatabase= Room.databaseBuilder(getApplicationContext(), QuestionDatabase.class, "questiondb").allowMainThreadQueries().build();
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
+
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
         }

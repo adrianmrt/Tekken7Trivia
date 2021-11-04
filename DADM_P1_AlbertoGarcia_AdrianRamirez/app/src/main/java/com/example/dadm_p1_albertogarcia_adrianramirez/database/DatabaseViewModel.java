@@ -16,7 +16,7 @@ public class DatabaseViewModel extends AndroidViewModel {
     public DatabaseViewModel(@NonNull Application application) {
         super(application);
         questionRepository= new QuestionRepository(application);
-        allQuestions= questionRepository.getAllQuestions();
+        //allQuestions= questionRepository.getAllQuestions();
     }
 
     public QuestionRepository getQuestionRepository() {
