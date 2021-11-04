@@ -37,7 +37,7 @@
                 android:text="Tekken 7 Trivia"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="60sp"
+                android:textSize="48sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

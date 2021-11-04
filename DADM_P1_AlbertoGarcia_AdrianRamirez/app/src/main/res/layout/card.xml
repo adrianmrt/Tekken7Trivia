@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:shape="ring"
-        app:cardBackgroundColor="#713542"
+        app:cardBackgroundColor="@color/teal_700"
         app:cardCornerRadius="10dp"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
