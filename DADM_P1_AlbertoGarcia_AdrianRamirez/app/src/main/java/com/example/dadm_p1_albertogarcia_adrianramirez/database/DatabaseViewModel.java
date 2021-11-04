@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-public class DatabaseViewModel extends AndroidViewModel {
+public class  DatabaseViewModel extends AndroidViewModel {
 
     LiveData<List<Question>> allQuestions;
     LiveData<List<User>> allUsers;
