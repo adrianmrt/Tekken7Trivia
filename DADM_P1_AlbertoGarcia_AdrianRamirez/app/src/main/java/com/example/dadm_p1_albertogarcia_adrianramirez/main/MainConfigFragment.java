@@ -1,5 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,6 +45,11 @@ public class MainConfigFragment extends Fragment {
     private void getAnswerChosen() {
         int _answerID = nQuestions.getCheckedRadioButtonId();
         RadioButton numberSelected = nQuestions.findViewById(_answerID);
-        String quantity= numberSelected.getText().toString();
+        Integer quantity= Integer.parseInt(numberSelected.getText().toString());
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("numberOfQuestions",quantity);
+        editor.apply();
     }
 }

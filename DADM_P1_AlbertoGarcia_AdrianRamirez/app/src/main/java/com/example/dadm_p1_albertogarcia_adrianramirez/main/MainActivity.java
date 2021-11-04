@@ -37,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         //createPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("numberOfQuestions",3);
-        editor.apply();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
