@@ -30,10 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         //userDataBase = Room.databaseBuilder(getApplicationContext(), UserDataBase.class, "userdb").allowMainThreadQueries().build();
-        //questionDatabase= Room.databaseBuilder(getApplicationContext(), QuestionDatabase.class, "questiondb").allowMainThreadQueries().build();
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
-        createQuestions();
+        //createQuestions();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         Question question= new Question();
         question.set_question("¿Cómo se llama este personaje?");
-        question.setQuestionId(19);
+        question.setQuestionId(48);
         question.set_possibleAnswers(Utils.createStringList(new String[]{"aaa","b"}));
         question.set_images(Utils.createBitmapList(new int[]{R.drawable.steve_img_round},getApplicationContext()));
         question.set_questionType(1);

@@ -12,10 +12,12 @@ public class DatabaseViewModel extends AndroidViewModel {
 
     LiveData<List<Question>> allQuestions;
     private QuestionRepository questionRepository;
+    private UserRepository userRepository;
 
     public DatabaseViewModel(@NonNull Application application) {
         super(application);
         questionRepository= new QuestionRepository(application);
+        userRepository= new UserRepository(application);
         //allQuestions= questionRepository.getAllQuestions();
     }
 
@@ -24,4 +26,5 @@ public class DatabaseViewModel extends AndroidViewModel {
     }
 
     public void InsertQuestion(Question question){ questionRepository.InsertQuestion(question);}
+    public void InsertUser(User user){ userRepository.InsertUser(user);}
 }
