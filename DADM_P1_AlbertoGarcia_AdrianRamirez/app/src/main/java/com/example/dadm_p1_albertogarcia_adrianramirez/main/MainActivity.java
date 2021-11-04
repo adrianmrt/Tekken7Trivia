@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
-        createQuestions();
+        //createQuestions();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();

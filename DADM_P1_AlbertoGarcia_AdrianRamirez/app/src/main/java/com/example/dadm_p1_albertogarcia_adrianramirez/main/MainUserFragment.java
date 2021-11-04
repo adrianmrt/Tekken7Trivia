@@ -2,7 +2,10 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.text.TextUtils;
@@ -28,9 +31,7 @@ public class MainUserFragment extends Fragment {
     TextView usersListText;
     EditText userName;
     Button addUser;
-
-    List<User> usersList;
-
+    String UserList = "";
     DatabaseViewModel databaseViewModel;
 
     public MainUserFragment() {
@@ -40,8 +41,8 @@ public class MainUserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        databaseViewModel= new ViewModelProvider(getActivity()).get(DatabaseViewModel.class);
-
+        databaseViewModel = new ViewModelProvider(getActivity()).get(DatabaseViewModel.class);
+        
     }
 
     @Override
@@ -53,31 +54,28 @@ public class MainUserFragment extends Fragment {
         userName = view.findViewById(R.id.addUserName);
         addUser = view.findViewById(R.id.addUserButton);
 
-        addUser.setOnClickListener(v -> {
-            String usersListInfo = null;
+        databaseViewModel.getAllUsers().observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> users) {
+                UserList = "";
+                for (User u : users) {
+                    String name = u.getName();
+                    UserList = UserList + "Nombre: " + name + "\n\n";
+                }
+                usersListText.setText(UserList);
+            }
+        });
 
+        addUser.setOnClickListener(v -> {
             if (TextUtils.isEmpty(userName.getText().toString())) {
                 userNameLayout.setError("Campo vacío");
                 userNameLayout.setErrorEnabled(true);
             } else {
-                Utils utils= new Utils();
+                Utils utils = new Utils();
                 User user = new User();
                 user.setName(userName.getText().toString());
                 databaseViewModel.InsertUser(user);
-
                 Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
-
-                /*
-                usersList = MainActivity.userDataBase.userDAO().getUsers();
-
-                for (User users : usersList){
-                    String name = user.getName();
-
-                    usersListInfo = "Nombre: " + name + "\n\n";
-                }
-                      usersListText.setText(usersListInfo);
-                 */
-                
                 userName.setText("");
             }
         });

@@ -11,6 +11,7 @@ import java.util.List;
 public class DatabaseViewModel extends AndroidViewModel {
 
     LiveData<List<Question>> allQuestions;
+    LiveData<List<User>> allUsers;
     private QuestionRepository questionRepository;
     private UserRepository userRepository;
 
@@ -18,7 +19,8 @@ public class DatabaseViewModel extends AndroidViewModel {
         super(application);
         questionRepository= new QuestionRepository(application);
         userRepository= new UserRepository(application);
-        //allQuestions= questionRepository.getAllQuestions();
+        allQuestions= questionRepository.getQuestions();
+        allUsers= userRepository.GetUsers();
     }
 
     public QuestionRepository getQuestionRepository() {
@@ -27,4 +29,12 @@ public class DatabaseViewModel extends AndroidViewModel {
 
     public void InsertQuestion(Question question){ questionRepository.InsertQuestion(question);}
     public void InsertUser(User user){ userRepository.InsertUser(user);}
+
+    public LiveData<List<Question>> getAllQuestions() {
+        return allQuestions;
+    }
+
+    public LiveData<List<User>> getAllUsers() {
+        return allUsers;
+    }
 }
