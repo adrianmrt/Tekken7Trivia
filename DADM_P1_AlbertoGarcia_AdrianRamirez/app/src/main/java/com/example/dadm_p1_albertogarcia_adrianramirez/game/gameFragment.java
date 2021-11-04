@@ -1,5 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,7 @@ public class gameFragment extends Fragment {
     Button nextQuestion;
     int questionAct; //actual question we are on
     String answerAct; //answer selected
+    int numberOfQuestions;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,8 @@ public class gameFragment extends Fragment {
                 answerAct = bundle.getString("answer");
             }
         });
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
     }
 
     @Override
@@ -82,9 +87,8 @@ public class gameFragment extends Fragment {
                 bundle.putBoolean("answer", answer);
 
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
-
                 questionAct++;
-                if (questionAct < questions.length) {
+                if (questionAct < numberOfQuestions) {
                     setQuestion();
                 } else {
                     getParentFragmentManager().setFragmentResult("finished", bundle);

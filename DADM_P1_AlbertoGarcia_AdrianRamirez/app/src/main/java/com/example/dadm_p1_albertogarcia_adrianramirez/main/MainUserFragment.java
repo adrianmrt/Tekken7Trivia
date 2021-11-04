@@ -42,7 +42,7 @@ public class MainUserFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         databaseViewModel = new ViewModelProvider(getActivity()).get(DatabaseViewModel.class);
-        
+
     }
 
     @Override

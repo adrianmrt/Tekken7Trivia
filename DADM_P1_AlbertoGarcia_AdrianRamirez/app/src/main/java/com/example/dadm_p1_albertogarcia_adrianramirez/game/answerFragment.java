@@ -32,7 +32,6 @@ public class answerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -44,13 +43,11 @@ public class answerFragment extends Fragment {
         if (_question.get_answerType() == 0) {
             rootView = inflater.inflate(R.layout.answer_text_layout, container, false);
             setTextButtons();
-
         } else {
             rootView = inflater.inflate(R.layout.answer_img_layout, container, false);
             setImgButtons();
         }
         _radioGroup.setOnCheckedChangeListener((group, checkedId) -> getAnswerChosen());
-
         return rootView;
     }
 

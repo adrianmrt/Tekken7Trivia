@@ -13,6 +13,7 @@ public class QuestionActivity extends AppCompatActivity {
     String playerName = "";
     int initialScore = 0;
 
+
     QuestionStructure[] questions;
 
     @Override
