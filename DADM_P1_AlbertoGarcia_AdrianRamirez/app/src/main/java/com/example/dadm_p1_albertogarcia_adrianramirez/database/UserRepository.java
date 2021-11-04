@@ -13,6 +13,5 @@ public class UserRepository {
         UserDataBase userDataBase= UserDataBase.getUserDatabase(application.getApplicationContext());
         userDAO= userDataBase.userDAO();
     }
-
     public void InsertUser(User user){new InsertUserAsyncTask(userDAO).execute(user);}
 }

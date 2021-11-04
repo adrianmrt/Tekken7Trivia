@@ -3,12 +3,10 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.database;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Room;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 
 import java.util.List;
-import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
 public class QuestionRepository {
 
