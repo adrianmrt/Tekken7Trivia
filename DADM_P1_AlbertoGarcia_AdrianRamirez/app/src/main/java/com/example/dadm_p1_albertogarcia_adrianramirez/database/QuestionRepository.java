@@ -14,10 +14,9 @@ public class QuestionRepository {
 
     private QuestionDAO questionDAO;
     Utils utils;
-    
+
     public QuestionRepository(Application application) {
-        QuestionDatabase questionDatabase= Room.databaseBuilder(application.getApplicationContext(),
-                QuestionDatabase.class, "questiondb").build();
+        QuestionDatabase questionDatabase= QuestionDatabase.getDatabase(application.getApplicationContext());
         questionDAO=questionDatabase.questionDAO();
     }
     public LiveData<List<Question>> getAllQuestions() {

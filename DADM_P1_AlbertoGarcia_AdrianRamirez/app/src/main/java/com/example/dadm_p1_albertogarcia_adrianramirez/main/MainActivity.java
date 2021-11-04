@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         Question question= new Question();
         question.set_question("¿Cómo se llama este personaje?");
-        question.setQuestionId(4);
+        question.setQuestionId(19);
         question.set_possibleAnswers(Utils.createStringList(new String[]{"aaa","b"}));
         question.set_images(Utils.createBitmapList(new int[]{R.drawable.steve_img_round},getApplicationContext()));
         question.set_questionType(1);
