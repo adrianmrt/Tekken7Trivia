@@ -4,11 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Utils {
@@ -19,7 +21,10 @@ public class Utils {
         context = c;
     }
 
-    public Utils(){};
+    public Utils() {
+    }
+
+    ;
 
     public static ArrayList createBitmapList(int[] elements, Context context) {
         ArrayList<Bitmap> list = new ArrayList<>();
@@ -40,7 +45,7 @@ public class Utils {
     //Files management
     public void OpenOutFile(String filename, String dataToSave) {
         try {
-            FileOutputStream fos= context.openFileOutput(filename,Context.MODE_APPEND);
+            FileOutputStream fos = context.openFileOutput(filename, Context.MODE_APPEND);
             String cadenaOutput = dataToSave;
             fos.write(cadenaOutput.getBytes());
             fos.close();
@@ -56,10 +61,17 @@ public class Utils {
     public String OpenInFile(String filename) {
         try {
             FileInputStream fin = context.openFileInput(filename);
-            DataInputStream dis = new DataInputStream(fin);
-            String cadenaInput = dis.readLine();
+            BufferedReader dis = new BufferedReader(new InputStreamReader(fin));
+            String cadena = dis.readLine() + "\n";
+            String nextString = "a";
+            while (nextString != null) {
+                nextString = dis.readLine();
+                if (nextString != null) {
+                    cadena = cadena + nextString + "\n";
+                }
+            }
             fin.close();
-            return cadenaInput;
+            return cadena;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return "";
