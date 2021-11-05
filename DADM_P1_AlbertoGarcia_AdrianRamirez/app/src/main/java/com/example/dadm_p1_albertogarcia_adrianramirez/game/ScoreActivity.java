@@ -15,10 +15,13 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.RankingUnit;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.MainActivity;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 
+import java.util.Random;
+
 public class ScoreActivity extends AppCompatActivity {
 
     String score;
     String playerName;
+    String timeT;
     String time;
     TextView playerNameText;
     TextView scoreText;
@@ -26,6 +29,7 @@ public class ScoreActivity extends AppCompatActivity {
     Button replayButton;
     Button backToMenuButton;
     Parcelable[] _questions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,7 @@ public class ScoreActivity extends AppCompatActivity {
         score = bundle.getString("score");
         playerName = bundle.getString("playerName");
         _questions= bundle.getParcelableArray("questions");
+        timeT= bundle.getString("timeT");
         time= bundle.getString("time");
 
         scoreText = findViewById(R.id.scoreText);
@@ -59,14 +64,15 @@ public class ScoreActivity extends AppCompatActivity {
         });
 
         scoreText.setText(score);
-        timeText.setText(time);
+        timeText.setText(timeT);
 
         DatabaseViewModel db= new ViewModelProvider(this).get(DatabaseViewModel.class);
         RankingUnit rankingUnit= new RankingUnit();
+        Random rand= new Random();
+        rankingUnit.setInnerId(rand.nextInt(999999999));
         rankingUnit.setName(playerName);
         rankingUnit.setScore(Integer.parseInt(score));
-        rankingUnit.setTime(Integer.parseInt(time));
+        rankingUnit.setTime(Float.parseFloat(time));
         db.InsertRanking(rankingUnit);
-
     }
 }

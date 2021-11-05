@@ -58,7 +58,9 @@ public class userFragment extends Fragment {
             intent.putExtra("playerName", playerName);
             intent.putExtra("score", score.toString());
             intent.putExtra("questions", _questions);
-            intent.putExtra("time", time);
+            intent.putExtra("timeT", time);
+            String _time= Integer.toString(min)+"."+Integer.toString(sec);
+            intent.putExtra("time", _time);
             getActivity().startActivity(intent);
         });
     }

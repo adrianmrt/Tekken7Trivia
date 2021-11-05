@@ -5,6 +5,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +16,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.RankingUnit;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 
 import java.util.List;
 
@@ -19,7 +26,8 @@ public class LeaderboardFragment extends Fragment {
 
     TextView rankingText;
     Utils utils;
-    List<String>rank;
+    String ranking;
+    DatabaseViewModel db;
 
     public LeaderboardFragment() {
         // Required empty public constructor
@@ -33,15 +41,28 @@ public class LeaderboardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.fragment_leaderboard, container, false);
+        View view= inflater.inflate(R.layout.fragment_leaderboard, container, false);
+        db = new ViewModelProvider(this).get(DatabaseViewModel.class);
+        db.getAllRanking().observe(getViewLifecycleOwner(), new Observer<List<RankingUnit>>() {
+            @Override
+            public void onChanged(List<RankingUnit> rankingUnits) {
+                ranking = "";
+                for (RankingUnit r : rankingUnits) {
+                    String name = r.getName();
+                    String score = Integer.toString(r.getScore());
+                    String time = Float.toString(r.getTime());
+                    ranking = ranking + "Nombre: " + name + " Puntuación: " + score + "Tiempo: " + time + "\n";
+                }
+                rankingText.setText(ranking);
+            }
+        });
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        utils=new Utils(view.getContext());
-        rankingText= view.findViewById(R.id.rankingText);
-        rankingText.setText(utils.OpenInFile("ranking"));
+        rankingText = view.findViewById(R.id.rankingText);
+        ranking="";
     }
 }

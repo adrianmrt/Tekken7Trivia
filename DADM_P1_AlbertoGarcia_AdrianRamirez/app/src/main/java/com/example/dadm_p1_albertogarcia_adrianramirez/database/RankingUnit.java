@@ -8,15 +8,35 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "ranking")
 public class RankingUnit {
 
+    @PrimaryKey
     @NonNull
+    private int innerId;
+
     @ColumnInfo(name = "player_name")
     private String name;
-    @NonNull
+
     @ColumnInfo(name = "score")
     private int score;
-    @NonNull
+
     @ColumnInfo(name = "time")
     private float time;
+
+    public float getTime() {
+        return time;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getInnerId() {
+        return innerId;
+    }
+
+    @NonNull
+    public String getName() {
+        return name;
+    }
 
     public void setName(@NonNull String name) {
         this.name = name;
@@ -28,5 +48,9 @@ public class RankingUnit {
 
     public void setTime(float time) {
         this.time = time;
+    }
+
+    public void setInnerId(int innerId) {
+        this.innerId = innerId;
     }
 }
