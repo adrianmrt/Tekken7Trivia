@@ -12,6 +12,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 public class Utils {
 
@@ -62,12 +64,12 @@ public class Utils {
         try {
             FileInputStream fin = context.openFileInput(filename);
             BufferedReader dis = new BufferedReader(new InputStreamReader(fin));
-            String cadena = dis.readLine() + "\n";
+            String cadena = dis.readLine() + ";";
             String nextString = "a";
             while (nextString != null) {
                 nextString = dis.readLine();
                 if (nextString != null) {
-                    cadena = cadena + nextString + "\n";
+                    cadena = cadena + nextString + ";";
                 }
             }
             fin.close();
@@ -79,5 +81,17 @@ public class Utils {
             e.printStackTrace();
             return "";
         }
+    }
+
+    public String[] getRankingInList(String ranking){
+        String[]allData = ranking.split(";");
+        Vector[]users;
+        Vector[]score;
+        Vector[]time;
+
+        for (int i=0;i<allData.length;i++){
+
+        }
+        return null;
     }
 }

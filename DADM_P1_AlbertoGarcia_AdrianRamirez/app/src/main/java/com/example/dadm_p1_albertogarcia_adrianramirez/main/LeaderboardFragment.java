@@ -13,10 +13,14 @@ import android.widget.TextView;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
+import java.util.List;
+
 public class LeaderboardFragment extends Fragment {
 
     TextView rankingText;
     Utils utils;
+    List<String>rank;
+
     public LeaderboardFragment() {
         // Required empty public constructor
     }

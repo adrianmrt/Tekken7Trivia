@@ -7,8 +7,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.RankingUnit;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.MainActivity;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 
@@ -58,7 +61,12 @@ public class ScoreActivity extends AppCompatActivity {
         scoreText.setText(score);
         timeText.setText(time);
 
-        utils.OpenOutFile("ranking",playerName+" "+score+" "+time);
+        DatabaseViewModel db= new ViewModelProvider(this).get(DatabaseViewModel.class);
+        RankingUnit rankingUnit= new RankingUnit();
+        rankingUnit.setName(playerName);
+        rankingUnit.setScore(Integer.parseInt(score));
+        rankingUnit.setTime(Integer.parseInt(time));
+        db.InsertRanking(rankingUnit);
 
     }
 }
