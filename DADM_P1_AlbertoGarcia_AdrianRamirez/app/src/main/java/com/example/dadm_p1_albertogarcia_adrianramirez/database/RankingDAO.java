@@ -15,6 +15,6 @@ public interface RankingDAO {
     @Query("DELETE FROM ranking")
     void deleteAll();
 
-    @Query("SELECT * from ranking ORDER BY score ASC, time DESC")
+    @Query("SELECT * from ranking ORDER BY score DESC, time ASC")
     LiveData<List<RankingUnit>> getRanking();
 }
