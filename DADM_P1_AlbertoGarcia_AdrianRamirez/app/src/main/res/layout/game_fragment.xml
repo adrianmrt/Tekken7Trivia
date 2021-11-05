@@ -4,21 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     tools:context=".game.gameFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/questionLayout"
-            android:layout_width="341dp"
-            android:layout_height="265dp"
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_gravity="bottom|center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/questions_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="373dp"
+            android:layout_height="500dp"
+            android:layout_marginBottom="32dp"
+            android:background="#CC072134"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/questionLayout"
+            android:layout_width="364dp"
+            android:layout_height="265dp"
+            android:background="#00072134"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.065"></androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintVertical_bias="0.064"></androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/buttonCheck"
@@ -26,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="157dp"
             android:layout_marginEnd="160dp"
-            android:backgroundTint="#C63D41"
+            android:backgroundTint="@color/purple_700"
             android:fontFamily="@font/montserrat_medium"
             android:text="Responder"
             android:textAlignment="center"
@@ -41,12 +70,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/answerLayout"
             android:layout_width="364dp"
-            android:layout_height="228dp"
+            android:layout_height="232dp"
             android:layout_marginBottom="22dp"
+            android:background="#00072134"
             app:layout_constraintBottom_toTopOf="@+id/buttonCheck"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

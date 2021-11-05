@@ -65,7 +65,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="0dp"
                 android:layout_toLeftOf="@id/flagImg"
-                android:fontFamily="@font/montserrat_light"
+                android:fontFamily="@font/montserrat_regular"
                 android:text=" País:"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"

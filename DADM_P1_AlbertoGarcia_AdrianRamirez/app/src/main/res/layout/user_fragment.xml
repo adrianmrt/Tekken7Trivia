@@ -6,10 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".game.userFragment">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="447dp"
+        android:layout_height="731dp"
+        android:layout_gravity="bottom|center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/questions_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#713542">
+        android:background="#CC072134">
 
         <TextView
             android:id="@+id/score"
@@ -18,7 +30,7 @@
             android:layout_below="@+id/editTextTextPersonName2"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="-31dp"
-            android:layout_marginEnd="62dp"
+            android:layout_marginEnd="21dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="Puntuación"
             android:textAlignment="viewEnd"
@@ -34,7 +46,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="29dp"
             android:layout_marginLeft="29dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="39dp"
             android:fontFamily="@font/montserrat_bold"
             android:singleLine="true"
             android:text="playerName"
@@ -47,8 +59,8 @@
             android:layout_height="52dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="2dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="-39dp"
             android:background="@null"
             android:ems="10"
             android:fontFamily="@font/montserrat_medium"
