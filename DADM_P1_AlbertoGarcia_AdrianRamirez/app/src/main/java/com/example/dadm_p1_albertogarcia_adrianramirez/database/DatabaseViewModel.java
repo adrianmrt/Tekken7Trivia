@@ -21,6 +21,7 @@ public class  DatabaseViewModel extends AndroidViewModel {
         userRepository= new UserRepository(application);
         allQuestions= questionRepository.getQuestions();
         allUsers= userRepository.GetUsers();
+
     }
 
     public QuestionRepository getQuestionRepository() {
