@@ -31,37 +31,34 @@
                 android:id="@+id/timer"
                 android:layout_width="174dp"
                 android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Timer"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.066"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.079" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/playerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:singleLine="true"
                 android:text="playerName"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/timer"
-                app:layout_constraintVertical_bias="0.312" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/editTextTextPersonName2"
-                android:layout_width="176dp"
+                android:layout_width="122dp"
                 android:layout_height="48dp"
+                android:layout_marginTop="8dp"
                 android:background="@null"
                 android:ems="10"
                 android:fontFamily="@font/montserrat_medium"
@@ -71,28 +68,23 @@
                 android:text="Puntuación"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.944"
-                app:layout_constraintStart_toEndOf="@+id/timer"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.084" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/score"
                 android:layout_width="78dp"
                 android:layout_height="61dp"
-                android:layout_marginEnd="52dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Puntuación"
                 android:textAlignment="viewEnd"
                 android:textColor="#FFFFFF"
                 android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/playerName" />
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </FrameLayout>
