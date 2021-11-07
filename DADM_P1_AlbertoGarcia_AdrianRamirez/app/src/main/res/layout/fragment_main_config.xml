@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.ConfigFragment">
+    tools:context=".main.MainConfigFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -74,69 +74,29 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="#0001405E"
+                        android:background="@color/purple_500"
                         android:fontFamily="@font/montserrat_semibold"
                         android:minHeight="0dp"
                         android:text="Selección de tema"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="17dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Día"
-                            android:textAlignment="textEnd"
-                            android:textColor="#FFFFFF"
-                            android:textSize="24sp" />
-
-                        <Space
-                            android:layout_width="10dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:layout_weight="0" />
-
-                        <Switch
-                            android:id="@+id/switchDayNightMode"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:checked="false"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:lineSpacingExtra="8sp"
-                            android:minHeight="48dp"
-                            android:switchMinWidth="60dp"
-                            android:switchPadding="30dp"
-                            android:textColor="#D1D1D1"
-                            android:textOff="Tema de día"
-                            android:textOn="Tema de noche"
-                            android:textSize="20sp" />
-
-                        <Space
-                            android:layout_width="8dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:layout_weight="0" />
-
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="18dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:text="Noche"
-                            android:textColor="#FFFFFF"
-                            android:textSize="24sp" />
-                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/switchDayNightMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:checked="false"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:lineSpacingExtra="8sp"
+                        android:minHeight="48dp"
+                        android:switchMinWidth="60dp"
+                        android:switchPadding="30dp"
+                        android:text="Switch"
+                        android:textColor="#D1D1D1"
+                        android:textOff="Tema de día"
+                        android:textOn="Tema de noche"
+                        android:textSize="20sp" />
 
                     <Space
                         android:layout_width="match_parent"
@@ -148,7 +108,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="#0001405E"
+                        android:background="@color/purple_500"
                         android:fontFamily="@font/montserrat_semibold"
                         android:minHeight="0dp"
                         android:text="Número de preguntas"
@@ -163,7 +123,6 @@
                             android:id="@+id/nQuestionsRG"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -174,14 +133,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginRight="10dp"
                                 android:checked="false"
                                 android:fontFamily="@font/montserrat_medium"
                                 android:minHeight="48dp"
                                 android:text="5"
                                 android:textAlignment="viewStart"
                                 android:textColor="#D1D1D1"
-                                android:textSize="24sp" />
+                                android:textSize="20sp" />
 
                             <RadioButton
                                 android:id="@+id/radioButton10"
@@ -192,19 +150,18 @@
                                 android:minHeight="48dp"
                                 android:text="10"
                                 android:textColor="#D1D1D1"
-                                android:textSize="24sp" />
+                                android:textSize="20sp" />
 
                             <RadioButton
                                 android:id="@+id/radioButton20"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center_horizontal"
-                                android:layout_marginLeft="10dp"
                                 android:fontFamily="@font/montserrat_medium"
                                 android:minHeight="48dp"
                                 android:text="20"
                                 android:textColor="#D1D1D1"
-                                android:textSize="24sp" />
+                                android:textSize="20sp" />
                         </RadioGroup>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

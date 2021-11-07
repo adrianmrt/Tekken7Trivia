@@ -1,8 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -20,16 +19,15 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class UserFragment extends Fragment {
+
+public class userFragment extends Fragment {
 
     String playerName;
     Integer score;
-    Integer questionsQuantity;
 
     //layout references
     TextView scoreView;
     TextView playerNameView;
-    TextView questionsQuantityView;
     Parcelable[] _questions;
 
     //timer elements
@@ -45,11 +43,9 @@ public class UserFragment extends Fragment {
         super.onCreate(savedInstanceState);
         finished = false;
         time = "";
-        //creation of object that receives data from GameFragment
+        //creation of object that receives data from gameFragment
         getParentFragmentManager().setFragmentResultListener("answerPass", this, (requestKey, bundle) -> {
             boolean result = bundle.getBoolean("answer");
-            int count = bundle.getInt("count");
-            questionsQuantityView.setText(count + "/" + questionsQuantity.toString());
             if (result) {
                 score += 10;
                 scoreView.setText(score.toString());
@@ -63,7 +59,7 @@ public class UserFragment extends Fragment {
             intent.putExtra("score", score.toString());
             intent.putExtra("questions", _questions);
             intent.putExtra("timeT", time);
-            String _time = Integer.toString(min) + "." + Integer.toString(sec);
+            String _time= Integer.toString(min)+"."+Integer.toString(sec);
             intent.putExtra("time", _time);
             getActivity().startActivity(intent);
         });
@@ -72,18 +68,14 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         Bundle bundle = getArguments();
         _questions = bundle.getParcelableArray("questions");
-        return inflater.inflate(R.layout.fragment_user, container, false);
+        return inflater.inflate(R.layout.user_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        questionsQuantity = sharedPreferences.getInt("numberOfQuestions", 5);
 
         score = requireArguments().getInt("initialScore");
         playerName = requireArguments().getString("playerName");
@@ -91,13 +83,16 @@ public class UserFragment extends Fragment {
         //we reference the elements of the layout
         scoreView = view.findViewById(R.id.score);
         playerNameView = view.findViewById(R.id.playerName);
-        questionsQuantityView = view.findViewById(R.id.textViewRoundCounter);
 
         scoreView.setText(score.toString());
         playerNameView.setText(playerName);
-        questionsQuantityView.setText("0/" + questionsQuantity.toString());
 
         timer = view.findViewById(R.id.timer);
+<<<<<<< HEAD:DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/UserFragment.java
+=======
+        time = Integer.toString(min) + "min " + Integer.toString(sec) + "s";
+        timer.setText(time);
+>>>>>>> parent of 3183c79 (Merge pull request #37 from adrianmrt/Alberto):DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/userFragment.java
 
         t = new Timer();
         t.scheduleAtFixedRate(
@@ -111,14 +106,18 @@ public class UserFragment extends Fragment {
     }
 
 
+<<<<<<< HEAD:DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/UserFragment.java
     public String startTimer() {
         time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
+=======
+    public void startTimer() {
+        time = Integer.toString(min) + "min " + Integer.toString(sec) + "s";
+>>>>>>> parent of 3183c79 (Merge pull request #37 from adrianmrt/Alberto):DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/userFragment.java
         timer.setText(time);
         sec++;
         if (sec == 60) {
             min++;
             sec = 0;
         }
-        return time;
     }
 }

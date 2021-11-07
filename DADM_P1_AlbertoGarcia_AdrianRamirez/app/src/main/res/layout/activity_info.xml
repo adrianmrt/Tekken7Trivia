@@ -23,7 +23,7 @@
         android:id="@+id/textTitle"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:background="#48013149"
+        android:background="#4D01405E"
         android:fontFamily="@font/montserrat_bold"
         android:text="PERSONAJES"
         android:textAlignment="center"
