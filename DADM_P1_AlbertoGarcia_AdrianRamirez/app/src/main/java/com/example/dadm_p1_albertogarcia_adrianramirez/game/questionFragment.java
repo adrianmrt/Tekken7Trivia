@@ -44,12 +44,22 @@ public class questionFragment extends Fragment {
             questionText= rootView.findViewById(R.id.textQuestionText);
             questionText.setText(_question.get_question());
 
-        }else{
+        }else if (_question.get_questionType()==1){
             rootView = inflater.inflate(R.layout.question_img_layout, container, false);
             questionText= rootView.findViewById(R.id.textQuestionImg);
             questionText.setText(_question.get_question());
             img1=rootView.findViewById(R.id.imgQuestion);
             img1.setImageResource(Integer.parseInt(_question.get_images().get(0)));
+        }else if (_question.get_questionType()==2){
+            rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR
+            questionText= rootView.findViewById(R.id.textQuestionText);
+            questionText.setText(_question.get_question());
+            //AÑADIR MULTIMEDIA
+        }else{
+            rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR
+            questionText= rootView.findViewById(R.id.textQuestionText);
+            questionText.setText(_question.get_question());
+            //AÑADIR MULTIMEDIA
         }
         return rootView;
     }
