@@ -37,7 +37,7 @@ public class questionFragment extends Fragment {
         Bundle passData=getArguments();
         _questionAct= passData.getInt("actualQuestion");
         questionDatabase= new ViewModelProvider(this).get(DatabaseViewModel.class);
-        _question= questionDatabase.GetQuestion(1);
+        _question= questionDatabase.GetQuestion(_questionAct);
 
         if(_question.get_questionType()==0) {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);

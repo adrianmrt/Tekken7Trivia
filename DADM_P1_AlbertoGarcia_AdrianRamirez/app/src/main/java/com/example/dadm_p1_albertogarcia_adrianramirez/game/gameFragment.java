@@ -129,7 +129,7 @@ public class gameFragment extends Fragment {
     public void setQuestion() {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
-        objectT.getInt("actualQuestion",questionAct);
+        objectT.putInt("actualQuestion",questionAct);
         transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
         transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
         transaction.commit();
