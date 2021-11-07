@@ -98,25 +98,22 @@ public class UserFragment extends Fragment {
         questionsQuantityView.setText("0/" + questionsQuantity.toString());
 
         timer = view.findViewById(R.id.timer);
-        time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
-        timer.setText(time);
 
-        final String[] auxTimer = {null};
         t = new Timer();
         t.scheduleAtFixedRate(
                 new TimerTask() {
                     public void run() {
-                        auxTimer[0] = startTimer();
+                        startTimer();
                     }
                 },
                 0,      // run first occurrence immediatetly
                 1000); // run every x seconds
-        timer.setText(auxTimer[0]);
     }
 
 
     public String startTimer() {
         time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
+        timer.setText(time);
         sec++;
         if (sec == 60) {
             min++;
