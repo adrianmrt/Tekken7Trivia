@@ -11,7 +11,6 @@ import java.util.List;
 public class  DatabaseViewModel extends AndroidViewModel {
 
     LiveData<List<Question>> allQuestions;
-    List<Question> allQuestionsD;
     LiveData<List<User>> allUsers;
     LiveData<List<RankingUnit>> ranking;
 
@@ -26,7 +25,6 @@ public class  DatabaseViewModel extends AndroidViewModel {
         rankingRepository= new RankingRepository(application);
 
         allQuestions= questionRepository.getQuestions();
-        allQuestionsD= allQuestions.getValue();
         allUsers= userRepository.GetUsers();
         ranking= rankingRepository.getRanking();
 
@@ -49,22 +47,4 @@ public class  DatabaseViewModel extends AndroidViewModel {
     public LiveData<List<RankingUnit>> getAllRanking() {
         return ranking;
     }
-
-    public String getAnswer(int id) {
-        return questionRepository.getAnswer(id);
-    }
-
-    public UserDAO getUserDao(){
-        return userRepository.getUserDAO();
-    }
-
-    public QuestionDAO getQuestionDao(){
-        return questionRepository.getQuestionDAO();
-    }
-
-    public RankingDAO getRankingDao(){
-        return rankingRepository.getRankingDAO();
-    }
-
-    public Question GetQuestion(int id){ return questionRepository.getQuestion(id);};
 }

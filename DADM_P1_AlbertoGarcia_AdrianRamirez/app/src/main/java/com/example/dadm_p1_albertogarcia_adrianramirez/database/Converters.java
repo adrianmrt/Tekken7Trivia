@@ -1,6 +1,5 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.database;
 
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -53,16 +52,4 @@ class Converters {
         ArrayList<String>list= new Gson().fromJson(s,new TypeToken<ArrayList<String>>(){}.getType());
         return list;
     }
-
-
-
-    @TypeConverter
-    public ArrayList<Integer>fromIntegerToStringList(ArrayList<String> listS){
-        ArrayList<Integer>listI = new ArrayList<Integer>();
-        for (int i=0;i<listS.size();i++){
-           listI.add(Integer.valueOf(listS.get(i)));
-        }
-        return listI;
-    }
-
 }

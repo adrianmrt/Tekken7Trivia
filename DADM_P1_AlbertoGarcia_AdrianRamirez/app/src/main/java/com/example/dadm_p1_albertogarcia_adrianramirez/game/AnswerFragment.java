@@ -3,7 +3,6 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +12,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
-import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
-import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 
 public class AnswerFragment extends Fragment {
 
     int type;
     View rootView;
-    int _questionAct;
-    DatabaseViewModel questionDatabase;
-    Question _question;
+    QuestionStructure _question;
     RadioGroup _radioGroup;
 
     //Layout elements
@@ -43,11 +38,8 @@ public class AnswerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Bundle passData=getArguments();
-        _questionAct= passData.getInt("actualQuestion");
-        questionDatabase= new ViewModelProvider(this).get(DatabaseViewModel.class);
-        _question= questionDatabase.GetQuestion(_questionAct);
-
+        Bundle passData = getArguments();
+        _question = passData.getParcelable("question");
         if (_question.get_answerType() == 0) {
             rootView = inflater.inflate(R.layout.answer_text_layout, container, false);
             setTextButtons();
@@ -73,9 +65,9 @@ public class AnswerFragment extends Fragment {
         rb2 = rootView.findViewById(R.id.answerText2);
         rb3 = rootView.findViewById(R.id.answerText3);
 
-        rb1.setText(_question.get_possibleAnswers().get(0));
-        rb2.setText(_question.get_possibleAnswers().get(1));
-        rb3.setText(_question.get_possibleAnswers().get(2));
+        rb1.setText(_question.get_possibleAnswers()[0]);
+        rb2.setText(_question.get_possibleAnswers()[1]);
+        rb3.setText(_question.get_possibleAnswers()[2]);
     }
 
     private void setImgButtons() {
@@ -85,9 +77,9 @@ public class AnswerFragment extends Fragment {
         rb2 = rootView.findViewById(R.id.answerImg2);
         rb3 = rootView.findViewById(R.id.answerImg3);
 
-        rb1.setText(_question.get_possibleAnswers().get(0));
-        rb2.setText(_question.get_possibleAnswers().get(1));
-        rb3.setText(_question.get_possibleAnswers().get(2));
+        rb1.setText(_question.get_possibleAnswers()[0]);
+        rb2.setText(_question.get_possibleAnswers()[1]);
+        rb3.setText(_question.get_possibleAnswers()[2]);
 
         //img of buttons
 
@@ -95,8 +87,8 @@ public class AnswerFragment extends Fragment {
         img2 = rootView.findViewById(R.id.img2);
         img3 = rootView.findViewById(R.id.img3);
 
-        img1.setImageResource(Integer.parseInt(_question.get_images().get(1)));
-        img2.setImageResource(Integer.parseInt(_question.get_images().get(2)));
-        img3.setImageResource(Integer.parseInt(_question.get_images().get(3)));;
+        img1.setImageResource(_question.get_images()[1]);
+        img2.setImageResource(_question.get_images()[2]);
+        img3.setImageResource(_question.get_images()[3]);
     }
 }

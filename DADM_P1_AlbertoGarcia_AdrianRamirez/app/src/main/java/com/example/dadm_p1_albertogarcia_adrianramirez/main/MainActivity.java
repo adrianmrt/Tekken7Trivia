@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
+        //createQuestions();
+
         //createPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 
@@ -43,9 +45,23 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
     }
 
+    private void createQuestions() {
+
+        Question question= new Question();
+        question.set_question("¿Cómo se llama este personaje?");
+        question.setQuestionId(4);
+        question.set_possibleAnswers(Utils.createStringList(new String[]{"aaa","b"}));
+        question.set_images(Utils.createBitmapList(new int[]{R.drawable.steve_img_round},getApplicationContext()));
+        question.set_questionType(1);
+        question.set_answerType(0);
+        question.set_answer("Steve");
+        databaseViewModel.InsertQuestion(question);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
+
         //playerNameLayout.setErrorEnabled(false);
     }
 

@@ -1,23 +1,17 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.database;
 
 
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 
-public class InsertRankingAsyncTask extends AsyncTask<RankingUnit, Void, Boolean> {
+public class InsertRankingAsyncTask extends AsyncTask<RankingUnit, Void, Void> {
     private RankingDAO rankingDAO;
-    boolean added;
+
     public InsertRankingAsyncTask(RankingDAO rankingDAO) {this.rankingDAO=rankingDAO;
     }
 
     @Override
-    protected Boolean doInBackground(RankingUnit... rankingUnits) {
-        added=false;
-        try {
-            rankingDAO.addRanking(rankingUnits[0]);
-        }catch (SQLiteConstraintException e){
-            added=false;
-        }
-        return added;
+    protected Void doInBackground(RankingUnit... rankingUnits) {
+        rankingDAO.addRanking(rankingUnits[0]);
+        return null;
     }
 }

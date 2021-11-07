@@ -15,7 +15,7 @@ public abstract class QuestionDatabase extends RoomDatabase {
 
     static QuestionDatabase getDatabase(final Context context){
         if(INSTANCE==null){
-            INSTANCE= Room.databaseBuilder(context,QuestionDatabase.class, "questiondb").allowMainThreadQueries().build();
+            INSTANCE= Room.databaseBuilder(context,QuestionDatabase.class, "questiondb").build();
         }
         return INSTANCE;
     }

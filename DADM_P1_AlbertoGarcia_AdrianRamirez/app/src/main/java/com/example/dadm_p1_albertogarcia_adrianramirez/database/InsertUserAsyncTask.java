@@ -1,27 +1,19 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.database;
 
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.AsyncTask;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.UserDAO;
 
-public class InsertUserAsyncTask extends AsyncTask<User, Void, Boolean>{
+public class InsertUserAsyncTask extends AsyncTask<User, Void, Void>{
     private UserDAO userDAO;
-    boolean added;
 
     public InsertUserAsyncTask(UserDAO userDAO) {this.userDAO=userDAO;
     }
 
     @Override
-    protected Boolean doInBackground(User... users) {
-        added = false;
-        try {
-            userDAO.addUser(users[0]);
-            ;
-        } catch (SQLiteConstraintException e) {
-            added = false;
-        }
-        return added;
+    protected Void doInBackground(User... users) {
+        userDAO.addUser(users[0]);
+        return null;
     }
 }
