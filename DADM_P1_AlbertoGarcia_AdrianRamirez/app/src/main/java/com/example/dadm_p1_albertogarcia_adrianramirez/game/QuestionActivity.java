@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
@@ -12,6 +13,8 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewMode
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.QuestionDAO;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
+
+import java.sql.*;
 
 public class QuestionActivity extends AppCompatActivity {
 
@@ -28,7 +31,7 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
 
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
-        //createQuestions();
+        createQuestions();
 
         Bundle bundle = getIntent().getExtras();
         playerName = bundle.getString("playerName");
