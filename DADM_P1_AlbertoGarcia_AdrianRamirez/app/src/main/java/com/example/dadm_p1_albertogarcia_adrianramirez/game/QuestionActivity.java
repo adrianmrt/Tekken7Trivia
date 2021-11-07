@@ -62,14 +62,15 @@ public class QuestionActivity extends AppCompatActivity {
         addQuestion("¿Qué personaje no es de sangre Mishima?", 1, 0, 1, new int[]{0, R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
                 new String[]{"Kazuya", "Kazumi", "Jin"}, "Kazumi", "general", 0);
 
-        addQuestion("¿Quién es humano?", 2, 0, 1, new int[]{0,R.drawable.alisa_img_round,
+        addQuestion("¿Quién es humano?", 2, 0, 1, new int[]{0, R.drawable.alisa_img_round,
                 R.drawable.kuma_img_round, R.drawable.king_img_round}, new String[]{"Alisa", "Kuma II", "King"}, "King", "general", 0);
        /*
-        questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_round, 0, 0, 0},
+        HACERLAS BIEN
+        addQuestion(1, 0, new int[]{R.drawable.steve_img_round, 0, 0, 0},
                 "Steve", "¿Cómo se llama este personaje?",
                 new String[]{"Steve", "Lars", "Dragunov"});
 
-        questionAux[4] = new QuestionStructure(0, 1, new int[]{0, R.drawable.akuma_img_round, R.drawable.julia_img_round, R.drawable.fahkumram_img_round},
+        addQuestion(0, 1, new int[]{0, R.drawable.akuma_img_round, R.drawable.julia_img_round, R.drawable.fahkumram_img_round},
                 "Akuma", "¿Qué personaje no pertenece originalmente a la saga Tekken?",
                 new String[]{"Akuma", "Julia", "Fahkumram"});
 

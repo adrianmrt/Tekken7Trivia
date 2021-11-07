@@ -66,7 +66,7 @@ public class gameFragment extends Fragment {
         });
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         //numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
-        numberOfQuestions=2;
+        numberOfQuestions=3;
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
     }
@@ -75,10 +75,10 @@ public class gameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rand= new Random();
         randomNumbers= new ArrayList<>();
-        for (int i=0;i<2;i++){
+        for (int i=0;i<numberOfQuestions;i++){
             boolean added=false;
             while(!added){
-                int rNumber=rand.nextInt(2);
+                int rNumber=rand.nextInt(numberOfQuestions);
                 if(!randomNumbers.contains(rNumber)) {
                     randomNumbers.add(rNumber);
                     added = true;
@@ -92,7 +92,6 @@ public class gameFragment extends Fragment {
         playerName = passData.getString("playerName");
         fragmentManager = getChildFragmentManager();
         setQuestion();
-        correctAnswer=databaseViewModel.getAnswer(questionAct);
         return inflater.inflate(R.layout.game_fragment, container, false);
     }
 
@@ -106,7 +105,7 @@ public class gameFragment extends Fragment {
 
             if (TextUtils.isEmpty(answerAct)) answerNotSelectedNotification.show();
             else {
-                if (answerAct.equals("Miguel")) {
+                if (answerAct.equals(correctAnswer)) {
                     answer = true;
                 }
                 Bundle bundle = new Bundle();
@@ -127,6 +126,7 @@ public class gameFragment extends Fragment {
     }
 
     public void setQuestion() {
+        correctAnswer=databaseViewModel.getAnswer(questionAct);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
         objectT.putInt("actualQuestion",questionAct);
