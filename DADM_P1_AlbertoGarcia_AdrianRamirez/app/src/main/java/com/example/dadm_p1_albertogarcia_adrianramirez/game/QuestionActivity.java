@@ -13,7 +13,6 @@ public class QuestionActivity extends AppCompatActivity {
     String playerName = "";
     int initialScore = 0;
 
-
     QuestionStructure[] questions;
 
     @Override
@@ -38,13 +37,13 @@ public class QuestionActivity extends AppCompatActivity {
             TopInitData.putInt("initialScore", initialScore);
             TopInitData.putString("playerName", playerName);
             TopInitData.putParcelableArray("questions", questions);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, UserFragment.class, TopInitData);
 
-            //gameFragment
+            //GameFragment
             Bundle BotInitData = new Bundle();
             BotInitData.putParcelableArray("questions", questions);
             BotInitData.putString("playerName", playerName);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, BotInitData);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, GameFragment.class, BotInitData);
 
             fragmentTransaction.commit();
         }

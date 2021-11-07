@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.userFragment">
+    tools:context=".game.UserFragment">
 
     <ImageView
         android:id="@+id/imageView6"
@@ -28,12 +28,25 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/textViewRoundCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="round"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/timer"
-                android:layout_width="174dp"
+                android:layout_width="wrap_content"
                 android:layout_height="43dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="Timer"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
@@ -56,9 +69,10 @@
 
             <TextView
                 android:id="@+id/editTextTextPersonName2"
-                android:layout_width="122dp"
+                android:layout_width="105dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
                 android:background="@null"
                 android:ems="10"
                 android:fontFamily="@font/montserrat_medium"
@@ -68,6 +82,7 @@
                 android:text="Puntuación"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,6 +91,7 @@
                 android:layout_width="78dp"
                 android:layout_height="61dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="4dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Puntuación"
                 android:textAlignment="viewEnd"
@@ -84,7 +100,5 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </FrameLayout>

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
-public class questionFragment extends Fragment {
+public class QuestionFragment extends Fragment {
 
     int type;
     View rootView;
@@ -48,6 +48,4 @@ public class questionFragment extends Fragment {
         }
         return rootView;
     }
-
-
 }

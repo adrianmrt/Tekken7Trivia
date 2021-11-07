@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
-public class answerFragment extends Fragment {
+public class AnswerFragment extends Fragment {
 
     int type;
     View rootView;

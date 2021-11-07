@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
-public class gameFragment extends Fragment {
+public class GameFragment extends Fragment {
 
     boolean answer;
 
@@ -43,13 +43,8 @@ public class gameFragment extends Fragment {
 
         answerNotSelectedNotification = Toast.makeText(getActivity(), "Selecciona una respuesta", Toast.LENGTH_SHORT);
 
-        //creation of object that receives data from gameFragment
-        getChildFragmentManager().setFragmentResultListener("answerChoose", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                answerAct = bundle.getString("answer");
-            }
-        });
+        //creation of object that receives data from GameFragment
+        getChildFragmentManager().setFragmentResultListener("answerChoose", this, (requestKey, bundle) -> answerAct = bundle.getString("answer"));
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
     }
@@ -66,7 +61,7 @@ public class gameFragment extends Fragment {
 
         setQuestion();
 
-        return inflater.inflate(R.layout.game_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_game, container, false);
     }
 
     @Override
@@ -83,11 +78,14 @@ public class gameFragment extends Fragment {
                 if (answerAct.equals(correctAnswer)) {
                     answer = true;
                 }
+                questionAct++;
+
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("answer", answer);
+                bundle.putInt("count", questionAct);
 
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
-                questionAct++;
+
                 if (questionAct < numberOfQuestions) {
                     setQuestion();
                 } else {
@@ -105,8 +103,8 @@ public class gameFragment extends Fragment {
 
         objectT.putParcelable("question", questions[questionAct]);
 
-        transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
-        transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
+        transaction.replace(R.id.questionLayout, QuestionFragment.class, objectT);
+        transaction.replace(R.id.answerLayout, AnswerFragment.class, objectT);
         transaction.commit();
     }
 
