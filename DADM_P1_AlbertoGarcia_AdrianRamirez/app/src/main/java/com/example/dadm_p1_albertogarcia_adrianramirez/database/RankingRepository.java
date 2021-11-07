@@ -4,7 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
+import com.example.dadm_p1_albertogarcia_adrianramirez.Utils;
 
 import java.util.List;
 
