@@ -22,9 +22,6 @@ public class Question {
     int _answerType; //0 txt, 1 img
     @NonNull
     @ColumnInfo
-    ArrayList<Bitmap> _images; //0 question,1-3 answers
-    @NonNull
-    @ColumnInfo
     String _answer;
     @NonNull
     @ColumnInfo
@@ -32,6 +29,18 @@ public class Question {
     @NonNull
     @ColumnInfo
     ArrayList<String> _possibleAnswers;
+
+    @NonNull
+    @ColumnInfo
+    ArrayList<String> _images; //0 question,1-3 answers
+
+    @NonNull
+    @ColumnInfo
+    String _questionBlock;
+
+    @NonNull
+    @ColumnInfo
+    int _multimediaFileId;
 
     public void set_answer(@NonNull String _answer) {
         this._answer = _answer;
@@ -41,7 +50,7 @@ public class Question {
         this._answerType = _answerType;
     }
 
-    public void set_images(@NonNull ArrayList<Bitmap> _images) {
+    public void set_images(@NonNull ArrayList<String> _images) {
         this._images = _images;
     }
 
@@ -61,6 +70,14 @@ public class Question {
         this.questionId = questionId;
     }
 
+    public void set_questionBlock(@NonNull String _questionBlock) {
+        this._questionBlock = _questionBlock;
+    }
+
+    public void set_multimediaFileId(int _multimediaFileId) {
+        this._multimediaFileId = _multimediaFileId;
+    }
+
     public String get_answer() {
         return _answer;
     }
@@ -73,7 +90,7 @@ public class Question {
         return _questionType;
     }
 
-    public ArrayList<Bitmap> get_images() {
+    public ArrayList<String> get_images() {
         return _images;
     }
 
@@ -83,5 +100,14 @@ public class Question {
 
     public ArrayList<String> get_possibleAnswers() {
         return _possibleAnswers;
+    }
+
+    @NonNull
+    public String get_questionBlock() {
+        return _questionBlock;
+    }
+
+    public int get_multimediaFileId() {
+        return _multimediaFileId;
     }
 }

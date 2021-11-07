@@ -22,7 +22,18 @@ public class QuestionRepository {
         new InsertQuestionAsyncTask(questionDAO).execute(question);
     }
 
+    public Question getQuestion(int id){return questionDAO.getQuestion(id);
+    }
+
     public LiveData<List<Question>> getQuestions() {
         return questionDAO.getAllQuestions();
+    }
+
+    public String getAnswer(int id) {
+        return questionDAO.getAnswer(id);
+    }
+
+    public QuestionDAO getQuestionDAO() {
+        return questionDAO;
     }
 }
