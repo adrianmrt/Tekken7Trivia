@@ -36,6 +36,7 @@ public class userFragment extends Fragment {
     TextView timer;
     int sec, min, mili = 0;
     String time;
+    String b;
     Handler handler;
 
     @Override
