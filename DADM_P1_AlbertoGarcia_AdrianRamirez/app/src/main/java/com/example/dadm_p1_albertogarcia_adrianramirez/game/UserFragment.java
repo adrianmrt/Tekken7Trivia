@@ -1,7 +1,8 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -19,15 +20,16 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
-public class userFragment extends Fragment {
+public class UserFragment extends Fragment {
 
     String playerName;
     Integer score;
+    Integer questionsQuantity;
 
     //layout references
     TextView scoreView;
     TextView playerNameView;
+    TextView questionsQuantityView;
     Parcelable[] _questions;
 
     //timer elements
@@ -43,9 +45,11 @@ public class userFragment extends Fragment {
         super.onCreate(savedInstanceState);
         finished = false;
         time = "";
-        //creation of object that receives data from gameFragment
+        //creation of object that receives data from GameFragment
         getParentFragmentManager().setFragmentResultListener("answerPass", this, (requestKey, bundle) -> {
             boolean result = bundle.getBoolean("answer");
+            int count = bundle.getInt("count");
+            questionsQuantityView.setText(count + "/" + questionsQuantity.toString());
             if (result) {
                 score += 10;
                 scoreView.setText(score.toString());
@@ -59,7 +63,7 @@ public class userFragment extends Fragment {
             intent.putExtra("score", score.toString());
             intent.putExtra("questions", _questions);
             intent.putExtra("timeT", time);
-            String _time= Integer.toString(min)+"."+Integer.toString(sec);
+            String _time = Integer.toString(min) + "." + Integer.toString(sec);
             intent.putExtra("time", _time);
             getActivity().startActivity(intent);
         });
@@ -68,14 +72,18 @@ public class userFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         Bundle bundle = getArguments();
         _questions = bundle.getParcelableArray("questions");
-        return inflater.inflate(R.layout.user_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_user, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        questionsQuantity = sharedPreferences.getInt("numberOfQuestions", 5);
 
         score = requireArguments().getInt("initialScore");
         playerName = requireArguments().getString("playerName");
@@ -83,33 +91,37 @@ public class userFragment extends Fragment {
         //we reference the elements of the layout
         scoreView = view.findViewById(R.id.score);
         playerNameView = view.findViewById(R.id.playerName);
+        questionsQuantityView = view.findViewById(R.id.textViewRoundCounter);
 
         scoreView.setText(score.toString());
         playerNameView.setText(playerName);
+        questionsQuantityView.setText("0/" + questionsQuantity.toString());
 
         timer = view.findViewById(R.id.timer);
-        time = Integer.toString(min) + "min " + Integer.toString(sec) + "s";
+        time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
         timer.setText(time);
 
+        final String[] auxTimer = {null};
         t = new Timer();
         t.scheduleAtFixedRate(
                 new TimerTask() {
                     public void run() {
-                        startTimer();
+                        auxTimer[0] = startTimer();
                     }
                 },
                 0,      // run first occurrence immediatetly
                 1000); // run every x seconds
+        timer.setText(auxTimer[0]);
     }
 
 
-    public void startTimer() {
-        time = Integer.toString(min) + "min " + Integer.toString(sec) + "s";
-        timer.setText(time);
+    public String startTimer() {
+        time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
         sec++;
         if (sec == 60) {
             min++;
             sec = 0;
         }
+        return time;
     }
 }

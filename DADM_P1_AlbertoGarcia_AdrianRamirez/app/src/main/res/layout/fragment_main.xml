@@ -80,7 +80,7 @@
                     android:id="@+id/infoButton"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="#00FFFFFF"
+                    android:background="#00FDFDFD"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/book_icon"
                     tools:ignore="SpeakableTextPresentCheck" />

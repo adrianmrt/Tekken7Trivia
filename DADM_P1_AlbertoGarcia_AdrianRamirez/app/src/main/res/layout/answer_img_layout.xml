@@ -60,7 +60,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Answer1"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
 
             <Space
                 android:layout_width="15dp"
@@ -74,7 +75,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Answer2"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
 
             <Space
                 android:layout_width="15dp"
@@ -88,7 +90,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Answer3"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
 
         </RadioGroup>
 

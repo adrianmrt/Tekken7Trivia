@@ -15,7 +15,7 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 
-public class questionFragment extends Fragment {
+public class QuestionFragment extends Fragment {
 
     View rootView;
     int _questionAct;
@@ -53,6 +53,4 @@ public class questionFragment extends Fragment {
         }
         return rootView;
     }
-
-
 }
