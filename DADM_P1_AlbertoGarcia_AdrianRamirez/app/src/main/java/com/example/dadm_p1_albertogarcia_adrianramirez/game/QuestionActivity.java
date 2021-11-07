@@ -29,7 +29,7 @@ public class QuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question);
 
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
-        createQuestions();
+        //createQuestions();
 
         Bundle bundle = getIntent().getExtras();
         playerName = bundle.getString("playerName");

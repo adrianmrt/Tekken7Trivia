@@ -24,8 +24,6 @@ import android.widget.Toast;
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
-import com.example.dadm_p1_albertogarcia_adrianramirez.database.QuestionDAO;
-import com.example.dadm_p1_albertogarcia_adrianramirez.database.ReadDBAsyncTask;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +65,6 @@ public class gameFragment extends Fragment {
         });
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
-        questionDatabase= new ViewModelProvider(this).get(DatabaseViewModel.class);
 
     }
 
@@ -75,10 +72,10 @@ public class gameFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rand= new Random();
         randomNumbers= new ArrayList<>();
-        for (int i=0;i<numberOfQuestions;i++){
+        for (int i=0;i<2;i++){
             boolean added=false;
             while(!added){
-                int rNumber=rand.nextInt(5);
+                int rNumber=rand.nextInt(2);
                 if(!randomNumbers.contains(rNumber)) {
                     randomNumbers.add(rNumber);
                     added = true;
@@ -131,8 +128,7 @@ public class gameFragment extends Fragment {
     public void setQuestion() {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
-
-        objectT.putParcelable("question", (Parcelable) questionDatabase.getQuestion(questionAct));
+        objectT.getInt("actualQuestion",questionAct);
 
         transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
         transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
