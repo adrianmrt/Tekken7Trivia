@@ -43,6 +43,13 @@ public class Utils {
         }
         return list;
     }
+    public static ArrayList createIntegerList(int[] elements) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < elements.length; i++) {
+            list.add(elements[i]);
+        }
+        return list;
+    }
 
     //Files management
     public void OpenOutFile(String filename, String dataToSave) {

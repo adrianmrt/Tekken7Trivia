@@ -24,4 +24,8 @@ public class RankingRepository {
     public LiveData<List<RankingUnit>> getRanking() {
         return rankingDAO.getRanking();
     }
+
+    public RankingDAO getRankingDAO() {
+        return rankingDAO;
+    }
 }

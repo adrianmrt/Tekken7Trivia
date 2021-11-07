@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Parcelable;
 import android.text.TextUtils;
@@ -20,6 +22,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.QuestionDAO;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.ReadDBAsyncTask;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class gameFragment extends Fragment {
 
@@ -31,11 +41,16 @@ public class gameFragment extends Fragment {
     String playerName;
     FragmentManager fragmentManager;
 
-    Parcelable[] questions;
     Button nextQuestion;
     int questionAct; //actual question we are on
     String answerAct; //answer selected
+
+    //random questions generation
     int numberOfQuestions;
+    DatabaseViewModel questionDatabase;
+    List<Integer>randomNumbers;
+    int randomNumberIdx;
+    Random rand;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,16 +67,29 @@ public class gameFragment extends Fragment {
         });
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
+        questionDatabase= new ViewModelProvider(this).get(DatabaseViewModel.class);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        questionAct = 0;
-
+        rand= new Random();
+        randomNumbers= new ArrayList<>();
+        for (int i=0;i<numberOfQuestions;i++){
+            boolean added=false;
+            while(!added){
+                int rNumber=rand.nextInt(5);
+                if(!randomNumbers.contains(rNumber)) {
+                    randomNumbers.add(rNumber);
+                    added = true;
+                }
+            }
+        }
+        randomNumberIdx=0;
+        questionAct = randomNumbers.get(randomNumberIdx);
         // Inflate the layout for this fragment
         Bundle passData = getArguments();
         playerName = passData.getString("playerName");
-        questions = passData.getParcelableArray("questions");
         fragmentManager = getChildFragmentManager();
 
         setQuestion();
@@ -76,7 +104,7 @@ public class gameFragment extends Fragment {
         nextQuestion = view.findViewById(R.id.buttonCheck);
 
         nextQuestion.setOnClickListener(v -> {
-            String correctAnswer = accessQuestionAct().get_answer();
+            String correctAnswer = questionDatabase.getAnswer(questionAct);
 
             if (TextUtils.isEmpty(answerAct)) answerNotSelectedNotification.show();
             else {
@@ -87,8 +115,9 @@ public class gameFragment extends Fragment {
                 bundle.putBoolean("answer", answer);
 
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
-                questionAct++;
-                if (questionAct < numberOfQuestions) {
+                randomNumberIdx++;
+                questionAct=randomNumbers.get(randomNumberIdx);
+                if (randomNumberIdx < numberOfQuestions) {
                     setQuestion();
                 } else {
                     getParentFragmentManager().setFragmentResult("finished", bundle);
@@ -103,15 +132,13 @@ public class gameFragment extends Fragment {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
 
-        objectT.putParcelable("question", questions[questionAct]);
+        objectT.putParcelable("question", (Parcelable) questionDatabase.getQuestion(questionAct));
 
         transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
         transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
         transaction.commit();
     }
 
-    private QuestionStructure accessQuestionAct() {
-        return (QuestionStructure) questions[questionAct];
-    }
+
 
 }

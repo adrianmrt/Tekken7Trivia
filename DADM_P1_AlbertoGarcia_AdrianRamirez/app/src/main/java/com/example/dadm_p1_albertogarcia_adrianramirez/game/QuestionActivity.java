@@ -3,10 +3,15 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.QuestionDAO;
+import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 
 public class QuestionActivity extends AppCompatActivity {
 
@@ -14,7 +19,8 @@ public class QuestionActivity extends AppCompatActivity {
     int initialScore = 0;
 
 
-    QuestionStructure[] questions;
+    QuestionDAO questionDAO;
+    DatabaseViewModel databaseViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +28,8 @@ public class QuestionActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_question);
 
-        questions = createQuestions();
+        databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
+        createQuestions();
 
         Bundle bundle = getIntent().getExtras();
         playerName = bundle.getString("playerName");
@@ -37,12 +44,10 @@ public class QuestionActivity extends AppCompatActivity {
             Bundle TopInitData = new Bundle();
             TopInitData.putInt("initialScore", initialScore);
             TopInitData.putString("playerName", playerName);
-            TopInitData.putParcelableArray("questions", questions);
             fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
 
             //gameFragment
             Bundle BotInitData = new Bundle();
-            BotInitData.putParcelableArray("questions", questions);
             BotInitData.putString("playerName", playerName);
             fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, BotInitData);
 
@@ -50,21 +55,18 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-    public QuestionStructure[] createQuestions() {
-        QuestionStructure[] questionAux = new QuestionStructure[5];
+    public void createQuestions() {
 
-        questionAux[0] = new QuestionStructure(0, 0, new int[]{0, 0, 0, 0},
-                "Miguel", "¿Qué personaje es español?",
-                new String[]{"Lidia", "Miguel", "Leo"});
+        addQuestion("¿Qué personaje es español?", 0, 0, 0, new int[]{},
+                new String[]{"Lidia", "Miguel", "Leo"}, "Miguel", "general", 0);
 
-        questionAux[1] = new QuestionStructure(0, 1, new int[]{0, R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
-                "Kazumi", "¿Qué personaje no es de sangre Mishima?",
-                new String[]{"Kazuya", "Kazumi", "Jin"});
 
-        questionAux[2] = new QuestionStructure(0, 1, new int[]{0, R.drawable.alisa_img_round, R.drawable.kuma_img_round, R.drawable.king_img_round},
-                "King", "¿Quién es humano?",
-                new String[]{"Alisa", "Kuma II", "King"});
+        addQuestion("¿Qué personaje no es de sangre Mishima?", 1, 0, 1, new int[]{R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
+                new String[]{"Kazuya", "Kazumi", "Jin"}, "Kazumi", "general", 0);
 
+        addQuestion("¿Quién es humano?", 2, 0, 1, new int[]{R.drawable.alisa_img_round,
+                R.drawable.kuma_img_round, R.drawable.king_img_round}, new String[]{"Alisa", "Kuma II", "King"}, "King", "general", 0);
+       /*
         questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_round, 0, 0, 0},
                 "Steve", "¿Cómo se llama este personaje?",
                 new String[]{"Steve", "Lars", "Dragunov"});
@@ -73,6 +75,21 @@ public class QuestionActivity extends AppCompatActivity {
                 "Akuma", "¿Qué personaje no pertenece originalmente a la saga Tekken?",
                 new String[]{"Akuma", "Julia", "Fahkumram"});
 
-        return questionAux;
+        */
+
+    }
+
+    void addQuestion(String questionText, int qId, int qT, int aT, int[] images, String[] answers, String answer, String qB, int mId) {
+        Question question = new Question();
+        question.set_question(questionText);
+        question.setQuestionId(qId);
+        question.set_possibleAnswers(Utils.createStringList(answers));
+        question.set_images(Utils.createBitmapList(images, getApplicationContext()));
+        question.set_questionType(qT);
+        question.set_answerType(aT);
+        question.set_answer(answer);
+        question.set_questionBlock(qB);
+        question.set_multimediaFileId(mId);
+        databaseViewModel.InsertQuestion(question);
     }
 }
