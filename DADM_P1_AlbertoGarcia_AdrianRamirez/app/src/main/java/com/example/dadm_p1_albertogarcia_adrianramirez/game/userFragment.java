@@ -88,32 +88,42 @@ public class userFragment extends Fragment {
         playerNameView.setText(playerName);
 
         timer = view.findViewById(R.id.timer);
+<<<<<<< HEAD:DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/userFragment.java
 <<<<<<< HEAD:DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/UserFragment.java
 =======
         time = Integer.toString(min) + "min " + Integer.toString(sec) + "s";
         timer.setText(time);
 >>>>>>> parent of 3183c79 (Merge pull request #37 from adrianmrt/Alberto):DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/userFragment.java
+=======
+        time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
+        timer.setText(time);
+>>>>>>> parent of 7c80551 (Merge pull request #38 from adrianmrt/Alberto):DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/UserFragment.java
 
+        final String[] auxTimer = {null};
         t = new Timer();
         t.scheduleAtFixedRate(
                 new TimerTask() {
                     public void run() {
-                        startTimer();
+                        auxTimer[0] = startTimer();
                     }
                 },
                 0,      // run first occurrence immediatetly
                 1000); // run every x seconds
+        timer.setText(auxTimer[0]);
     }
 
 
 <<<<<<< HEAD:DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/UserFragment.java
     public String startTimer() {
         time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
+<<<<<<< HEAD:DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/userFragment.java
 =======
     public void startTimer() {
         time = Integer.toString(min) + "min " + Integer.toString(sec) + "s";
 >>>>>>> parent of 3183c79 (Merge pull request #37 from adrianmrt/Alberto):DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/userFragment.java
         timer.setText(time);
+=======
+>>>>>>> parent of 7c80551 (Merge pull request #38 from adrianmrt/Alberto):DADM_P1_AlbertoGarcia_AdrianRamirez/app/src/main/java/com/example/dadm_p1_albertogarcia_adrianramirez/game/UserFragment.java
         sec++;
         if (sec == 60) {
             min++;
