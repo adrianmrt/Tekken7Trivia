@@ -19,4 +19,8 @@ public class UserRepository {
     }
     public void InsertUser(User user){new InsertUserAsyncTask(userDAO).execute(user);}
     public LiveData<List<User>>GetUsers(){return userDAO.getUsers();};
+
+    public UserDAO getUserDAO() {
+        return userDAO;
+    }
 }
