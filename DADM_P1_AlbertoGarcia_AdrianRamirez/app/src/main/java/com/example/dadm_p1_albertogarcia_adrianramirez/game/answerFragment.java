@@ -46,7 +46,7 @@ public class answerFragment extends Fragment {
         Bundle passData=getArguments();
         _questionAct= passData.getInt("actualQuestion");
         questionDatabase= new ViewModelProvider(this).get(DatabaseViewModel.class);
-        _question= questionDatabase.GetQuestion(_questionAct);
+        _question= questionDatabase.GetQuestion(1);
 
         if (_question.get_answerType() == 0) {
             rootView = inflater.inflate(R.layout.answer_text_layout, container, false);
@@ -95,8 +95,8 @@ public class answerFragment extends Fragment {
         img2 = rootView.findViewById(R.id.img2);
         img3 = rootView.findViewById(R.id.img3);
 
-        img1.setImageBitmap(_question.get_images().get(1));
-        img1.setImageBitmap(_question.get_images().get(2));
-        img1.setImageBitmap(_question.get_images().get(3));;
+        img1.setImageResource(Integer.parseInt(_question.get_images().get(1)));
+        img2.setImageResource(Integer.parseInt(_question.get_images().get(2)));
+        img3.setImageResource(Integer.parseInt(_question.get_images().get(3)));;
     }
 }

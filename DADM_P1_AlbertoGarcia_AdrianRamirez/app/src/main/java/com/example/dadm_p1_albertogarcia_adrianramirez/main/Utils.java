@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import androidx.room.TypeConverter;
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -40,6 +42,14 @@ public class Utils {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < elements.length; i++) {
             list.add(elements[i]);
+        }
+        return list;
+    }
+
+    public static ArrayList createStringList(int [] elements) {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < elements.length; i++) {
+            list.add(Integer.toString(elements[i]));
         }
         return list;
     }

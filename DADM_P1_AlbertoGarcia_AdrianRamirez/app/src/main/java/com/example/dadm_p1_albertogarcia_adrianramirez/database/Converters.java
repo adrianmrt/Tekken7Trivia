@@ -54,21 +54,16 @@ class Converters {
         return list;
     }
 
-    @TypeConverter
-    public int[] fromListToArray(ArrayList<Integer> list){
-        int[]array= new int[list.size()];
-        for (int i=0;i<list.size();i++){
-            array[i]=list.get(i);
-        }
-        return array;
-    }
+
 
     @TypeConverter
-    public ArrayList<Integer>fromArrayToList(int[] array){
-        ArrayList<Integer>list = new ArrayList<Integer>();
-        for (int i=0;i<array.length;i++){
-           list.add(array[i]);
+    public ArrayList<Integer>fromIntegerToStringList(ArrayList<String> listS){
+        ArrayList<Integer>listI = new ArrayList<Integer>();
+        for (int i=0;i<listS.size();i++){
+           listI.add(Integer.valueOf(listS.get(i)));
         }
-        return list;
+        return listI;
     }
+
+
 }

@@ -18,7 +18,6 @@ public class QuestionActivity extends AppCompatActivity {
     String playerName = "";
     int initialScore = 0;
 
-
     QuestionDAO questionDAO;
     DatabaseViewModel databaseViewModel;
 
@@ -60,11 +59,10 @@ public class QuestionActivity extends AppCompatActivity {
         addQuestion("¿Qué personaje es español?", 0, 0, 0, new int[]{},
                 new String[]{"Lidia", "Miguel", "Leo"}, "Miguel", "general", 0);
 
-
-        addQuestion("¿Qué personaje no es de sangre Mishima?", 1, 0, 1, new int[]{R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
+        addQuestion("¿Qué personaje no es de sangre Mishima?", 1, 0, 1, new int[]{0, R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
                 new String[]{"Kazuya", "Kazumi", "Jin"}, "Kazumi", "general", 0);
 
-        addQuestion("¿Quién es humano?", 2, 0, 1, new int[]{R.drawable.alisa_img_round,
+        addQuestion("¿Quién es humano?", 2, 0, 1, new int[]{0,R.drawable.alisa_img_round,
                 R.drawable.kuma_img_round, R.drawable.king_img_round}, new String[]{"Alisa", "Kuma II", "King"}, "King", "general", 0);
        /*
         questionAux[3] = new QuestionStructure(1, 0, new int[]{R.drawable.steve_img_round, 0, 0, 0},
@@ -84,7 +82,7 @@ public class QuestionActivity extends AppCompatActivity {
         question.set_question(questionText);
         question.setQuestionId(qId);
         question.set_possibleAnswers(Utils.createStringList(answers));
-        question.set_images(Utils.createBitmapList(images, getApplicationContext()));
+        question.set_images(Utils.createStringList(images));
         question.set_questionType(qT);
         question.set_answerType(aT);
         question.set_answer(answer);

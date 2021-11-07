@@ -32,7 +32,7 @@ public class Question {
 
     @NonNull
     @ColumnInfo
-    ArrayList<Bitmap> _images; //0 question,1-3 answers
+    ArrayList<String> _images; //0 question,1-3 answers
 
     @NonNull
     @ColumnInfo
@@ -50,7 +50,7 @@ public class Question {
         this._answerType = _answerType;
     }
 
-    public void set_images(@NonNull ArrayList<Bitmap> _images) {
+    public void set_images(@NonNull ArrayList<String> _images) {
         this._images = _images;
     }
 
@@ -90,7 +90,7 @@ public class Question {
         return _questionType;
     }
 
-    public ArrayList<Bitmap> get_images() {
+    public ArrayList<String> get_images() {
         return _images;
     }
 

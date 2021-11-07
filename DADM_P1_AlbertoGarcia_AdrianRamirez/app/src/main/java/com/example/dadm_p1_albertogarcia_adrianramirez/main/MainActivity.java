@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
-        //createQuestions();
-
         //createPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 

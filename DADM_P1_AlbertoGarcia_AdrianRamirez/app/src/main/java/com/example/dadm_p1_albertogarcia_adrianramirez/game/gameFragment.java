@@ -42,10 +42,11 @@ public class gameFragment extends Fragment {
     Button nextQuestion;
     int questionAct; //actual question we are on
     String answerAct; //answer selected
+    String correctAnswer;
 
     //random questions generation
     int numberOfQuestions;
-    DatabaseViewModel questionDatabase;
+    DatabaseViewModel databaseViewModel;
     List<Integer>randomNumbers;
     int randomNumberIdx;
     Random rand;
@@ -64,7 +65,9 @@ public class gameFragment extends Fragment {
             }
         });
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
+        //numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
+        numberOfQuestions=2;
+        databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
     }
 
@@ -88,9 +91,8 @@ public class gameFragment extends Fragment {
         Bundle passData = getArguments();
         playerName = passData.getString("playerName");
         fragmentManager = getChildFragmentManager();
-
         setQuestion();
-
+        correctAnswer=databaseViewModel.getAnswer(questionAct);
         return inflater.inflate(R.layout.game_fragment, container, false);
     }
 
@@ -101,11 +103,10 @@ public class gameFragment extends Fragment {
         nextQuestion = view.findViewById(R.id.buttonCheck);
 
         nextQuestion.setOnClickListener(v -> {
-            String correctAnswer = questionDatabase.getAnswer(questionAct);
 
             if (TextUtils.isEmpty(answerAct)) answerNotSelectedNotification.show();
             else {
-                if (answerAct.equals(correctAnswer)) {
+                if (answerAct.equals("Miguel")) {
                     answer = true;
                 }
                 Bundle bundle = new Bundle();
@@ -113,8 +114,8 @@ public class gameFragment extends Fragment {
 
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
                 randomNumberIdx++;
-                questionAct=randomNumbers.get(randomNumberIdx);
                 if (randomNumberIdx < numberOfQuestions) {
+                    questionAct=randomNumbers.get(randomNumberIdx);
                     setQuestion();
                 } else {
                     getParentFragmentManager().setFragmentResult("finished", bundle);
@@ -129,7 +130,6 @@ public class gameFragment extends Fragment {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
         objectT.getInt("actualQuestion",questionAct);
-
         transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
         transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
         transaction.commit();
