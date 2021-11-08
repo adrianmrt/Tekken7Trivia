@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         sharedPreferences.edit().putBoolean("UserMode",false).commit();
         sharedPreferences.edit().putInt("numberOfQuestions",5).commit();
-        sharedPreferences.edit().putString("blockType","Video").commit();
+        sharedPreferences.edit().putString("blockType","Vídeo").commit();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
@@ -99,34 +99,34 @@ public class MainActivity extends AppCompatActivity {
 
         //Video
         addQuestion("¿En qué mapa están combatiendo?", 10, 2, 0, new int[]{},
-                new String[]{"Abandoned Temple", "Duomo di Sirio", "Infinite Azure"}, "Duomo di Sirio", "Vídeo", "src/main/res/raw/duomo_di_sirio_video.mp4");
+                new String[]{"Abandoned Temple", "Duomo di Sirio", "Infinite Azure"}, "Duomo di Sirio", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 11, 2, 0, new int[]{},
-                new String[]{"Forgotten Realm", "Brimstone and Fire", "Kinder Gym"}, "Brimstone and Fire", "Vídeo", "src/main/res/raw/brimstone_and_fire_video.mp4");
+                new String[]{"Forgotten Realm", "Brimstone and Fire", "Kinder Gym"}, "Brimstone and Fire", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 12, 2, 0, new int[]{},
-                new String[]{"Devil's Pit", "Mishima Building", "Jungle Outpost"}, "Jungle Outpost", "Vídeo", "src/main/res/raw/jungle_outpost_video.mp4");
+                new String[]{"Devil's Pit", "Mishima Building", "Jungle Outpost"}, "Jungle Outpost", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 13, 2, 0, new int[]{},
-                new String[]{"Arctic Snowfall", "Mishima Dojo", "Last Day on Earth"}, "Last Day on Earth", "Vídeo", "src/main/res/raw/last_day_on_earth_video.mp4");
+                new String[]{"Arctic Snowfall", "Mishima Dojo", "Last Day on Earth"}, "Last Day on Earth", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 14, 2, 0, new int[]{},
-                new String[]{"Mishima Building", "Twilight Conflict", "Precipice of Fate"}, "Twilight Conflict", "Vídeo", "src/main/res/raw/twilight_conflict_sunset_video.mp4");
+                new String[]{"Mishima Building", "Twilight Conflict", "Precipice of Fate"}, "Twilight Conflict", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 15, 2, 0, new int[]{},
-                new String[]{"Howard Estate", "Vermilion Gates", "Violet Systems"}, "Violet Systems", "Vídeo", "src/main/res/raw/violet_systems_video.mp4");
+                new String[]{"Howard Estate", "Vermilion Gates", "Violet Systems"}, "Violet Systems", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 16, 2, 0, new int[]{},
-                new String[]{"Arena", "Geometric Plane", "Souq"}, "Arena", "Vídeo", "src/main/res/raw/arena_video.mp4");
+                new String[]{"Arena", "Geometric Plane", "Souq"}, "Arena", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 17, 2, 0, new int[]{},
-                new String[]{"Mishima Building", "Hammerhead", "Dragon's Nest"}, "Mishima Building", "Vídeo", "src/main/res/raw/mishima_building_video.mp4");
+                new String[]{"Mishima Building", "Hammerhead", "Dragon's Nest"}, "Mishima Building", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 18, 2, 0, new int[]{},
-                new String[]{"Twilight Conflict", "Island Paradise", "Kinder Gym"}, "Twilight Conflict", "Vídeo", "src/main/res/raw/twilight_conflict_day_video.mp4");
+                new String[]{"Twilight Conflict", "Island Paradise", "Kinder Gym"}, "Twilight Conflict", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
 
         addQuestion("¿En qué mapa están combatiendo?", 19, 2, 0, new int[]{},
-                new String[]{"Devil's Pit", "Dragon's Nest", "Forgotten Realm"}, "Dragon's Nest", "Vídeo", "src/main/res/raw/dragons_nest_video.mp4");
+                new String[]{"Devil's Pit", "Dragon's Nest", "Forgotten Realm"}, "Dragon's Nest", "Vídeo", "android.resource://"+getPackageName()+"/"+R.raw.duomo_di_sirio_video);
     }
 
     void addQuestion(String questionText, int qId, int qT, int aT, int[] images, String[] answers, String answer, String qB, String mId) {

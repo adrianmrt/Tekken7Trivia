@@ -54,15 +54,10 @@ public class QuestionFragment extends Fragment {
             imageView.setImageResource(Integer.parseInt(_question.get_images().get(0)));
         } else if (_question.get_questionType() == 2) {
             rootView = inflater.inflate(R.layout.question_video_layout, container, false);//EDITAR
-            questionText = rootView.findViewById(R.id.textQuestionText);
+            questionText = rootView.findViewById(R.id.videoQuestionText);
             questionText.setText(_question.get_question());
             videoView = rootView.findViewById(R.id.videoView);
             videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
-            //AÑADIR MULTIMEDIA
-        } else {
-            rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR
-            questionText = rootView.findViewById(R.id.textQuestionText);
-            questionText.setText(_question.get_question());
             //AÑADIR MULTIMEDIA
         }
         return rootView;
