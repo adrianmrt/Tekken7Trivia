@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         sharedPreferences.edit().putBoolean("UserMode",false).commit();
         sharedPreferences.edit().putInt("numberOfQuestions",5).commit();
-        sharedPreferences.edit().putString("blockType","general").commit();
+        sharedPreferences.edit().putString("blockType","Video").commit();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
@@ -67,69 +67,69 @@ public class MainActivity extends AppCompatActivity {
 
         //Text
         addQuestion("¿Qué personaje es español?", 0, 0, 0, new int[]{},
-                new String[]{"Lidia", "Miguel", "Leo"}, "Miguel", "general", 0);
+                new String[]{"Lidia", "Miguel", "Leo"}, "Miguel", "Texto e imagen", "");
 
         addQuestion("De los siguientes, ¿Quién pertenece a una serie de TV?", 1, 0, 0, new int[]{},
-                new String[]{"Negan", "Bob", "Noctis"}, "Negan", "general", 0);
+                new String[]{"Negan", "Bob", "Noctis"}, "Negan", "Texto e imagen", "");
 
         addQuestion("Lars encontró a Jin en:", 2, 0, 0, new int[]{},
-                new String[]{"China", "USA", "Iraq"}, "Iraq", "general", 0);
+                new String[]{"China", "USA", "Iraq"}, "Iraq", "Texto e imagen", "");
 
         addQuestion("¿Cómo perdió Hwoarang el ojo?", 3, 0, 0, new int[]{},
-                new String[]{"En una pelea", "Una enfermedad", "Una explosión"}, "Una explosión", "general", 0);
+                new String[]{"En una pelea", "Una enfermedad", "Una explosión"}, "Una explosión", "Texto e imagen", "");
 
         addQuestion("¿En qué año se publicó Tekken 7?", 4, 0, 0, new int[]{},
-                new String[]{"2012", "2017", "2015"}, "2015", "general", 0);
+                new String[]{"2012", "2017", "2015"}, "2015", "Texto e imagen", "");
 
         addQuestion("¿Qué empresa desarrolló el juego?", 5, 0, 0, new int[]{},
-                new String[]{"Bandai Namco", "SEGA", "Koei Tecmo"}, "Bandai Namco", "general", 0);
+                new String[]{"Bandai Namco", "SEGA", "Koei Tecmo"}, "Bandai Namco", "Texto e imagen", "");
 
         //Image
         addQuestion("¿Qué personaje no es de sangre Mishima?", 6, 0, 1, new int[]{0, R.drawable.devilkazuya_img_round, R.drawable.devilkazumi_img_round, R.drawable.deviljin_img_round},
-                new String[]{"Kazuya", "Kazumi", "Jin"}, "Kazumi", "general", 0);
+                new String[]{"Kazuya", "Kazumi", "Jin"}, "Kazumi", "Texto e imagen", "");
 
         addQuestion("¿Quién es humano?", 7, 0, 1, new int[]{0, R.drawable.alisa_img_round,
-                R.drawable.kuma_img_round, R.drawable.king_img_round}, new String[]{"Alisa", "Kuma II", "King"}, "King", "general", 0);
+                R.drawable.kuma_img_round, R.drawable.king_img_round}, new String[]{"Alisa", "Kuma II", "King"}, "King", "Texto e imagen", "");
 
         addQuestion("¿Cómo se llama este personaje?", 8, 1, 0, new int[]{R.drawable.steve_img_round, 0, 0, 0},
-                new String[]{"Steve", "Lars", "Dragunov"}, "Steve", "general", 0);
+                new String[]{"Steve", "Lars", "Dragunov"}, "Steve", "Texto e imagen", "");
 
         addQuestion("¿Qué personaje no pertenece originalmente a la saga Tekken?", 9, 0, 0, new int[]{0, R.drawable.akuma_img_round, R.drawable.julia_img_round, R.drawable.fahkumram_img_round},
-                new String[]{"Akuma", "Julia", "Fahkumram"}, "Akuma", "general", 0);
+                new String[]{"Akuma", "Julia", "Fahkumram"}, "Akuma", "Texto e imagen", "");
 
         //Video
         addQuestion("¿En qué mapa están combatiendo?", 10, 2, 0, new int[]{},
-                new String[]{"Abandoned Temple", "Duomo di Sirio", "Infinite Azure"}, "Duomo di Sirio", "general", 0);
+                new String[]{"Abandoned Temple", "Duomo di Sirio", "Infinite Azure"}, "Duomo di Sirio", "Vídeo", "src/main/res/raw/duomo_di_sirio_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 11, 2, 0, new int[]{},
-                new String[]{"Forgotten Realm", "Brimstone and Fire", "Kinder Gym"}, "Brimstone and Fire", "general", 0);
+                new String[]{"Forgotten Realm", "Brimstone and Fire", "Kinder Gym"}, "Brimstone and Fire", "Vídeo", "src/main/res/raw/brimstone_and_fire_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 12, 2, 0, new int[]{},
-                new String[]{"Devil's Pit", "Mishima Building", "Jungle Outpost"}, "Jungle Outpost", "general", 0);
+                new String[]{"Devil's Pit", "Mishima Building", "Jungle Outpost"}, "Jungle Outpost", "Vídeo", "src/main/res/raw/jungle_outpost_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 13, 2, 0, new int[]{},
-                new String[]{"Arctic Snowfall", "Mishima Dojo", "Last Day on Earth"}, "Last Day on Earth", "general", 0);
+                new String[]{"Arctic Snowfall", "Mishima Dojo", "Last Day on Earth"}, "Last Day on Earth", "Vídeo", "src/main/res/raw/last_day_on_earth_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 14, 2, 0, new int[]{},
-                new String[]{"Mishima Building", "Twilight Conflict", "Precipice of Fate"}, "Twilight Conflict", "general", 0);
+                new String[]{"Mishima Building", "Twilight Conflict", "Precipice of Fate"}, "Twilight Conflict", "Vídeo", "src/main/res/raw/twilight_conflict_sunset_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 15, 2, 0, new int[]{},
-                new String[]{"Howard Estate", "Vermilion Gates", "Violet Systems"}, "Violet Systems", "general", 0);
+                new String[]{"Howard Estate", "Vermilion Gates", "Violet Systems"}, "Violet Systems", "Vídeo", "src/main/res/raw/violet_systems_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 16, 2, 0, new int[]{},
-                new String[]{"Arena", "Geometric Plane", "Souq"}, "Arena", "general", 0);
+                new String[]{"Arena", "Geometric Plane", "Souq"}, "Arena", "Vídeo", "src/main/res/raw/arena_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 17, 2, 0, new int[]{},
-                new String[]{"Mishima Building", "Hammerhead", "Dragon's Nest"}, "Mishima Building", "general", 0);
+                new String[]{"Mishima Building", "Hammerhead", "Dragon's Nest"}, "Mishima Building", "Vídeo", "src/main/res/raw/mishima_building_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 18, 2, 0, new int[]{},
-                new String[]{"Twilight Conflict", "Island Paradise", "Kinder Gym"}, "Twilight Conflict", "general", 0);
+                new String[]{"Twilight Conflict", "Island Paradise", "Kinder Gym"}, "Twilight Conflict", "Vídeo", "src/main/res/raw/twilight_conflict_day_video.mp4");
 
         addQuestion("¿En qué mapa están combatiendo?", 19, 2, 0, new int[]{},
-                new String[]{"Devil's Pit", "Dragon's Nest", "Forgotten Realm"}, "Dragon's Nest", "general", 0);
+                new String[]{"Devil's Pit", "Dragon's Nest", "Forgotten Realm"}, "Dragon's Nest", "Vídeo", "src/main/res/raw/dragons_nest_video.mp4");
     }
 
-    void addQuestion(String questionText, int qId, int qT, int aT, int[] images, String[] answers, String answer, String qB, int mId) {
+    void addQuestion(String questionText, int qId, int qT, int aT, int[] images, String[] answers, String answer, String qB, String mId) {
         Question question = new Question();
         question.set_question(questionText);
         question.setQuestionId(qId);

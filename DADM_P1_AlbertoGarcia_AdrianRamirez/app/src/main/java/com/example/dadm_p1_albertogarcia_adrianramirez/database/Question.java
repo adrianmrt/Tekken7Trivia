@@ -40,7 +40,7 @@ public class Question {
 
     @NonNull
     @ColumnInfo
-    int _multimediaFileId;
+    String _multimediaFileId;
 
     public void set_answer(@NonNull String _answer) {
         this._answer = _answer;
@@ -74,7 +74,7 @@ public class Question {
         this._questionBlock = _questionBlock;
     }
 
-    public void set_multimediaFileId(int _multimediaFileId) {
+    public void set_multimediaFileId(String _multimediaFileId) {
         this._multimediaFileId = _multimediaFileId;
     }
 
@@ -107,7 +107,7 @@ public class Question {
         return _questionBlock;
     }
 
-    public int get_multimediaFileId() {
+    public String get_multimediaFileId() {
         return _multimediaFileId;
     }
 }

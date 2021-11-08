@@ -41,22 +41,24 @@ public class MainConfigFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         nQuestions = view.findViewById(R.id.nQuestionsRG);
         nQuestions.setOnCheckedChangeListener((group, checkedId) -> getAnswerChosen());
-        //SETEAR typeQuestions
+        typeQuestions = view.findViewById(R.id.questionsTypeRG);
+        typeQuestions.setOnCheckedChangeListener((group, checkedId) -> getAnswerChosen());
     }
 
     private void getAnswerChosen() {
         int _answerID = nQuestions.getCheckedRadioButtonId();
         RadioButton numberSelected = nQuestions.findViewById(_answerID);
         Integer quantity = Integer.parseInt(numberSelected.getText().toString());
-
+        /*
         int _typeID = typeQuestions.getCheckedRadioButtonId();
-        RadioButton typeSelected = typeQuestions.findViewById(_answerID);
-        String blockType = numberSelected.getText().toString();
-
+        RadioButton typeSelected = typeQuestions.findViewById(_typeID);
+        String blockType = typeSelected.getText().toString();
+        */
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("numberOfQuestions", quantity);
-        editor.putString("blockType", blockType);
+        //editor.putString("blockType", blockType);
         editor.apply();
+
     }
 }

@@ -36,15 +36,16 @@
 
                 <ImageView
                     android:id="@+id/userImgCard"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="0dp"
-                    android:scaleType="fitCenter" />
+                    android:layout_width="113dp"
+                    android:layout_height="101dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:scaleType="center" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/userCardInfoLayout"
-                    android:layout_width="158dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="138dp"
+                    android:layout_height="match_parent"
                     android:layout_alignParentLeft="false"
                     android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/userImgCard">

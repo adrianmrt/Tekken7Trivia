@@ -7,15 +7,22 @@ public class UserCard {
     private String nombre;
     private int puntuacion;
     private int partidas;
-    private Date ultimaConexion;
+    private String ultimaConexion;
 
-    public UserCard(String nmb) {
+    public UserCard(String nmb, String date) {
+        this.imagen = 0;
         this.nombre = nmb;
+        this.puntuacion = 0;
+        this.partidas = 0;
+        this.ultimaConexion = date;
     }
 
-    public UserCard(int img, String nmb) {
+    public UserCard(int img, String nmb, String date) {
         this.imagen = img;
         this.nombre = nmb;
+        this.puntuacion = 0;
+        this.partidas = 0;
+        this.ultimaConexion = date;
     }
 
     public int getImagen() {
@@ -50,11 +57,11 @@ public class UserCard {
         this.partidas = partidas;
     }
 
-    public Date getUltimaConexion() {
+    public String getUltimaConexion() {
         return ultimaConexion;
     }
 
-    public void setUltimaConexion(Date ultimaConexion) {
+    public void setUltimaConexion(String ultimaConexion) {
         this.ultimaConexion = ultimaConexion;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -56,7 +57,7 @@ public class QuestionFragment extends Fragment {
             questionText = rootView.findViewById(R.id.textQuestionText);
             questionText.setText(_question.get_question());
             videoView = rootView.findViewById(R.id.videoView);
-            //videoView
+            videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
             //AÑADIR MULTIMEDIA
         } else {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR

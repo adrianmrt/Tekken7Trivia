@@ -28,9 +28,9 @@ public class UserCardAdapter extends RecyclerView.Adapter<UserCardAdapter.UserCa
     public void onBindViewHolder(@NonNull UserCardAdapter.UserCardViewHolder holder, int position) {
         holder.imagen.setImageResource(users.get(position).getImagen());
         holder.nombre.setText(users.get(position).getNombre());
-        holder.puntuacion.setText(users.get(position).getPuntuacion());
-        holder.partidas.setText(users.get(position).getPartidas());
-        holder.ultimaConexion.setText((CharSequence) users.get(position).getUltimaConexion());
+        holder.puntuacion.setText(String.valueOf(users.get(position).getPuntuacion()));
+        holder.partidas.setText(String.valueOf(users.get(position).getPartidas()));
+        holder.ultimaConexion.setText(users.get(position).getUltimaConexion());
     }
 
     @Override
