@@ -43,8 +43,11 @@ public class UserFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         finished = false;
         time = "";
+        handler = new Handler();
+
         //creation of object that receives data from GameFragment
         getParentFragmentManager().setFragmentResultListener("answerPass", this, (requestKey, bundle) -> {
             boolean result = bundle.getBoolean("answer");
@@ -102,6 +105,7 @@ public class UserFragment extends Fragment {
         t = new Timer();
         t.scheduleAtFixedRate(
                 new TimerTask() {
+                    @Override
                     public void run() {
                         startTimer();
                     }
@@ -111,14 +115,19 @@ public class UserFragment extends Fragment {
     }
 
 
-    public String startTimer() {
+    public void startTimer() {
         time = Integer.toString(min) + "m " + Integer.toString(sec) + "s";
-        timer.setText(time);
+        handler.post(myRunnable);
         sec++;
         if (sec == 60) {
             min++;
             sec = 0;
         }
-        return time;
     }
+
+    final Runnable myRunnable = new Runnable() {
+        public void run() {
+            timer.setText(time);
+        }
+    };
 }
