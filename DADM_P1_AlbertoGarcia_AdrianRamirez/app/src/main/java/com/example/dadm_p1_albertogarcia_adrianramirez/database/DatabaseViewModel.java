@@ -69,4 +69,6 @@ public class  DatabaseViewModel extends AndroidViewModel {
     public Question GetQuestion(int id){ return questionRepository.getQuestion(id);};
     public void DeleteUser(String name){userRepository.DeleteUser(name);}
     public User GetUser(String name){return userRepository.GetUser(name);}
+
+    public void UpdateUser(String name,int score, int numberOfGamesPlayed){userRepository.UpdateUser(name,score,numberOfGamesPlayed);}
 }
