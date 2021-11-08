@@ -101,7 +101,7 @@ public class MainFragment extends Fragment {
             }else{
                 sharedPreferences.edit().putBoolean("UserMode",true);
                 changeMode.setText("Usuario");
-                playerNameInput.setText(sharedPreferences.getString("User","UsuarioNoDef"));
+                playerNameInput.setText(sharedPreferences.getString("User","User"));
             }
         });
          */
