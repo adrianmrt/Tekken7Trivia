@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseViewModel databaseViewModel;
     Utils utils;
     SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

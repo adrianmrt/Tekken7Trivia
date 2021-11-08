@@ -61,9 +61,11 @@ public class MainUserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_user, container, false);
-        handler= new Handler();
+
+        handler = new Handler();
         utils = new Utils();
-        sharedPreferences= getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
+
+        sharedPreferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
         userNameLayout = view.findViewById(R.id.addUserNameLayout);
         usersListText = view.findViewById(R.id.usersListText);
         userName = view.findViewById(R.id.addUserName);
@@ -83,39 +85,39 @@ public class MainUserFragment extends Fragment {
         });
 
         addUser.setOnClickListener(v -> {
-            added=false;
+            added = false;
             if (TextUtils.isEmpty(userName.getText().toString())) {
                 userNameLayout.setError("Campo vacío");
                 userNameLayout.setErrorEnabled(true);
             } else {
-                Runnable r= new Runnable() {
+                Runnable r = new Runnable() {
                     @Override
                     public void run() {
-                        if(added) {
+                        if (added) {
                             Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             Toast.makeText(getActivity(), "User already exists", Toast.LENGTH_SHORT).show();
                         }
                         userName.setText("");
                     }
                 };
-                Thread t= new Thread(){
+                Thread t = new Thread() {
                     @Override
                     public void run() {
-                        User userAux=databaseViewModel.GetUser(userName.getText().toString());
-                        if (userAux== null) {
-                            Calendar calendar= Calendar.getInstance();
+                        User userAux = databaseViewModel.GetUser(userName.getText().toString());
+                        if (userAux == null) {
+                            Calendar calendar = Calendar.getInstance();
                             SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                            String currentDate= dateFormat.format(calendar.getTime());
+                            String currentDate = dateFormat.format(calendar.getTime());
                             User user = new User();
                             user.setName(userName.getText().toString());
                             user.setMaxScore(0);
                             user.setNumberOfGamesPlayed(0);
                             user.setLastTimePlayed(currentDate);
                             databaseViewModel.InsertUser(user);
-                            added=true;
-                        }else{
-                            added=false;
+                            added = true;
+                        } else {
+                            added = false;
                         }
                         handler.post(r);
                     }
@@ -131,15 +133,11 @@ public class MainUserFragment extends Fragment {
 
 
         selectUser.setOnClickListener(v -> {
-            sharedPreferences.edit().putString("User",userName.getText().toString()).commit();
-            sharedPreferences.edit().putBoolean("UserMode",true).commit();
+            sharedPreferences.edit().putString("User", userName.getText().toString()).commit();
+            sharedPreferences.edit().putBoolean("UserMode", true).commit();
         });
 
          */
-
-
-
-
 
         return view;
     }

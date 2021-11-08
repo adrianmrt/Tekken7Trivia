@@ -45,7 +45,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="576dp"
+            android:layout_height="667dp"
             android:layout_gravity="bottom"
             android:layout_marginTop="0dp"
             app:layout_constraintTop_toTopOf="parent">
@@ -119,28 +119,42 @@
 
             <Button
                 android:id="@+id/playButton"
-                android:layout_width="180dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
                 android:layout_marginBottom="28dp"
                 android:backgroundTint="@color/purple_500"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Jugar"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/tableRow"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Jugar" />
+
+            <Button
+                android:id="@+id/playButton2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="28dp"
+                android:backgroundTint="@color/purple_500"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Jugar2"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/tableRow"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Jugar2" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/playerNameInputLayout"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="100dp"
                 app:boxStrokeErrorColor="@color/purple_700"
                 app:counterOverflowTextColor="@color/purple_700"
                 app:errorIconTint="@color/purple_700"
                 app:errorTextColor="@color/purple_700"
-                app:layout_constraintBottom_toTopOf="@+id/playButton"
+                app:layout_constraintBottom_toTopOf="@+id/tableRow"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 

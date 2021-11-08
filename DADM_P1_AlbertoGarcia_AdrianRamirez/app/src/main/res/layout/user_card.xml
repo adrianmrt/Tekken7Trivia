@@ -114,7 +114,7 @@
                         android:textColor="#FFFFFF"
                         android:textSize="11sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/nombre6" />
+                        app:layout_constraintTop_toBottomOf="@+id/userCardName" />
 
                     <TextView
                         android:id="@+id/nombre3"
@@ -130,7 +130,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/userCardScore" />
 
                     <TextView
-                        android:id="@+id/nombre6"
+                        android:id="@+id/userCardName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_semibold"

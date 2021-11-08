@@ -6,22 +6,22 @@ public class Card {
     private int pais;
     private String _description;
 
-    public Card (int img, String nmb, int pais, String description){
-        this.imagen=img;
-        this.nombre=nmb;
-        this.pais=pais;
-        _description=description;
+    public Card(int img, String nmb, int pais, String description) {
+        this.imagen = img;
+        this.nombre = nmb;
+        this.pais = pais;
+        _description = description;
     }
 
-    public int getImagen(){
+    public int getImagen() {
         return imagen;
     }
 
-    public int getPais(){
+    public int getPais() {
         return pais;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
 
