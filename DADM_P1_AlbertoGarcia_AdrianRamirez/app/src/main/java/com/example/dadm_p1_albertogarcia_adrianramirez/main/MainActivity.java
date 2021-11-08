@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
-import com.example.dadm_p1_albertogarcia_adrianramirez.Utils;
+import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.QuestionDatabase;

@@ -16,11 +16,11 @@ import android.widget.RadioGroup;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
-public class ConfigFragment extends Fragment {
+public class MainConfigFragment extends Fragment {
 
     RadioGroup nQuestions;
 
-    public ConfigFragment() {
+    public MainConfigFragment() {
         // Required empty public constructor
     }
 
