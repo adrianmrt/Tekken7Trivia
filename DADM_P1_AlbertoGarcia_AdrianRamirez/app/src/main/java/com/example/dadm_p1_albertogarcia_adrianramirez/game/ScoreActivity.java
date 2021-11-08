@@ -13,7 +13,7 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.RankingUnit;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.MainActivity;
-import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
+import com.example.dadm_p1_albertogarcia_adrianramirez.Utils;
 
 import java.util.Random;
 

@@ -5,10 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStore;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
+import com.example.dadm_p1_albertogarcia_adrianramirez.Utils;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.RankingUnit;
-import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 
 import java.util.List;
 
