@@ -1,5 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 
@@ -34,11 +36,14 @@ public class MainUserFragment extends Fragment {
     EditText userName;
     Button addUser;
     Button deleteUser;
+    Button selectUser;
+    Button changeToAnonym;
     String UserList = "";
     DatabaseViewModel databaseViewModel;
     Utils utils;
     boolean added;
     Handler handler;
+    SharedPreferences sharedPreferences;
 
     public MainUserFragment() {
         // Required empty public constructor
@@ -56,6 +61,7 @@ public class MainUserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main_user, container, false);
         handler= new Handler();
         utils = new Utils();
+        sharedPreferences= getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
         userNameLayout = view.findViewById(R.id.addUserNameLayout);
         usersListText = view.findViewById(R.id.usersListText);
         userName = view.findViewById(R.id.addUserName);
@@ -116,7 +122,21 @@ public class MainUserFragment extends Fragment {
         deleteUser.setOnClickListener(v -> {
             databaseViewModel.DeleteUser(userName.getText().toString());
         });
+
+
+        selectUser.setOnClickListener(v -> {
+            sharedPreferences.edit().putString("User",userName.getText().toString()).commit();
+            sharedPreferences.edit().putBoolean("UserMode",true).commit();
+        });
+
+        changeToAnonym.setOnClickListener(v -> {
+            sharedPreferences.edit().putBoolean("UserMode",false).commit();
+        });
+        
          */
+
+
+
 
         return view;
     }
