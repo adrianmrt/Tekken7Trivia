@@ -21,8 +21,8 @@ public class User {
     private int maxScore;
     @ColumnInfo (name = "user_games_played")
     private int numberOfGamesPlayed;
-    //@ColumnInfo (name = "user_last_time")
-    //private Date lastTimePlayed;
+    @ColumnInfo (name = "user_last_time")
+    private String lastTimePlayed;
 
     //public Image getProfilePicture() { return profilePicture; }
     //public void setProfilePicture(Image profilePicture) { this.profilePicture = profilePicture; }
@@ -46,6 +46,6 @@ public class User {
     }
     public void setNumberOfGamesPlayed(int numberOfGamesPlayed) { this.numberOfGamesPlayed = numberOfGamesPlayed; }
 
-    //public Date getLastTimePlayed() { return lastTimePlayed; }
-    //public void setLastTimePlayed(Date lastTimePlayed) { this.lastTimePlayed = lastTimePlayed; }
+    public String getLastTimePlayed() { return lastTimePlayed; }
+    public void setLastTimePlayed(String lastTimePlayed) { this.lastTimePlayed = lastTimePlayed; }
 }

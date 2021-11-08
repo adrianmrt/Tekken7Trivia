@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
@@ -18,17 +20,21 @@ public class QuestionActivity extends AppCompatActivity {
 
     QuestionDAO questionDAO;
     DatabaseViewModel databaseViewModel;
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_question);
-
+        sharedPreferences=getSharedPreferences("Settings", Context.MODE_PRIVATE);
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
         Bundle bundle = getIntent().getExtras();
-        playerName = bundle.getString("playerName");
+        if(sharedPreferences.getBoolean("UserMode",false)){
+            playerName= sharedPreferences.getString("User","User");
+        }else{
+            playerName = bundle.getString("playerName");
+        }
 
         if (savedInstanceState == null) {
             //Fragment manager

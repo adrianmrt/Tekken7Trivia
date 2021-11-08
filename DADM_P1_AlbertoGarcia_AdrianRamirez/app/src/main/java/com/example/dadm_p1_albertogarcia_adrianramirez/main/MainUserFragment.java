@@ -1,5 +1,8 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -8,6 +11,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +27,8 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainUserFragment extends Fragment {
@@ -31,8 +37,15 @@ public class MainUserFragment extends Fragment {
     TextView usersListText;
     EditText userName;
     Button addUser;
+    Button deleteUser;
+    Button selectUser;
+    Button updateUser;
     String UserList = "";
     DatabaseViewModel databaseViewModel;
+    Utils utils;
+    boolean added;
+    Handler handler;
+    SharedPreferences sharedPreferences;
 
     public MainUserFragment() {
         // Required empty public constructor
@@ -48,11 +61,14 @@ public class MainUserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_user, container, false);
-
+        handler= new Handler();
+        utils = new Utils();
+        sharedPreferences= getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
         userNameLayout = view.findViewById(R.id.addUserNameLayout);
         usersListText = view.findViewById(R.id.usersListText);
         userName = view.findViewById(R.id.addUserName);
         addUser = view.findViewById(R.id.addUserButton);
+        //AÑADIR BOTONES
 
         databaseViewModel.getAllUsers().observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
@@ -67,18 +83,63 @@ public class MainUserFragment extends Fragment {
         });
 
         addUser.setOnClickListener(v -> {
+            added=false;
             if (TextUtils.isEmpty(userName.getText().toString())) {
                 userNameLayout.setError("Campo vacío");
                 userNameLayout.setErrorEnabled(true);
             } else {
-                Utils utils = new Utils();
-                User user = new User();
-                user.setName(userName.getText().toString());
-                databaseViewModel.InsertUser(user);
-                Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
-                userName.setText("");
+                Runnable r= new Runnable() {
+                    @Override
+                    public void run() {
+                        if(added) {
+                            Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getActivity(), "User already exists", Toast.LENGTH_SHORT).show();
+                        }
+                        userName.setText("");
+                    }
+                };
+                Thread t= new Thread(){
+                    @Override
+                    public void run() {
+                        User userAux=databaseViewModel.GetUser(userName.getText().toString());
+                        if (userAux== null) {
+                            Calendar calendar= Calendar.getInstance();
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                            String currentDate= dateFormat.format(calendar.getTime());
+                            User user = new User();
+                            user.setName(userName.getText().toString());
+                            user.setMaxScore(0);
+                            user.setNumberOfGamesPlayed(0);
+                            user.setLastTimePlayed(currentDate);
+                            databaseViewModel.InsertUser(user);
+                            added=true;
+                        }else{
+                            added=false;
+                        }
+                        handler.post(r);
+                    }
+                };
+                t.start();
             }
         });
+
+        /*
+        deleteUser.setOnClickListener(v -> {
+            databaseViewModel.DeleteUser(userName.getText().toString());
+        });
+
+
+        selectUser.setOnClickListener(v -> {
+            sharedPreferences.edit().putString("User",userName.getText().toString()).commit();
+            sharedPreferences.edit().putBoolean("UserMode",true).commit();
+        });
+
+         */
+
+
+
+
 
         return view;
     }

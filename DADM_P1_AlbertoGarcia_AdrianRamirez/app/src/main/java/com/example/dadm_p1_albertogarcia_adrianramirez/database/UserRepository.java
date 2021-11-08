@@ -19,8 +19,10 @@ public class UserRepository {
     }
     public void InsertUser(User user){new InsertUserAsyncTask(userDAO).execute(user);}
     public LiveData<List<User>>GetUsers(){return userDAO.getUsers();};
-
+    public void DeleteUser(String name){userDAO.Delete(name);}
+    public User GetUser(String name){return userDAO.GetUser(name);}
     public UserDAO getUserDAO() {
         return userDAO;
     }
+    public void UpdateUser(String name, int score, int numberOfGamesPlayed, String lastDate){new UpdateUserAsyncTask(userDAO, name, score,numberOfGamesPlayed, lastDate);}
 }
