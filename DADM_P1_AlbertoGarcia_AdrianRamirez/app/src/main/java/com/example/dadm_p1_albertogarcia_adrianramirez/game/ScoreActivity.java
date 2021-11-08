@@ -18,6 +18,8 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.MainActivity;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
 
 public class ScoreActivity extends AppCompatActivity {
@@ -89,14 +91,17 @@ public class ScoreActivity extends AppCompatActivity {
 
     public void UpdateUser() {
         if (sharedPreferences.getBoolean("UserMode", false)) {
+            Calendar calendar= Calendar.getInstance();
+            String currentDate= Integer.toString(calendar.DAY_OF_MONTH)+"/"+
+                    Integer.toString(calendar.MONTH)+"/"+Integer.toString(calendar.YEAR);
             User user = databaseViewModel.GetUser(playerName);
             Integer _score = Integer.parseInt(time);
             int _numberOfGamesPlayed = user.getNumberOfGamesPlayed() + 1;
             if (_score > user.getMaxScore()) {
-                databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed);
+                databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
             }else{
                 _score= user.getMaxScore();
-                databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed);
+                databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
             }
         }
     }

@@ -27,6 +27,7 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class MainUserFragment extends Fragment {
@@ -102,10 +103,14 @@ public class MainUserFragment extends Fragment {
                     public void run() {
                         User userAux=databaseViewModel.GetUser(userName.getText().toString());
                         if (userAux== null) {
+                            Calendar calendar= Calendar.getInstance();
+                            String currentDate= Integer.toString(calendar.DAY_OF_MONTH)+"/"+
+                                    Integer.toString(calendar.MONTH)+"/"+Integer.toString(calendar.YEAR);
                             User user = new User();
                             user.setName(userName.getText().toString());
                             user.setMaxScore(0);
                             user.setNumberOfGamesPlayed(0);
+                            user.setLastTimePlayed(currentDate);
                             databaseViewModel.InsertUser(user);
                             added=true;
                         }else{
