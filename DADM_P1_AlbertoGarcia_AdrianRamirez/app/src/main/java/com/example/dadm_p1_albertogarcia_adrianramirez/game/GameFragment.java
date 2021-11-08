@@ -50,6 +50,7 @@ public class GameFragment extends Fragment {
     List<Integer>randomNumbers;
     int randomNumberIdx;
     Random rand;
+    String questionType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,8 +61,8 @@ public class GameFragment extends Fragment {
         //creation of object that receives data from GameFragment
         getChildFragmentManager().setFragmentResultListener("answerChoose", this, (requestKey, bundle) -> answerAct = bundle.getString("answer"));
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
-        //numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
-        numberOfQuestions=3;
+        numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
+        questionType= sharedPreferences.getString("blockType","general");
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
     }
@@ -73,8 +74,8 @@ public class GameFragment extends Fragment {
         for (int i=0;i<numberOfQuestions;i++){
             boolean added=false;
             while(!added){
-                int rNumber=rand.nextInt(numberOfQuestions);
-                if(!randomNumbers.contains(rNumber)) {
+                int rNumber=rand.nextInt(5);
+                if(!randomNumbers.contains(rNumber)&& databaseViewModel.GetQuestion(rNumber).get_questionBlock().equals(questionType)) {
                     randomNumbers.add(rNumber);
                     added = true;
                 }

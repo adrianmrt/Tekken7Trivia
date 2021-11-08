@@ -19,6 +19,7 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 public class MainConfigFragment extends Fragment {
 
     RadioGroup nQuestions;
+    RadioGroup typeQuestions;
 
     public MainConfigFragment() {
         // Required empty public constructor
@@ -40,6 +41,7 @@ public class MainConfigFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         nQuestions = view.findViewById(R.id.nQuestionsRG);
         nQuestions.setOnCheckedChangeListener((group, checkedId) -> getAnswerChosen());
+        //SETEAR typeQuestions
     }
 
     private void getAnswerChosen() {
@@ -47,9 +49,14 @@ public class MainConfigFragment extends Fragment {
         RadioButton numberSelected = nQuestions.findViewById(_answerID);
         Integer quantity = Integer.parseInt(numberSelected.getText().toString());
 
+        int _typeID = typeQuestions.getCheckedRadioButtonId();
+        RadioButton typeSelected = typeQuestions.findViewById(_answerID);
+        String blockType = numberSelected.getText().toString();
+
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("numberOfQuestions", quantity);
+        editor.putString("blockType", blockType);
         editor.apply();
     }
 }
