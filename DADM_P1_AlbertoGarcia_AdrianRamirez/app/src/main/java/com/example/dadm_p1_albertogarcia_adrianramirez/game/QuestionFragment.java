@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
@@ -22,8 +23,9 @@ public class QuestionFragment extends Fragment {
     DatabaseViewModel questionDatabase;
     Question _question;
     //Layout elements
-    ImageView img1;
+    ImageView imageView;
     TextView questionText;
+    VideoView videoView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,35 +36,34 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Bundle passData=getArguments();
-        _questionAct= passData.getInt("actualQuestion");
-        questionDatabase= new ViewModelProvider(this).get(DatabaseViewModel.class);
-        _question= questionDatabase.GetQuestion(_questionAct);
+        Bundle passData = getArguments();
+        _questionAct = passData.getInt("actualQuestion");
+        questionDatabase = new ViewModelProvider(this).get(DatabaseViewModel.class);
+        _question = questionDatabase.GetQuestion(_questionAct);
 
-        if(_question.get_questionType()==0) {
+        if (_question.get_questionType() == 0) {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);
-            questionText= rootView.findViewById(R.id.textQuestionText);
+            questionText = rootView.findViewById(R.id.textQuestionText);
             questionText.setText(_question.get_question());
-
-        }else if (_question.get_questionType()==1){
+        } else if (_question.get_questionType() == 1) {
             rootView = inflater.inflate(R.layout.question_img_layout, container, false);
-            questionText= rootView.findViewById(R.id.textQuestionImg);
+            questionText = rootView.findViewById(R.id.textQuestionImg);
             questionText.setText(_question.get_question());
-            img1=rootView.findViewById(R.id.imgQuestion);
-            img1.setImageResource(Integer.parseInt(_question.get_images().get(0)));
-        }else if (_question.get_questionType()==2){
-            rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR
-            questionText= rootView.findViewById(R.id.textQuestionText);
+            imageView = rootView.findViewById(R.id.imgQuestion);
+            imageView.setImageResource(Integer.parseInt(_question.get_images().get(0)));
+        } else if (_question.get_questionType() == 2) {
+            rootView = inflater.inflate(R.layout.question_video_layout, container, false);//EDITAR
+            questionText = rootView.findViewById(R.id.textQuestionText);
             questionText.setText(_question.get_question());
+            videoView = rootView.findViewById(R.id.videoView);
+            //videoView
             //AÑADIR MULTIMEDIA
-        }else{
+        } else {
             rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR
-            questionText= rootView.findViewById(R.id.textQuestionText);
+            questionText = rootView.findViewById(R.id.textQuestionText);
             questionText.setText(_question.get_question());
             //AÑADIR MULTIMEDIA
         }
         return rootView;
     }
-
-
 }
