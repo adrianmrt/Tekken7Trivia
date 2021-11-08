@@ -1,196 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:shape="ring"
+        app:cardBackgroundColor="@color/teal_700"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:cardCornerRadius="10dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:shape="ring"
-            app:cardBackgroundColor="@color/teal_700"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="4dp"
-            app:cardUseCompatPadding="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:cardCornerRadius="10dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:background="@color/teal_700">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/userImgCard"
+                android:layout_width="113dp"
+                android:layout_height="101dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:scaleType="center" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userCardInfoLayout"
+                android:layout_width="138dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="0dp"
-                android:background="@color/teal_700">
+                android:layout_alignParentLeft="false"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/userImgCard">
 
-                <ImageView
-                    android:id="@+id/userImgCard"
-                    android:layout_width="113dp"
-                    android:layout_height="101dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:scaleType="center" />
+                <TextView
+                    android:id="@+id/nombre5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Última conexión: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userCardGamesPlayed" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/userCardInfoLayout"
-                    android:layout_width="138dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="false"
-                    android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@id/userImgCard">
+                <TextView
+                    android:id="@+id/userCardScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="puntuación "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nombre2" />
 
-                    <TextView
-                        android:id="@+id/nombre5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Última conexión: "
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userCardGamesPlayed" />
+                <TextView
+                    android:id="@+id/userCardGamesPlayed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="partidas"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nombre3" />
 
-                    <TextView
-                        android:id="@+id/userCardScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="puntuación "
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/nombre2" />
+                <TextView
+                    android:id="@+id/userCardDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="fecha"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nombre5" />
 
-                    <TextView
-                        android:id="@+id/userCardGamesPlayed"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="partidas"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/nombre3" />
+                <TextView
+                    android:id="@+id/nombre2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Mejor puntuación: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userCardName" />
 
-                    <TextView
-                        android:id="@+id/userCardDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/montserrat_regular"
-                        android:text="fecha"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/nombre5" />
+                <TextView
+                    android:id="@+id/nombre3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Número de partidas: "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userCardScore" />
 
-                    <TextView
-                        android:id="@+id/nombre2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Mejor puntuación: "
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userCardName" />
+                <TextView
+                    android:id="@+id/userCardName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Nombre"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/nombre3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_medium"
-                        android:text="Número de partidas: "
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        android:textSize="11sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userCardScore" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/userCardButtonsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/userCardInfoLayout">
 
-                    <TextView
-                        android:id="@+id/userCardName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="Nombre"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="#FFFFFF"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/userCardButtonsLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_toEndOf="@id/userCardInfoLayout">
+                    <ImageButton
+                        android:id="@+id/userCardDeleteImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="43dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="#D34E4E"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/delete_icon"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                    <LinearLayout
-                        android:id="@+id/linearLayout3"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                    <ImageButton
+                        android:id="@+id/userCardEditImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="43dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/purple_700"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/edit_icon"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-                        <ImageButton
-                            android:id="@+id/userCardDeleteImageButton"
-                            android:layout_width="60dp"
-                            android:layout_height="43dp"
-                            android:layout_gravity="center"
-                            android:backgroundTint="#D34E4E"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/delete_icon"
-                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                    <ImageButton
+                        android:id="@+id/userCardPlayImageButton"
+                        android:layout_width="60dp"
+                        android:layout_height="43dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/purple_700"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/play_icon"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <ImageButton
-                            android:id="@+id/userCardEditImageButton"
-                            android:layout_width="60dp"
-                            android:layout_height="43dp"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/purple_700"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/edit_icon"
-                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-                        <ImageButton
-                            android:id="@+id/userCardPlayImageButton"
-                            android:layout_width="60dp"
-                            android:layout_height="43dp"
-                            android:layout_gravity="center"
-                            android:backgroundTint="@color/purple_700"
-                            android:scaleType="centerInside"
-                            app:srcCompat="@drawable/play_icon"
-                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-                    </LinearLayout>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

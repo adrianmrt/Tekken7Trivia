@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -53,12 +54,14 @@ public class QuestionFragment extends Fragment {
             imageView = rootView.findViewById(R.id.imgQuestion);
             imageView.setImageResource(Integer.parseInt(_question.get_images().get(0)));
         } else if (_question.get_questionType() == 2) {
-            rootView = inflater.inflate(R.layout.question_video_layout, container, false);//EDITAR
+            rootView = inflater.inflate(R.layout.question_video_layout, container, false);
             questionText = rootView.findViewById(R.id.videoQuestionText);
             questionText.setText(_question.get_question());
             videoView = rootView.findViewById(R.id.videoView);
             videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
-            //AÑADIR MULTIMEDIA
+            MediaController mediaController = new MediaController(getContext());
+            videoView.setMediaController(mediaController);
+            mediaController.setAnchorView(videoView);
         }
         return rootView;
     }
