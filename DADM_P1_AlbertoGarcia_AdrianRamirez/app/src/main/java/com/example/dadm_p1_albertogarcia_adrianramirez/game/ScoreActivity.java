@@ -73,7 +73,7 @@ public class ScoreActivity extends AppCompatActivity {
         scoreText.setText(score);
         timeText.setText(timeT);
         InsertUserToRanking();
-        UpdateUser();
+        //UpdateUser();
 
     }
 
