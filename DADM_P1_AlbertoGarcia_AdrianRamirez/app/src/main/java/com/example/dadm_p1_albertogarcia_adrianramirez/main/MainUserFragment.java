@@ -39,7 +39,7 @@ public class MainUserFragment extends Fragment {
     Button addUser;
     Button deleteUser;
     Button selectUser;
-    Button changeToAnonym;
+    Button updateUser;
     String UserList = "";
     DatabaseViewModel databaseViewModel;
     Utils utils;
@@ -135,11 +135,8 @@ public class MainUserFragment extends Fragment {
             sharedPreferences.edit().putBoolean("UserMode",true).commit();
         });
 
-        changeToAnonym.setOnClickListener(v -> {
-            sharedPreferences.edit().putBoolean("UserMode",false).commit();
-        });
-
          */
+
 
 
 
