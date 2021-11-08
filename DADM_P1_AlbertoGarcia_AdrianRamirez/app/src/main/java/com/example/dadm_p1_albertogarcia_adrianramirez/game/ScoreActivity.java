@@ -18,6 +18,7 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.MainActivity;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -92,8 +93,8 @@ public class ScoreActivity extends AppCompatActivity {
     public void UpdateUser() {
         if (sharedPreferences.getBoolean("UserMode", false)) {
             Calendar calendar= Calendar.getInstance();
-            String currentDate= Integer.toString(calendar.DAY_OF_MONTH)+"/"+
-                    Integer.toString(calendar.MONTH)+"/"+Integer.toString(calendar.YEAR);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+            String currentDate= dateFormat.format(calendar.getTime());
             User user = databaseViewModel.GetUser(playerName);
             Integer _score = Integer.parseInt(time);
             int _numberOfGamesPlayed = user.getNumberOfGamesPlayed() + 1;

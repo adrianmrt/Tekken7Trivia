@@ -27,6 +27,7 @@ import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -104,8 +105,8 @@ public class MainUserFragment extends Fragment {
                         User userAux=databaseViewModel.GetUser(userName.getText().toString());
                         if (userAux== null) {
                             Calendar calendar= Calendar.getInstance();
-                            String currentDate= Integer.toString(calendar.DAY_OF_MONTH)+"/"+
-                                    Integer.toString(calendar.MONTH)+"/"+Integer.toString(calendar.YEAR);
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                            String currentDate= dateFormat.format(calendar.getTime());
                             User user = new User();
                             user.setName(userName.getText().toString());
                             user.setMaxScore(0);
