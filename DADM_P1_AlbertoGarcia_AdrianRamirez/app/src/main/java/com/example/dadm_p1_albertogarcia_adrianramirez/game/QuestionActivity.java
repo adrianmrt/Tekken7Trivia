@@ -40,12 +40,12 @@ public class QuestionActivity extends AppCompatActivity {
             Bundle TopInitData = new Bundle();
             TopInitData.putInt("initialScore", initialScore);
             TopInitData.putString("playerName", playerName);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, userFragment.class, TopInitData);
 
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.topLayout, UserFragment.class, TopInitData);
             //gameFragment
             Bundle BotInitData = new Bundle();
             BotInitData.putString("playerName", playerName);
-            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, gameFragment.class, BotInitData);
+            fragmentTransaction.setReorderingAllowed(true).add(R.id.botLayout, GameFragment.class, BotInitData);
 
             fragmentTransaction.commit();
         }

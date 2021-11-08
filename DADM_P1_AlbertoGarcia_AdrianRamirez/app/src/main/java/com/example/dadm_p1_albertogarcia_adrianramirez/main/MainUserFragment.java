@@ -2,7 +2,9 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -16,8 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
-import com.example.dadm_p1_albertogarcia_adrianramirez.Utils;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.User;
 import com.google.android.material.textfield.TextInputLayout;
 

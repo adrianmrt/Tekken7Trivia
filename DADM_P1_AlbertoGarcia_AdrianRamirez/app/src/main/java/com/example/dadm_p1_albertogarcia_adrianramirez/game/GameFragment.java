@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class gameFragment extends Fragment {
+public class GameFragment extends Fragment {
 
     boolean answer;
 
@@ -57,13 +57,8 @@ public class gameFragment extends Fragment {
 
         answerNotSelectedNotification = Toast.makeText(getActivity(), "Selecciona una respuesta", Toast.LENGTH_SHORT);
 
-        //creation of object that receives data from gameFragment
-        getChildFragmentManager().setFragmentResultListener("answerChoose", this, new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle bundle) {
-                answerAct = bundle.getString("answer");
-            }
-        });
+        //creation of object that receives data from GameFragment
+        getChildFragmentManager().setFragmentResultListener("answerChoose", this, (requestKey, bundle) -> answerAct = bundle.getString("answer"));
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         //numberOfQuestions= sharedPreferences.getInt("numberOfQuestions",5);
         numberOfQuestions=3;
@@ -92,7 +87,7 @@ public class gameFragment extends Fragment {
         playerName = passData.getString("playerName");
         fragmentManager = getChildFragmentManager();
         setQuestion();
-        return inflater.inflate(R.layout.game_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_game, container, false);
     }
 
     @Override
@@ -108,11 +103,14 @@ public class gameFragment extends Fragment {
                 if (answerAct.equals(correctAnswer)) {
                     answer = true;
                 }
+
+                randomNumberIdx++;
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("answer", answer);
+                bundle.putInt("count", randomNumberIdx);
 
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
-                randomNumberIdx++;
+
                 if (randomNumberIdx < numberOfQuestions) {
                     questionAct=randomNumbers.get(randomNumberIdx);
                     setQuestion();
@@ -129,9 +127,13 @@ public class gameFragment extends Fragment {
         correctAnswer=databaseViewModel.getAnswer(questionAct);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         Bundle objectT = new Bundle();
+
+        //objectT.putParcelable("question", questions[questionAct]);
         objectT.putInt("actualQuestion",questionAct);
-        transaction.replace(R.id.questionLayout, questionFragment.class, objectT);
-        transaction.replace(R.id.answerLayout, answerFragment.class, objectT);
+
+        transaction.replace(R.id.questionLayout, QuestionFragment.class, objectT);
+        transaction.replace(R.id.answerLayout, AnswerFragment.class, objectT);
+
         transaction.commit();
     }
 

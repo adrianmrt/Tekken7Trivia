@@ -1,4 +1,4 @@
-package com.example.dadm_p1_albertogarcia_adrianramirez;
+package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -111,6 +111,4 @@ public class Utils {
         }
         return null;
     }
-
-
 }

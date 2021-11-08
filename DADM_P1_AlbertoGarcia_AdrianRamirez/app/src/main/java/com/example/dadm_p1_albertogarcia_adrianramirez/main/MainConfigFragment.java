@@ -17,9 +17,9 @@ import android.widget.RadioGroup;
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 
 public class MainConfigFragment extends Fragment {
-    
+
     RadioGroup nQuestions;
-    
+
     public MainConfigFragment() {
         // Required empty public constructor
     }
@@ -38,18 +38,18 @@ public class MainConfigFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        nQuestions= view.findViewById(R.id.nQuestionsRG);
+        nQuestions = view.findViewById(R.id.nQuestionsRG);
         nQuestions.setOnCheckedChangeListener((group, checkedId) -> getAnswerChosen());
     }
 
     private void getAnswerChosen() {
         int _answerID = nQuestions.getCheckedRadioButtonId();
         RadioButton numberSelected = nQuestions.findViewById(_answerID);
-        Integer quantity= Integer.parseInt(numberSelected.getText().toString());
+        Integer quantity = Integer.parseInt(numberSelected.getText().toString());
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("numberOfQuestions",quantity);
+        editor.putInt("numberOfQuestions", quantity);
         editor.apply();
     }
 }

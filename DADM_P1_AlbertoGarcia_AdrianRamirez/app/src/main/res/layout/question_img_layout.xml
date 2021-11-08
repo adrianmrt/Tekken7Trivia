@@ -12,7 +12,7 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="Question"
         android:textAlignment="center"
-        android:textColor="#252525"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
