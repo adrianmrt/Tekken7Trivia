@@ -132,7 +132,7 @@ public class MainUserFragment extends Fragment {
         changeToAnonym.setOnClickListener(v -> {
             sharedPreferences.edit().putBoolean("UserMode",false).commit();
         });
-        
+
          */
 
 

@@ -1,5 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModel;
@@ -9,7 +11,10 @@ import androidx.room.Room;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.example.dadm_p1_albertogarcia_adrianramirez.main.Utils;
@@ -25,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public static QuestionDatabase questionDatabase;
     private DatabaseViewModel databaseViewModel;
     Utils utils;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         databaseViewModel = new ViewModelProvider(this).get(DatabaseViewModel.class);
 
         //createPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("UserMode",false).commit();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
