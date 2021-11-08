@@ -2,6 +2,7 @@ package com.example.dadm_p1_albertogarcia_adrianramirez.database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -14,4 +15,12 @@ public interface UserDAO {
 
     @Query("SELECT * FROM users ORDER BY user_name ASC")
     public LiveData<List<User>> getUsers();
+
+    @Query("DELETE FROM users WHERE user_name=:name")
+    public void Delete(String name);
+
+    @Query("SELECT * FROM users WHERE user_name=:name")
+    public User GetUser(String name);
+
+
 }

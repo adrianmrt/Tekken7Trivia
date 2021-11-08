@@ -1,5 +1,6 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -8,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +33,12 @@ public class MainUserFragment extends Fragment {
     TextView usersListText;
     EditText userName;
     Button addUser;
+    Button deleteUser;
     String UserList = "";
     DatabaseViewModel databaseViewModel;
+    Utils utils;
+    boolean added;
+    Handler handler;
 
     public MainUserFragment() {
         // Required empty public constructor
@@ -48,11 +54,13 @@ public class MainUserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_user, container, false);
-
+        handler= new Handler();
+        utils = new Utils();
         userNameLayout = view.findViewById(R.id.addUserNameLayout);
         usersListText = view.findViewById(R.id.usersListText);
         userName = view.findViewById(R.id.addUserName);
         addUser = view.findViewById(R.id.addUserButton);
+        //AÑADIR BOTONES
 
         databaseViewModel.getAllUsers().observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
@@ -67,18 +75,48 @@ public class MainUserFragment extends Fragment {
         });
 
         addUser.setOnClickListener(v -> {
+            added=false;
             if (TextUtils.isEmpty(userName.getText().toString())) {
                 userNameLayout.setError("Campo vacío");
                 userNameLayout.setErrorEnabled(true);
             } else {
-                Utils utils = new Utils();
-                User user = new User();
-                user.setName(userName.getText().toString());
-                databaseViewModel.InsertUser(user);
-                Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
-                userName.setText("");
+                Runnable r= new Runnable() {
+                    @Override
+                    public void run() {
+                        if(added) {
+                            Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getActivity(), "User already exists", Toast.LENGTH_SHORT).show();
+                        }
+                        userName.setText("");
+                    }
+                };
+                Thread t= new Thread(){
+                    @Override
+                    public void run() {
+                        User userAux=databaseViewModel.GetUser(userName.getText().toString());
+                        if (userAux== null) {
+                            User user = new User();
+                            user.setName(userName.getText().toString());
+                            user.setMaxScore(0);
+                            user.setNumberOfGamesPlayed(0);
+                            databaseViewModel.InsertUser(user);
+                            added=true;
+                        }else{
+                            added=false;
+                        }
+                        handler.post(r);
+                    }
+                };
+                t.start();
             }
         });
+
+        /*
+        deleteUser.setOnClickListener(v -> {
+            databaseViewModel.DeleteUser(userName.getText().toString());
+        });
+         */
 
         return view;
     }
