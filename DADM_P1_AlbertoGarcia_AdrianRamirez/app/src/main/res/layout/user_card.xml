@@ -43,8 +43,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/userCardInfoLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="158dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentLeft="false"
                     android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/userImgCard">
@@ -53,39 +53,52 @@
                         android:id="@+id/nombre5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="9dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/montserrat_medium"
                         android:text="Última conexión: "
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="11sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/userCardScore" />
+                        app:layout_constraintTop_toBottomOf="@+id/userCardGamesPlayed" />
 
                     <TextView
                         android:id="@+id/userCardScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="2dp"
                         android:fontFamily="@font/montserrat_regular"
                         android:text="puntuación "
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="11sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nombre2" />
+
+                    <TextView
+                        android:id="@+id/userCardGamesPlayed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="partidas"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/nombre3" />
 
                     <TextView
                         android:id="@+id/userCardDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="2dp"
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/montserrat_regular"
                         android:text="fecha"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nombre5" />
@@ -94,20 +107,33 @@
                         android:id="@+id/nombre2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/montserrat_medium"
                         android:text="Mejor puntuación: "
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="#FFFFFF"
-                        android:textSize="14sp"
+                        android:textSize="11sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nombre6" />
+
+                    <TextView
+                        android:id="@+id/nombre3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:text="Número de partidas: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/userCardScore" />
 
                     <TextView
                         android:id="@+id/nombre6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:fontFamily="@font/montserrat_semibold"
                         android:text="Nombre"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="#FFFFFF"
