@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         //createPreferences
         sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         sharedPreferences.edit().putBoolean("UserMode",false).commit();
+        sharedPreferences.edit().putInt("numberOfQuestions",5).commit();
+        sharedPreferences.edit().putString("blockType","general").commit();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
