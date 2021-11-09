@@ -1,5 +1,6 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -60,9 +62,13 @@ public class QuestionFragment extends Fragment {
             questionText.setText(question);
             videoView = rootView.findViewById(R.id.videoView);
             videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
-            MediaController mediaController = new MediaController(getContext());
-            videoView.setMediaController(mediaController);
-            mediaController.setAnchorView(videoView);
+            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    videoView.start();
+                }
+
+            });
         }
         return rootView;
     }
