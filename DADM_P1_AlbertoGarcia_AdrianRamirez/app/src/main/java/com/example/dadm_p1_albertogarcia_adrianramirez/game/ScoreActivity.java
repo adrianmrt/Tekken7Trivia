@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.TextView;
@@ -76,8 +77,7 @@ public class ScoreActivity extends AppCompatActivity {
         scoreText.setText(score);
         timeText.setText(timeT);
         InsertUserToRanking();
-        //UpdateUser();
-
+        UpdateUser();
     }
 
     public void InsertUserToRanking() {
@@ -92,18 +92,25 @@ public class ScoreActivity extends AppCompatActivity {
 
     public void UpdateUser() {
         if (sharedPreferences.getBoolean("UserMode", false)) {
-            Calendar calendar= Calendar.getInstance();
+            Calendar calendar = Calendar.getInstance();
             SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-            String currentDate= dateFormat.format(calendar.getTime());
-            User user = databaseViewModel.GetUser(playerName);
-            Integer _score = Integer.parseInt(time);
-            int _numberOfGamesPlayed = user.getNumberOfGamesPlayed() + 1;
-            if (_score > user.getMaxScore()) {
-                databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
-            }else{
-                _score= user.getMaxScore();
-                databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
-            }
+            String currentDate = dateFormat.format(calendar.getTime());
+            Handler handler = new Handler();
+            Thread t = new Thread() {
+                @Override
+                public void run() {
+                    User user = databaseViewModel.GetUser(playerName);
+                    float _score = Float.parseFloat(time);
+                    int _numberOfGamesPlayed = user.getNumberOfGamesPlayed() + 1;
+                    if (_score > user.getMaxScore()) {
+                        databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
+                    } else {
+                        _score = user.getMaxScore();
+                        databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
+                    }
+                }
+            };
+            t.start();
         }
     }
 }

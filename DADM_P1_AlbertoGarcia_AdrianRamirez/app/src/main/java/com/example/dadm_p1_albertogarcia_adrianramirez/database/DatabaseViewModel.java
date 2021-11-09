@@ -70,5 +70,5 @@ public class  DatabaseViewModel extends AndroidViewModel {
     public void DeleteUser(String name){userRepository.DeleteUser(name);}
     public User GetUser(String name){return userRepository.GetUser(name);}
 
-    public void UpdateUser(String name,int score, int numberOfGamesPlayed, String lastDate){userRepository.UpdateUser(name,score,numberOfGamesPlayed,lastDate);}
+    public void UpdateUser(String name,float score, int numberOfGamesPlayed, String lastDate){userRepository.UpdateUser(name,score,numberOfGamesPlayed,lastDate);}
 }

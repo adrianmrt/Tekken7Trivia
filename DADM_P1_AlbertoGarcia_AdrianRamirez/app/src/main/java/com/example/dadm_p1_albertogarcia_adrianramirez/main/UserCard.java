@@ -7,15 +7,15 @@ import java.util.Date;
 public class UserCard {
     private int imagen;
     private String nombre;
-    private int puntuacion;
+    private float puntuacion;
     private int partidas;
     private String ultimaConexion;
 
-    public UserCard(String nmb, String date) {
+    public UserCard(String nmb, String date, float score, int numberOfGames) {
         this.imagen = 0;
         this.nombre = nmb;
-        this.puntuacion = 0;
-        this.partidas = 0;
+        this.puntuacion = score;
+        this.partidas = numberOfGames;
         this.ultimaConexion = date;
     }
 
@@ -43,11 +43,11 @@ public class UserCard {
         this.nombre = nombre;
     }
 
-    public int getPuntuacion() {
+    public float getPuntuacion() {
         return puntuacion;
     }
 
-    public void setPuntuacion(int puntuacion) {
+    public void setPuntuacion(float puntuacion) {
         this.puntuacion = puntuacion;
     }
 
