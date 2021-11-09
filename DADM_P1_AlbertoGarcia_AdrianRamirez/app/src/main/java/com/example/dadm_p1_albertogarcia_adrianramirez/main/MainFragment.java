@@ -32,6 +32,7 @@ public class MainFragment extends Fragment {
     View rootView;
 
     SharedPreferences sharedPreferences;
+
     public MainFragment() {
         // Required empty public constructor
     }
@@ -40,7 +41,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        sharedPreferences=getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 
         playButton = rootView.findViewById(R.id.playButton);
         playerNameInput = rootView.findViewById(R.id.playerNameInput);
@@ -50,7 +51,7 @@ public class MainFragment extends Fragment {
         configButton = rootView.findViewById(R.id.ConfigButton);
         userButton = rootView.findViewById(R.id.UserButton);
         leaderboardButton = rootView.findViewById(R.id.LeaderboardButton);
-        //changeMode=...
+        changeMode = rootView.findViewById(R.id.playButton2);
         SetListeners();
 
         return rootView;
@@ -61,7 +62,7 @@ public class MainFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    private void SetListeners(){
+    private void SetListeners() {
         playButton.setOnClickListener(v -> {
             String localPlayerName = playerNameInput.getText().toString();
 
@@ -92,20 +93,16 @@ public class MainFragment extends Fragment {
             startActivity(intent);
         });
 
-        /*
         changeMode.setOnClickListener(v -> {
-            if(sharedPreferences.getBoolean("UserMode",false)){
-                sharedPreferences.edit().putBoolean("UserMode",false);
+            if (sharedPreferences.getBoolean("UserMode", false)) {
+                sharedPreferences.edit().putBoolean("UserMode", false).commit();
                 changeMode.setText("Anonimo");
                 playerNameInput.setText("");
-            }else{
-                sharedPreferences.edit().putBoolean("UserMode",true);
+            } else {
+                sharedPreferences.edit().putBoolean("UserMode", true).commit();
                 changeMode.setText("Usuario");
-                playerNameInput.setText(sharedPreferences.getString("User","User"));
+                playerNameInput.setText(sharedPreferences.getString("User", "User"));
             }
         });
-         */
-
-
     }
 }

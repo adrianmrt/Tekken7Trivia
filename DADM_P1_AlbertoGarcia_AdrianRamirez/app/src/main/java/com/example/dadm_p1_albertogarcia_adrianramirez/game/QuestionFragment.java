@@ -1,5 +1,6 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.game;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -52,17 +54,15 @@ public class QuestionFragment extends Fragment {
             imageView = rootView.findViewById(R.id.imgQuestion);
             imageView.setImageResource(Integer.parseInt(_question.get_images().get(0)));
         } else if (_question.get_questionType() == 2) {
-            rootView = inflater.inflate(R.layout.question_video_layout, container, false);//EDITAR
-            questionText = rootView.findViewById(R.id.textQuestionText);
-            questionText.setText(_question.get_question());
+            rootView = inflater.inflate(R.layout.question_video_layout, container, false);
+            questionText = rootView.findViewById(R.id.videoQuestionText);
+            String question= _question.get_question();
+            questionText.setText(question);
             videoView = rootView.findViewById(R.id.videoView);
-            //videoView
-            //AÑADIR MULTIMEDIA
-        } else {
-            rootView = inflater.inflate(R.layout.question_text_layout, container, false);//EDITAR
-            questionText = rootView.findViewById(R.id.textQuestionText);
-            questionText.setText(_question.get_question());
-            //AÑADIR MULTIMEDIA
+            videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
+            MediaController mediaController = new MediaController(getContext());
+            videoView.setMediaController(mediaController);
+            mediaController.setAnchorView(videoView);
         }
         return rootView;
     }

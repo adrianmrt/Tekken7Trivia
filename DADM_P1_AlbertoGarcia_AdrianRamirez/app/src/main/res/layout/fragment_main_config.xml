@@ -98,12 +98,6 @@
                             android:textColor="#FFFFFF"
                             android:textSize="24sp" />
 
-                        <Space
-                            android:layout_width="10dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:layout_weight="0" />
-
                         <Switch
                             android:id="@+id/switchDayNightMode"
                             android:layout_width="wrap_content"
@@ -119,12 +113,6 @@
                             android:textOff="Tema de día"
                             android:textOn="Tema de noche"
                             android:textSize="20sp" />
-
-                        <Space
-                            android:layout_width="8dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
-                            android:layout_weight="0" />
 
                         <TextView
                             android:id="@+id/textView5"
@@ -205,6 +193,62 @@
                                 android:text="20"
                                 android:textColor="#D1D1D1"
                                 android:textSize="24sp" />
+                        </RadioGroup>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/textViewTypeOfQuests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="#0001405E"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:minHeight="0dp"
+                        android:text="Tipo de preguntas"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RadioGroup
+                            android:id="@+id/questionsTypeRG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RadioButton
+                                android:id="@+id/radioButtonMixed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Mixtas"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioButtonTextAndImage"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Texto e imagen"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioButtonVideo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_medium"
+                                android:text="Vídeo"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp" />
                         </RadioGroup>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
