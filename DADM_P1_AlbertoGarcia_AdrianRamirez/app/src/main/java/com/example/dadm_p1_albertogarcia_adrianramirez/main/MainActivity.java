@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
         sharedPreferences.edit().putBoolean("UserMode",false).commit();
         sharedPreferences.edit().putInt("numberOfQuestions",5).commit();
-        sharedPreferences.edit().putString("blockType","Vídeo").commit();
+        sharedPreferences.edit().putString("blockType","Mixtas").commit();
 
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction().add(R.id.fragmentContainer, new MainFragment()).commit();
