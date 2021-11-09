@@ -128,6 +128,8 @@
                 android:text="Jugar"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/tableRow"
+                app:layout_constraintEnd_toStartOf="@+id/playButton2"
+                app:layout_constraintHorizontal_bias="0.09"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Jugar" />
 
