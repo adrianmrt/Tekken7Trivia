@@ -62,7 +62,12 @@ public class QuestionFragment extends Fragment {
             questionText.setText(question);
             videoView = rootView.findViewById(R.id.videoView);
             videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
-            videoView.start();
+            videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    videoView.start();
+                }
+            });
         }
         return rootView;
     }
