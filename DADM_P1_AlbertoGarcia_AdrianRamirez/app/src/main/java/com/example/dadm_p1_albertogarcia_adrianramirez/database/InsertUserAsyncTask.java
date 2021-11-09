@@ -27,9 +27,4 @@ public class InsertUserAsyncTask extends AsyncTask<User, Void, Boolean>{
         publishProgress();
         return added;
     }
-
-    @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
-    }
 }

@@ -19,7 +19,7 @@ public class UserRepository {
     }
     public void InsertUser(User user){new InsertUserAsyncTask(userDAO).execute(user);}
     public LiveData<List<User>>GetUsers(){return userDAO.getUsers();};
-    public void DeleteUser(String name){userDAO.Delete(name);}
+    public void DeleteUser(String name){new DeleteUserAsyncTask(userDAO).execute(name);}
     public User GetUser(String name){return userDAO.GetUser(name);}
     public UserDAO getUserDAO() {
         return userDAO;

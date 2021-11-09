@@ -1,5 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+
 import java.util.Date;
 
 public class UserCard {

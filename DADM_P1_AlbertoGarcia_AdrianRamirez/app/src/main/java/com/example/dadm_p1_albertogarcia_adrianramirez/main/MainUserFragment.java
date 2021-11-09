@@ -136,12 +136,7 @@ public class MainUserFragment extends Fragment {
             //databaseViewModel.DeleteUser("");
         });
 
-        selectUser.setOnClickListener(v -> {
-            //IMPLEMENTAR JUGAR CON EL BOTÓN
-            Toast.makeText(getActivity(), "SELECCIONAR", Toast.LENGTH_SHORT).show();
-            //sharedPreferences.edit().putString("User", userName.getText().toString()).commit();
-            //sharedPreferences.edit().putBoolean("UserMode", true).commit();
-        });
+
          */
 
         return view;
