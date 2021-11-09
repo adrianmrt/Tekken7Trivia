@@ -49,7 +49,7 @@ public class LeaderboardFragment extends Fragment {
                     String name = r.getName();
                     String score = Integer.toString(r.getScore());
                     String time = Float.toString(r.getTime());
-                    ranking = ranking + "Nombre: " + name + " Puntuación: " + score + "Tiempo: " + time + "\n";
+                    ranking = ranking + "Nombre: " + name + "//Puntuación: " + score + "//Tiempo: " + time + "\n";
                 }
                 rankingText.setText(ranking);
             }

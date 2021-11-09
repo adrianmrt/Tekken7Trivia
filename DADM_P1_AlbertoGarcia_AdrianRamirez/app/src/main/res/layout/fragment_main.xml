@@ -139,11 +139,11 @@
                 android:layout_marginBottom="28dp"
                 android:backgroundTint="@color/purple_500"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Jugar2"
+                android:text="Anonimo"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/tableRow"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:text="Jugar2" />
+                tools:text="Anonimo" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/playerNameInputLayout"
