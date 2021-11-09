@@ -25,4 +25,7 @@ public interface UserDAO {
     @Query("UPDATE users SET user_max_score=:score, user_games_played=:numberOfGamesPlayed, user_last_time=:lastDate WHERE user_name=:name")
     public void UpdateUser(String name, float score, int numberOfGamesPlayed, String lastDate);
 
+    @Query("UPDATE users SET user_name=:name WHERE user_name=:id")
+    public void UpdateUserName(String id, String name);
+
 }
