@@ -5,11 +5,11 @@ import android.os.AsyncTask;
 public class UpdateUserAsyncTask extends AsyncTask<Void, Void, Void> {
     private UserDAO _userDAO;
     private String _name;
-    private int _score;
+    private float _score;
     private int _numberOfGamesPlayed;
     String _lastDate;
 
-    public UpdateUserAsyncTask(UserDAO userDAO, String name, int score, int numberOfGamesPlayed, String lastDate) {
+    public UpdateUserAsyncTask(UserDAO userDAO, String name, float score, int numberOfGamesPlayed, String lastDate) {
         _name=name;
         _score=score;
         _userDAO=userDAO;

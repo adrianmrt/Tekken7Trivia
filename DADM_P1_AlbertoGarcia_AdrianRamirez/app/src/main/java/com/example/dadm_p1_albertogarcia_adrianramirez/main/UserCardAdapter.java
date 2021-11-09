@@ -1,6 +1,7 @@
 package com.example.dadm_p1_albertogarcia_adrianramirez.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dadm_p1_albertogarcia_adrianramirez.R;
 import com.example.dadm_p1_albertogarcia_adrianramirez.database.DatabaseViewModel;
+import com.example.dadm_p1_albertogarcia_adrianramirez.database.Question;
+import com.example.dadm_p1_albertogarcia_adrianramirez.game.QuestionActivity;
 
 import java.security.PublicKey;
 import java.util.Date;
@@ -40,18 +43,14 @@ public class UserCardAdapter extends RecyclerView.Adapter<UserCardAdapter.UserCa
         holder.puntuacion.setText(String.valueOf(users.get(position).getPuntuacion()));
         holder.partidas.setText(String.valueOf(users.get(position).getPartidas()));
         holder.ultimaConexion.setText(users.get(position).getUltimaConexion());
-        holder.play.setOnClickListener(v -> {
-            Toast.makeText(v.getContext(), "SELECCIONADO: "+holder.nombre.getText(), Toast.LENGTH_SHORT).show();
-            SharedPreferences sharedPreferences= v.getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
-            sharedPreferences.edit().putString("User", holder.nombre.getText().toString()).commit();
-            sharedPreferences.edit().putBoolean("UserMode", true).commit();
-        });
+
         holder.deleteUser.setOnClickListener(v -> {
             //IMPLEMENTAR EL BORRADO CON EL BOTÓN
             DatabaseViewModel databaseViewModel = new ViewModelProvider((ViewModelStoreOwner) v.getContext()).get(DatabaseViewModel.class);
             Toast.makeText(v.getContext(), "BORRADO: "+holder.nombre.getText(), Toast.LENGTH_SHORT).show();
             databaseViewModel.DeleteUser((String) holder.nombre.getText());
         });
+
     }
 
     @Override
@@ -68,15 +67,24 @@ public class UserCardAdapter extends RecyclerView.Adapter<UserCardAdapter.UserCa
         public ImageButton play;
         public ImageButton deleteUser;
 
-        public UserCardViewHolder(View _v) {
-            super(_v);
-            imagen = _v.findViewById(R.id.userImgCard);
-            nombre = _v.findViewById(R.id.userCardName);
-            puntuacion = _v.findViewById(R.id.userCardScore);
-            partidas = _v.findViewById(R.id.userCardGamesPlayed);
-            ultimaConexion = _v.findViewById(R.id.userCardDate);
-            play= _v.findViewById(R.id.userCardPlayImageButton);
-            deleteUser=_v.findViewById(R.id.userCardDeleteImageButton);
+        public UserCardViewHolder(View v) {
+            super(v);
+            imagen = v.findViewById(R.id.userImgCard);
+            nombre = v.findViewById(R.id.userCardName);
+            puntuacion = v.findViewById(R.id.userCardScore);
+            partidas = v.findViewById(R.id.userCardGamesPlayed);
+            ultimaConexion = v.findViewById(R.id.userCardDate);
+            play= v.findViewById(R.id.userCardPlayImageButton);
+            deleteUser=v.findViewById(R.id.userCardDeleteImageButton);
+
+            play.setOnClickListener(_v -> {
+                Toast.makeText(v.getContext(), "SELECCIONADO: "+nombre.getText(), Toast.LENGTH_SHORT).show();
+                SharedPreferences sharedPreferences= v.getContext().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+                sharedPreferences.edit().putString("User", nombre.getText().toString()).commit();
+                sharedPreferences.edit().putBoolean("UserMode", true).commit();
+                Intent intent = new Intent(v.getContext(), QuestionActivity.class);
+                v.getContext().startActivity(intent);
+            });
         }
     }
 

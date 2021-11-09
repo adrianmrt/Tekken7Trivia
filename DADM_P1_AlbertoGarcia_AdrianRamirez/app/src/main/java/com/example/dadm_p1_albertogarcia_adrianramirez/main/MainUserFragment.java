@@ -82,7 +82,7 @@ public class MainUserFragment extends Fragment {
         databaseViewModel.getAllUsers().observe(getViewLifecycleOwner(), users -> {
             userCardArrayList.clear();
             for (User u : users) {
-                userCardArrayList.add(new UserCard(u.getName(), u.getLastTimePlayed()));
+                userCardArrayList.add(new UserCard(u.getName(), u.getLastTimePlayed(), u.getMaxScore(),u.getNumberOfGamesPlayed()));
             }
             adapter = new UserCardAdapter(userCardArrayList);
             recyclerView.setAdapter(adapter);
@@ -96,7 +96,7 @@ public class MainUserFragment extends Fragment {
             } else {
                 Runnable r = () -> {
                     if (added) {
-                        userCardArrayList.add(new UserCard(userName.getText().toString(), currentDate));
+                        userCardArrayList.add(new UserCard(userName.getText().toString(), currentDate,0,0));
                         Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
                         MainActivity.fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new MainUserFragment()).addToBackStack(null).commit();
                     } else {
@@ -128,16 +128,6 @@ public class MainUserFragment extends Fragment {
                 t.start();
             }
         });
-
-        /*
-        deleteUser.setOnClickListener(v -> {
-            //IMPLEMENTAR EL BORRADO CON EL BOTÓN
-            Toast.makeText(getActivity(), "BORRAR", Toast.LENGTH_SHORT).show();
-            //databaseViewModel.DeleteUser("");
-        });
-
-
-         */
 
         return view;
     }

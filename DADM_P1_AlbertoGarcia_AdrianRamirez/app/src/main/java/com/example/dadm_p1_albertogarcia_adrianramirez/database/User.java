@@ -18,7 +18,7 @@ public class User {
     @ColumnInfo (name = "user_name")
     private String name;
     @ColumnInfo (name = "user_max_score")
-    private int maxScore;
+    private float maxScore;
     @ColumnInfo (name = "user_games_played")
     private int numberOfGamesPlayed;
     @ColumnInfo (name = "user_last_time")
@@ -34,10 +34,10 @@ public class User {
         this.name = name;
     }
 
-    public int getMaxScore() {
+    public float getMaxScore() {
         return maxScore;
     }
-    public void setMaxScore(int maxScore) {
+    public void setMaxScore(float maxScore) {
         this.maxScore = maxScore;
     }
 

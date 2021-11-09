@@ -24,5 +24,6 @@ public class UserRepository {
     public UserDAO getUserDAO() {
         return userDAO;
     }
-    public void UpdateUser(String name, int score, int numberOfGamesPlayed, String lastDate){new UpdateUserAsyncTask(userDAO, name, score,numberOfGamesPlayed, lastDate);}
+    public void UpdateUser(String name, float score, int numberOfGamesPlayed, String lastDate){
+        new UpdateUserAsyncTask(userDAO,name, score,numberOfGamesPlayed, lastDate).execute();}
 }
