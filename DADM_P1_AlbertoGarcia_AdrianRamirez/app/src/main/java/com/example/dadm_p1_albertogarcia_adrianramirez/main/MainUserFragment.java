@@ -70,8 +70,6 @@ public class MainUserFragment extends Fragment {
         recyclerView = view.findViewById(R.id.userCardRecyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
-        adapter = new UserCardAdapter(userCardArrayList);
-        recyclerView.setAdapter(adapter);
 
         sharedPreferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
         userNameLayout = view.findViewById(R.id.addUserNameLayout);
@@ -88,6 +86,9 @@ public class MainUserFragment extends Fragment {
             }
         });
 
+        adapter = new UserCardAdapter(userCardArrayList);
+        recyclerView.setAdapter(adapter);
+
         addUser.setOnClickListener(v -> {
             added = false;
             if (TextUtils.isEmpty(userName.getText().toString())) {
@@ -98,6 +99,7 @@ public class MainUserFragment extends Fragment {
                     if (added) {
                         userCardArrayList.add(new UserCard(userName.getText().toString(), currentDate));
                         Toast.makeText(getActivity(), "User added", Toast.LENGTH_SHORT).show();
+                        MainActivity.fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new MainUserFragment()).addToBackStack(null).commit();
                     } else {
                         Toast.makeText(getActivity(), "User already exists", Toast.LENGTH_SHORT).show();
                     }
