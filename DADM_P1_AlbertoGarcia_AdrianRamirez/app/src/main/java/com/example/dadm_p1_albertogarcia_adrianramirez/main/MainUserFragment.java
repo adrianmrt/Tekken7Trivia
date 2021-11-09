@@ -84,10 +84,9 @@ public class MainUserFragment extends Fragment {
             for (User u : users) {
                 userCardArrayList.add(new UserCard(u.getName(), u.getLastTimePlayed()));
             }
+            adapter = new UserCardAdapter(userCardArrayList);
+            recyclerView.setAdapter(adapter);
         });
-
-        adapter = new UserCardAdapter(userCardArrayList);
-        recyclerView.setAdapter(adapter);
 
         addUser.setOnClickListener(v -> {
             added = false;
