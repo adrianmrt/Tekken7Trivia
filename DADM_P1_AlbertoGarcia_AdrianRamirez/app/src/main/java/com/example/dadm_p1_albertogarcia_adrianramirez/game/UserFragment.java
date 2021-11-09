@@ -24,12 +24,16 @@ public class UserFragment extends Fragment {
 
     String playerName;
     Integer score;
+    Integer goodAnswers = 0;
+    Integer badAnswers = 0;
     Integer questionsQuantity;
 
     //layout references
     TextView scoreView;
     TextView playerNameView;
     TextView questionsQuantityView;
+    TextView goodCounterView;
+    TextView badCounterView;
     Parcelable[] _questions;
 
     //timer elements
@@ -55,7 +59,12 @@ public class UserFragment extends Fragment {
             questionsQuantityView.setText(count + "/" + questionsQuantity.toString());
             if (result) {
                 score += 10;
+                goodAnswers++;
                 scoreView.setText(score.toString());
+                goodCounterView.setText(goodAnswers.toString());
+            } else {
+                badAnswers++;
+                badCounterView.setText(badAnswers.toString());
             }
         });
 
@@ -95,10 +104,14 @@ public class UserFragment extends Fragment {
         scoreView = view.findViewById(R.id.score);
         playerNameView = view.findViewById(R.id.playerName);
         questionsQuantityView = view.findViewById(R.id.textViewRoundCounter);
+        goodCounterView = view.findViewById(R.id.textViewGoodCounter);
+        badCounterView = view.findViewById(R.id.textViewBadCounter);
 
         scoreView.setText(score.toString());
         playerNameView.setText(playerName);
         questionsQuantityView.setText("0/" + questionsQuantity.toString());
+        goodCounterView.setText("0");
+        badCounterView.setText("0");
 
         timer = view.findViewById(R.id.timer);
 

@@ -114,7 +114,6 @@ public class GameFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("answer", answer);
                 bundle.putInt("count", randomNumberIdx);
-
                 getParentFragmentManager().setFragmentResult("answerPass", bundle);
 
                 if (randomNumberIdx < numberOfQuestions) {
