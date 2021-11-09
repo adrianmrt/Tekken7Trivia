@@ -65,7 +65,6 @@ public class QuestionFragment extends Fragment {
             MediaController mediaController= new MediaController(getContext());
             mediaController.setAnchorView(videoView);
             videoView.setMediaController(mediaController);
-            /*
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
@@ -73,8 +72,15 @@ public class QuestionFragment extends Fragment {
                 }
 
             });
-            
-             */
+
+            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+
+
         }
         return rootView;
     }
