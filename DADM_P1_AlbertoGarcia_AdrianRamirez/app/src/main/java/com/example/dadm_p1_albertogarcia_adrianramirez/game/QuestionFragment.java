@@ -61,7 +61,8 @@ public class QuestionFragment extends Fragment {
             String question= _question.get_question();
             questionText.setText(question);
             videoView = rootView.findViewById(R.id.videoView);
-            videoView.setVideoPath(_question.get_multimediaFileId());
+            String mediaPath=_question.get_multimediaFileId();
+            videoView.setVideoPath(mediaPath);
             MediaController mediaController= new MediaController(getContext());
             mediaController.setAnchorView(videoView);
             videoView.setMediaController(mediaController);
@@ -70,7 +71,6 @@ public class QuestionFragment extends Fragment {
                 public void onPrepared(MediaPlayer mp) {
                     mp.start();
                 }
-
             });
 
             videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -79,6 +79,8 @@ public class QuestionFragment extends Fragment {
                     mp.start();
                 }
             });
+
+
 
 
         }
