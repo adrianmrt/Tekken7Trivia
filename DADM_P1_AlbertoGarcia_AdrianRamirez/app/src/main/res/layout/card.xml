@@ -29,7 +29,7 @@
                 android:id="@+id/charDescription"
                 android:layout_width="238dp"
                 android:layout_height="96dp"
-                android:layout_below="@+id/nombre"
+                android:layout_below="@+id/boardName"
                 android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/imgCard"
                 android:layout_toRightOf="@id/imgCard"
@@ -39,7 +39,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/nombre"
+                android:id="@+id/boardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/imgCard"
@@ -55,7 +55,7 @@
                 android:scaleType="fitCenter" />
 
             <TextView
-                android:id="@+id/pais"
+                android:id="@+id/boardScore"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/charDescription"

@@ -46,7 +46,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         public CardViewHolder(View v) {
             super(v);
             imagen = v.findViewById(R.id.imgCard);
-            nombre = v.findViewById(R.id.nombre);
+            nombre = v.findViewById(R.id.boardName);
             pais = v.findViewById(R.id.flagImg);
             description = v.findViewById(R.id.charDescription);
         }
