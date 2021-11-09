@@ -100,7 +100,7 @@ public class ScoreActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     User user = databaseViewModel.GetUser(playerName);
-                    float _score = Float.parseFloat(time);
+                    float _score = Float.parseFloat(score);
                     int _numberOfGamesPlayed = user.getNumberOfGamesPlayed() + 1;
                     if (_score > user.getMaxScore()) {
                         databaseViewModel.UpdateUser(playerName, _score, _numberOfGamesPlayed, currentDate);
