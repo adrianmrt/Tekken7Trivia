@@ -56,7 +56,8 @@ public class QuestionFragment extends Fragment {
         } else if (_question.get_questionType() == 2) {
             rootView = inflater.inflate(R.layout.question_video_layout, container, false);
             questionText = rootView.findViewById(R.id.videoQuestionText);
-            questionText.setText(_question.get_question());
+            String question= _question.get_question();
+            questionText.setText(question);
             videoView = rootView.findViewById(R.id.videoView);
             videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
             MediaController mediaController = new MediaController(getContext());
