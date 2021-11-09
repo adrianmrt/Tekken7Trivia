@@ -61,14 +61,28 @@ public class QuestionFragment extends Fragment {
             String question= _question.get_question();
             questionText.setText(question);
             videoView = rootView.findViewById(R.id.videoView);
-            videoView.setVideoURI(Uri.parse(_question.get_multimediaFileId()));
+            String mediaPath=_question.get_multimediaFileId();
+            videoView.setVideoPath(mediaPath);
+            MediaController mediaController= new MediaController(getContext());
+            mediaController.setAnchorView(videoView);
+            videoView.setMediaController(mediaController);
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
-                    videoView.start();
+                    mp.start();
                 }
-
             });
+
+            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+
+
+
+
         }
         return rootView;
     }
