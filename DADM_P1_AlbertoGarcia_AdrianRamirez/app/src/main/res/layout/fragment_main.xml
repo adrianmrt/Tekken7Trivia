@@ -121,29 +121,18 @@
                 android:id="@+id/playButton"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginBottom="28dp"
+                android:layout_marginBottom="32dp"
                 android:backgroundTint="@color/purple_500"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Jugar"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/tableRow"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:text="Jugar" />
-
-            <Button
-                android:id="@+id/playButton2"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
-                android:layout_marginBottom="28dp"
-                android:backgroundTint="@color/purple_500"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="Anonimo"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/tableRow"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:text="Anonimo" />
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/playerNameInputLayout"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="Jugar" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/playerNameInputLayout"

@@ -51,7 +51,6 @@ public class MainFragment extends Fragment {
         configButton = rootView.findViewById(R.id.ConfigButton);
         userButton = rootView.findViewById(R.id.UserButton);
         leaderboardButton = rootView.findViewById(R.id.LeaderboardButton);
-        changeMode = rootView.findViewById(R.id.playButton2);
         SetListeners();
 
         return rootView;
@@ -70,6 +69,7 @@ public class MainFragment extends Fragment {
                 playerNameLayout.setError("Campo vacío");
                 playerNameLayout.setErrorEnabled(true);
             } else {
+                sharedPreferences.edit().putBoolean("UserMode", false).commit();
                 Intent intent = new Intent(getActivity(), QuestionActivity.class);
                 intent.putExtra("playerName", localPlayerName);
                 startActivity(intent);
@@ -93,16 +93,5 @@ public class MainFragment extends Fragment {
             startActivity(intent);
         });
 
-        changeMode.setOnClickListener(v -> {
-            if (sharedPreferences.getBoolean("UserMode", false)) {
-                sharedPreferences.edit().putBoolean("UserMode", false).commit();
-                changeMode.setText("Anonimo");
-                playerNameInput.setText("");
-            } else {
-                sharedPreferences.edit().putBoolean("UserMode", true).commit();
-                changeMode.setText("Usuario");
-                playerNameInput.setText(sharedPreferences.getString("User", "User"));
-            }
-        });
     }
 }
