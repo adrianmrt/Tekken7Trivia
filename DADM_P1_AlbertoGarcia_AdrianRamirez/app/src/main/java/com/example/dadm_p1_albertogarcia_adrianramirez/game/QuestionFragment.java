@@ -67,7 +67,7 @@ public class QuestionFragment extends Fragment {
                 public void onPrepared(MediaPlayer mp) {
                     videoView.start();
                 }
-      
+
             });
         }
         return rootView;
