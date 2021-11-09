@@ -65,7 +65,7 @@ public class QuestionFragment extends Fragment {
             videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
                 @Override
                 public void onPrepared(MediaPlayer mp) {
-                    videoView.start();
+                    mp.start();
                 }
 
             });
