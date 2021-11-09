@@ -57,12 +57,17 @@ public class MainConfigFragment extends Fragment {
 
         int _answerID = nQuestions.getCheckedRadioButtonId();
         RadioButton numberSelected = nQuestions.findViewById(_answerID);
-        if (numberSelected != null) {
-            quantity = Integer.parseInt(numberSelected.getText().toString());
-        }
-
         int _typeID = typeQuestions.getCheckedRadioButtonId();
         RadioButton typeSelected = typeQuestions.findViewById(_typeID);
+
+        if (numberSelected != null) {
+            quantity = Integer.parseInt(numberSelected.getText().toString());
+            if(quantity==20){
+                blockType="Mixtas";
+                RadioButton button= getActivity().findViewById(R.id.radioButtonMixed);
+                button.setChecked(true);
+            }
+        }
         if (typeSelected != null) {
             blockType = typeSelected.getText().toString();
         }
