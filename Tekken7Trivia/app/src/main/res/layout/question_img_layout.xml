@@ -9,6 +9,8 @@
         android:id="@+id/textQuestionImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="Question"
         android:textAlignment="center"

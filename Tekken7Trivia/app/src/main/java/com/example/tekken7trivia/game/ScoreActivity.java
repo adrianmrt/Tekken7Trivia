@@ -42,7 +42,6 @@ public class ScoreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Utils utils = new Utils(getApplicationContext());
         getSupportActionBar().hide();
         setContentView(R.layout.activity_score);

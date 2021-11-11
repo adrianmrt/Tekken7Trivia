@@ -8,7 +8,8 @@
         android:label="Tekken7Trivia"
         android:roundIcon="@drawable/appicon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat">
+        android:theme="@style/Theme.AppCompat"
+        android:screenOrientation="portrait">
         <activity
             android:name="com.example.tekken7trivia.main.InfoActivity"
             android:exported="false" />
