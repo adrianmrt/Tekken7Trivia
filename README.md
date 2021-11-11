@@ -1,2 +1,3 @@
-# DADM_P1
-Practica 1 Desarrollo de Aplicaciones Para Dispositivos Móviles (URJC)
+# Tekken7Trivia
+Android Trivia App based on Tekken Questions.
+Made up with Android Studio and ROOM for database managment
